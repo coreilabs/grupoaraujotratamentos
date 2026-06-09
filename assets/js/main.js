@@ -1,68 +1,18 @@
-const WHATSAPP_ATILA = "5562999999999";
+const WHATSAPP_ATENDENTE = "5562999999999";
+const NOME_ATENDENTE = "Atendente";
 
 const MENSAGEM_PADRAO =
-  "Olá, Átila. Vim pelo site do Grupo Araújo Tratamentos e preciso de orientação sobre encaminhamento para clínica de reabilitação.";
+  `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos e preciso de orientação sobre encaminhamento para clínica de reabilitação.`;
 
 const MENSAGEM_UNIDADE_INDEFINIDA =
-  "Olá, Átila. Vim pelo site do Grupo Araújo Tratamentos. Preciso de orientação, mas ainda não sei qual unidade seria mais adequada para o caso da minha família.";
+  `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos. Preciso de orientação, mas ainda não sei qual unidade seria mais adequada para o caso da minha família.`;
+
+const MENSAGEM_OUTRAS_UNIDADES =
+  `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos e gostaria de verificar disponibilidade de outras unidades.`;
 
 const unidades = [
   {
-    id: "caldas-novas-go-1",
-    cidade: "Caldas Novas",
-    estado: "GO",
-    modalidade: "Masculina",
-    descricao:
-      "Unidade parceira voltada ao acolhimento masculino, com estrutura para internação e acompanhamento especializado.",
-    recursos: [
-      "Ambiente estruturado",
-      "Acompanhamento multiprofissional",
-      "Espaços de convivência",
-      "Rotina terapêutica"
-    ],
-    fotos: [
-      "unidades/Caldas Novas - Goiás/1/1.webp",
-      "unidades/Caldas Novas - Goiás/1/2.webp"
-    ]
-  },
-  {
-    id: "goiania-go-1",
-    cidade: "Goiânia",
-    estado: "GO",
-    modalidade: "Feminina",
-    descricao:
-      "Unidade parceira direcionada ao público feminino, com acolhimento humanizado e ambiente reservado.",
-    recursos: [
-      "Atendimento feminino",
-      "Ambiente acolhedor",
-      "Equipe preparada",
-      "Apoio à família"
-    ],
-    fotos: [
-      "unidades/Goiânia - Goiás/1/1.webp",
-      "unidades/Goiânia - Goiás/1/2.webp"
-    ]
-  },
-  {
-    id: "goiania-go-2",
-    cidade: "Goiânia",
-    estado: "GO",
-    modalidade: "Masculina",
-    descricao:
-      "Unidade parceira em Goiânia com estrutura para acolhimento conforme avaliação inicial e disponibilidade.",
-    recursos: [
-      "Ambiente reservado",
-      "Rotina terapêutica",
-      "Apoio à família",
-      "Encaminhamento responsável"
-    ],
-    fotos: [
-      "unidades/Goiânia - Goiás/2/3.webp",
-      "unidades/Goiânia - Goiás/2/4.webp"
-    ]
-  },
-  {
-    id: "aparecida-goiania-go-1",
+    id: "aparecida-goiania-go-masculina-1",
     cidade: "Aparecida de Goiânia",
     estado: "GO",
     modalidade: "Masculina",
@@ -75,23 +25,18 @@ const unidades = [
       "Espaços terapêuticos"
     ],
     fotos: [
-      "unidades/aparecida de goiânia - Goiás/1/fachada.webp",
-      "unidades/aparecida de goiânia - Goiás/1/entrada.webp",
-      "unidades/aparecida de goiânia - Goiás/1/area-lazer.webp",
-      "unidades/aparecida de goiânia - Goiás/1/piscina.webp",
-      "unidades/aparecida de goiânia - Goiás/1/acomodacoes.webp",
-      "unidades/aparecida de goiânia - Goiás/1/cozinha.webp",
-      "unidades/aparecida de goiânia - Goiás/1/enfermaria.webp",
-      "unidades/aparecida de goiânia - Goiás/1/terapias.webp",
-      "unidades/aparecida de goiânia - Goiás/1/terapias-interacao.webp",
-      "unidades/aparecida de goiânia - Goiás/1/reunioes.webp",
-      "unidades/aparecida de goiânia - Goiás/1/escritorio.webp",
-      "unidades/aparecida de goiânia - Goiás/1/escritorio-real.webp",
-      "unidades/aparecida de goiânia - Goiás/1/area-verde-real.webp"
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/area-lazer.webp",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/acomodacoes.webp",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/cozinha.webp",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/enfermaria.webp",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/terapias-interacao.webp",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/reunioes.webp",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/escritorio-real.webp",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/area-verde-real.webp"
     ]
   },
   {
-    id: "aparecida-goiania-go-2",
+    id: "aparecida-goiania-go-masculina-2",
     cidade: "Aparecida de Goiânia",
     estado: "GO",
     modalidade: "Masculina",
@@ -104,8 +49,90 @@ const unidades = [
       "Apoio no encaminhamento"
     ],
     fotos: [
-      "unidades/aparecida de goiânia - Goiás/2/1.webp",
-      "unidades/aparecida de goiânia - Goiás/2/2.webp"
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0214.jpg",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0216.jpg",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0218.jpg",
+      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0219.jpg"
+    ]
+  },
+  {
+    id: "caturai-go-feminina-1",
+    cidade: "Caturaí",
+    estado: "GO",
+    modalidade: "Feminina",
+    descricao:
+      "Unidade parceira feminina com ambiente acolhedor e encaminhamento conforme disponibilidade e perfil do caso.",
+    recursos: [
+      "Atendimento feminino",
+      "Ambiente reservado",
+      "Apoio à família",
+      "Encaminhamento responsável"
+    ],
+    fotos: [
+      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0161.jpg",
+      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0163.jpg",
+      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0165.jpg",
+      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0171.jpg"
+    ]
+  },
+  {
+    id: "goiania-go-feminina-1",
+    cidade: "Goiânia",
+    estado: "GO",
+    modalidade: "Feminina",
+    descricao:
+      "Unidade parceira direcionada ao público feminino, com acolhimento humanizado e ambiente reservado.",
+    recursos: [
+      "Atendimento feminino",
+      "Ambiente acolhedor",
+      "Equipe preparada",
+      "Apoio à família"
+    ],
+    fotos: [
+      "unidades/Goiânia - Goiás/Feminina/1/IMG-20251204-WA0044.jpg",
+      "unidades/Goiânia - Goiás/Feminina/1/IMG-20251204-WA0045.jpg",
+      "unidades/Goiânia - Goiás/Feminina/1/VID-20251204-WA0052.mp4",
+      "unidades/Goiânia - Goiás/Feminina/1/VID-20251204-WA0056.mp4"
+    ]
+  },
+  {
+    id: "goiania-go-masculina-1",
+    cidade: "Goiânia",
+    estado: "GO",
+    modalidade: "Masculina",
+    descricao:
+      "Unidade parceira em Goiânia com estrutura para acolhimento conforme avaliação inicial e disponibilidade.",
+    recursos: [
+      "Ambiente reservado",
+      "Rotina terapêutica",
+      "Apoio à família",
+      "Encaminhamento responsável"
+    ],
+    fotos: [
+      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0054(1).jpg",
+      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0055(1).jpg",
+      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0057(1).jpg",
+      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0059(1).jpg"
+    ]
+  },
+  {
+    id: "senador-canedo-go-feminina-1",
+    cidade: "Senador Canedo",
+    estado: "GO",
+    modalidade: "Feminina",
+    descricao:
+      "Unidade parceira feminina em Senador Canedo, com acolhimento e orientação para encaminhamento responsável.",
+    recursos: [
+      "Atendimento feminino",
+      "Ambiente acolhedor",
+      "Equipe preparada",
+      "Apoio no encaminhamento"
+    ],
+    fotos: [
+      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0169.jpg",
+      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0171.jpg",
+      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0174.jpg",
+      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0175.jpg"
     ]
   }
 ];
@@ -113,11 +140,11 @@ const unidades = [
 let galeriaUnidades = null;
 
 function gerarLinkWhatsappPadrao(texto = MENSAGEM_PADRAO) {
-  return `https://wa.me/${WHATSAPP_ATILA}?text=${encodeURIComponent(texto)}`;
+  return `https://wa.me/${WHATSAPP_ATENDENTE}?text=${encodeURIComponent(texto)}`;
 }
 
 function gerarLinkWhatsappUnidade(unidade) {
-  const texto = `Olá, Átila. Vim pelo site do Grupo Araújo Tratamentos e gostaria de mais informações sobre uma unidade em ${unidade.cidade}/${unidade.estado}, modalidade ${unidade.modalidade}. Pode me orientar?`;
+  const texto = `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos e gostaria de mais informações sobre uma unidade em ${unidade.cidade}/${unidade.estado}, modalidade ${unidade.modalidade}. Pode me orientar?`;
   return gerarLinkWhatsappPadrao(texto);
 }
 
@@ -138,6 +165,14 @@ function definirLinksWhatsapp() {
   document.querySelectorAll("[data-whatsapp-unknown]").forEach((link) => {
     link.href = gerarLinkWhatsappPadrao(MENSAGEM_UNIDADE_INDEFINIDA);
   });
+
+  document.querySelectorAll("[data-whatsapp-other-units]").forEach((link) => {
+    link.href = gerarLinkWhatsappPadrao(MENSAGEM_OUTRAS_UNIDADES);
+  });
+}
+
+function midiaEhVideo(caminho) {
+  return /\.(mp4|webm|ogg)$/i.test(caminho);
 }
 
 function criarSlide(unidade, foto, indice) {
@@ -145,10 +180,20 @@ function criarSlide(unidade, foto, indice) {
   const caminho = escaparHtml(foto);
   const posicao = indice + 1;
 
+  if (midiaEhVideo(foto)) {
+    return `
+      <div class="swiper-slide">
+        <div class="unit-slide-link unit-slide-video" aria-label="Vídeo ${posicao} de unidade em ${escaparHtml(unidade.cidade)}/${escaparHtml(unidade.estado)}, modalidade ${escaparHtml(unidade.modalidade)}">
+          <video class="unit-slide-media" src="${caminho}" controls preload="metadata" playsinline></video>
+        </div>
+      </div>
+    `;
+  }
+
   return `
     <div class="swiper-slide">
       <a class="unit-slide-link glightbox" href="${caminho}" data-gallery="galeria-${unidade.id}" data-title="${rotulo}">
-        <img src="${caminho}" alt="Foto ${posicao} de unidade em ${escaparHtml(unidade.cidade)}/${escaparHtml(unidade.estado)}, modalidade ${escaparHtml(unidade.modalidade)}" loading="lazy" width="640" height="480">
+        <img class="unit-slide-media" src="${caminho}" alt="Foto ${posicao} de unidade em ${escaparHtml(unidade.cidade)}/${escaparHtml(unidade.estado)}, modalidade ${escaparHtml(unidade.modalidade)}" loading="lazy" width="640" height="480">
       </a>
     </div>
   `;
@@ -220,6 +265,11 @@ function inicializarSwipers() {
       loop: unidade.fotos.length > 1,
       slidesPerView: 1,
       spaceBetween: 12,
+      on: {
+        slideChangeTransitionStart(swiper) {
+          swiper.el.querySelectorAll("video").forEach((video) => video.pause());
+        }
+      },
       pagination: {
         el: `.pagination-${unidade.id}`,
         clickable: true
@@ -342,7 +392,7 @@ function enviarFormularioWhatsapp(event) {
   }
 
   const texto = `
-Olá, Átila. Vim pelo site do Grupo Araújo Tratamentos.
+Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos.
 
 Nome: ${nome}
 Telefone: ${telefone}
