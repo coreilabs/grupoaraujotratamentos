@@ -1,4 +1,4 @@
-const WHATSAPP_ATENDENTE = "5562993897714";
+﻿const WHATSAPP_ATENDENTE = "5562993897714";
 const NOME_ATENDENTE = "Atendente";
 
 const MENSAGEM_PADRAO =
@@ -25,14 +25,14 @@ const unidades = [
       "Espaços terapêuticos"
     ],
     fotos: [
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/area-lazer.webp",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/acomodacoes.webp",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/cozinha.webp",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/enfermaria.webp",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/terapias-interacao.webp",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/reunioes.webp",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/escritorio-real.webp",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/1/area-verde-real.webp"
+      "unidades/aparecida-de-goiania-goias/masculina/1/area-lazer.webp",
+      "unidades/aparecida-de-goiania-goias/masculina/1/acomodacoes.webp",
+      "unidades/aparecida-de-goiania-goias/masculina/1/cozinha.webp",
+      "unidades/aparecida-de-goiania-goias/masculina/1/enfermaria.webp",
+      "unidades/aparecida-de-goiania-goias/masculina/1/terapias-interacao.webp",
+      "unidades/aparecida-de-goiania-goias/masculina/1/reunioes.webp",
+      "unidades/aparecida-de-goiania-goias/masculina/1/escritorio-real.webp",
+      "unidades/aparecida-de-goiania-goias/masculina/1/area-verde-real.webp"
     ]
   },
   {
@@ -49,10 +49,10 @@ const unidades = [
       "Apoio no encaminhamento"
     ],
     fotos: [
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0214.jpg",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0216.jpg",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0218.jpg",
-      "unidades/Aparecida de Goiânia - Goiás/Masculina/2/IMG-20260310-WA0219.jpg"
+      "unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0214.jpg",
+      "unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0216.jpg",
+      "unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0218.jpg",
+      "unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0219.jpg"
     ]
   },
   {
@@ -69,10 +69,10 @@ const unidades = [
       "Encaminhamento responsável"
     ],
     fotos: [
-      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0161.jpg",
-      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0163.jpg",
-      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0165.jpg",
-      "unidades/Caturaí - Goiás/Feminina/1/IMG-20251226-WA0171.jpg"
+      "unidades/caturai-goias/feminina/1/img-20251226-wa0161.jpg",
+      "unidades/caturai-goias/feminina/1/img-20251226-wa0163.jpg",
+      "unidades/caturai-goias/feminina/1/img-20251226-wa0165.jpg",
+      "unidades/caturai-goias/feminina/1/img-20251226-wa0171.jpg"
     ]
   },
   {
@@ -89,10 +89,10 @@ const unidades = [
       "Apoio à família"
     ],
     fotos: [
-      "unidades/Goiânia - Goiás/Feminina/1/IMG-20251204-WA0044.jpg",
-      "unidades/Goiânia - Goiás/Feminina/1/IMG-20251204-WA0045.jpg",
-      "unidades/Goiânia - Goiás/Feminina/1/VID-20251204-WA0052.mp4",
-      "unidades/Goiânia - Goiás/Feminina/1/VID-20251204-WA0056.mp4"
+      "unidades/goiania-goias/feminina/1/img-20251204-wa0044.jpg",
+      "unidades/goiania-goias/feminina/1/img-20251204-wa0045.jpg",
+      "unidades/goiania-goias/feminina/1/vid-20251204-wa0052.mp4",
+      "unidades/goiania-goias/feminina/1/vid-20251204-wa0056.mp4"
     ]
   },
   {
@@ -109,10 +109,10 @@ const unidades = [
       "Encaminhamento responsável"
     ],
     fotos: [
-      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0054(1).jpg",
-      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0055(1).jpg",
-      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0057(1).jpg",
-      "unidades/Goiânia - Goiás/Masculina/1/IMG-20251130-WA0059(1).jpg"
+      "unidades/goiania-goias/masculina/1/img-20251130-wa0054-1.jpg",
+      "unidades/goiania-goias/masculina/1/img-20251130-wa0055-1.jpg",
+      "unidades/goiania-goias/masculina/1/img-20251130-wa0057-1.jpg",
+      "unidades/goiania-goias/masculina/1/img-20251130-wa0059-1.jpg"
     ]
   },
   {
@@ -129,10 +129,10 @@ const unidades = [
       "Apoio no encaminhamento"
     ],
     fotos: [
-      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0169.jpg",
-      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0171.jpg",
-      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0174.jpg",
-      "unidades/Senador Canedo - Goiás/feminina/1/IMG-20260604-WA0175.jpg"
+      "unidades/senador-canedo-goias/feminina/1/img-20260604-wa0169.jpg",
+      "unidades/senador-canedo-goias/feminina/1/img-20260604-wa0171.jpg",
+      "unidades/senador-canedo-goias/feminina/1/img-20260604-wa0174.jpg",
+      "unidades/senador-canedo-goias/feminina/1/img-20260604-wa0175.jpg"
     ]
   }
 ];
