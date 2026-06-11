@@ -1065,7 +1065,21 @@ h3 {
 
 .site-footer img {
   width: 132px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+.footer-cnpj {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 8px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0;
 }
 
 .footer-layout nav {
