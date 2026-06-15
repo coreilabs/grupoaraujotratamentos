@@ -1225,8 +1225,9 @@ h3 {
   }
 
   .hero {
-    min-height: 84svh;
-    padding: 150px 0 88px;
+    min-height: calc(100svh - var(--header-height));
+    align-items: center;
+    padding: 32px 0;
   }
 
   h1 {
