@@ -62,22 +62,22 @@
     .landing {
       display: grid;
       min-height: 100svh;
-      padding: clamp(24px, 4vw, 54px);
+      padding: clamp(20px, 3.2vw, 42px);
       place-items: center;
     }
 
     .hero {
       display: grid;
       width: min(100%, 1120px);
-      gap: clamp(28px, 5vw, 64px);
+      gap: clamp(8px, 1.4vw, 18px);
       align-items: center;
     }
 
     .logo {
       display: block;
-      width: min(500px, 82vw);
+      width: min(700px, 82vw);
       height: auto;
-      margin-bottom: clamp(24px, 5vh, 48px);
+      margin-bottom: clamp(6px, 1.6vh, 14px);
       filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.3));
     }
 
@@ -90,7 +90,7 @@
     }
 
     .eyebrow {
-      margin: 0 0 12px;
+      margin: 0 0 8px;
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 700;
@@ -108,7 +108,7 @@
 
     .lead {
       max-width: 620px;
-      margin: 22px 0 0;
+      margin: 14px 0 0;
       color: var(--muted);
       font-size: clamp(1rem, 1.6vw, 1.2rem);
       line-height: 1.55;
@@ -118,7 +118,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 20px;
     }
 
     .button {
@@ -163,12 +163,12 @@
 
     @media (min-width: 900px) and (max-height: 760px) {
       .landing {
-        padding-block: 24px;
+        padding-block: 18px;
       }
 
       .logo {
-        width: min(440px, 52vw);
-        margin-bottom: 22px;
+        width: min(620px, 64vw);
+        margin-bottom: 8px;
       }
 
       h1 {
@@ -176,25 +176,27 @@
       }
 
       .lead {
-        margin-top: 18px;
+        margin-top: 12px;
       }
 
       .actions {
-        margin-top: 22px;
+        margin-top: 18px;
       }
     }
 
     @media (max-width: 700px) {
       .landing {
         align-items: start;
-        padding: 28px 22px 34px;
+        padding: 16px 20px 24px;
       }
 
       .hero {
-        min-height: calc(100svh - 62px);
+        min-height: calc(100svh - 40px);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        gap: 0;
+        justify-content: flex-start;
+        padding-top: clamp(8px, 4svh, 28px);
       }
 
       .logo-desktop {
@@ -203,9 +205,9 @@
 
       .logo-mobile {
         display: block;
-        width: min(245px, 70vw);
+        width: min(205px, 58vw);
         margin-inline: auto;
-        margin-bottom: 38px;
+        margin-bottom: 20px;
       }
 
       .content {
@@ -214,27 +216,34 @@
 
       .lead {
         margin-inline: auto;
+        margin-top: 12px;
+        font-size: 0.98rem;
+        line-height: 1.45;
       }
 
       .actions {
         flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
       }
 
       .button {
         width: 100%;
+        min-height: 48px;
+        padding: 14px 18px;
       }
     }
   </style>
 </head>
 <body>
   <main class="landing">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-label="Grupo Araújo Tratamentos">
       <img class="logo logo-desktop" src="logotipo-horizontal-branco.png" alt="Grupo Araújo Tratamentos">
       <img class="logo logo-mobile" src="logotipo-vertical-branco.png" alt="Grupo Araújo Tratamentos">
 
       <div class="content">
         <p class="eyebrow">Orientação familiar e encaminhamento responsável</p>
-                <p class="lead">Acolhimento no primeiro contato e direcionamento para unidades parceiras de reabilitação conforme o perfil de cada caso.</p>
+        <p class="lead">Acolhimento no primeiro contato e direcionamento para unidades parceiras de reabilitação conforme o perfil de cada caso.</p>
         <div class="actions" aria-label="Ações principais">
           <a class="button button-primary" href="site/#unidades">Ver unidades</a>
           <a class="button button-secondary" href="https://wa.me/5562993897714?text=Ol%C3%A1%2C%20Atendente.%20Vim%20pelo%20site%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">Conversar no WhatsApp</a>
