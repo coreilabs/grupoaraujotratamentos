@@ -1,14 +1,14 @@
 ﻿const WHATSAPP_ATENDENTE = "5562993897714";
-const NOME_ATENDENTE = "Atendente";
+const NOME_ATENDENTE = "equipe";
 
 const MENSAGEM_PADRAO =
-  `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos e preciso de orientação sobre encaminhamento para clínica de reabilitação.`;
+  `Olá, ${NOME_ATENDENTE} do Grupo Araújo Tratamentos. Vim pelo site e preciso de orientação.`;
 
 const MENSAGEM_UNIDADE_INDEFINIDA =
-  `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos. Preciso de orientação, mas ainda não sei qual unidade seria mais adequada para o caso da minha família.`;
+  `Olá, ${NOME_ATENDENTE} do Grupo Araújo Tratamentos. Vim pelo site e preciso de orientação, mas ainda não sei qual unidade seria mais adequada.`;
 
 const MENSAGEM_OUTRAS_UNIDADES =
-  `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos e gostaria de verificar disponibilidade de outras unidades.`;
+  `Olá, ${NOME_ATENDENTE} do Grupo Araújo Tratamentos. Vim pelo site e gostaria de verificar disponibilidade de outras unidades.`;
 
 const unidades = [
   {
@@ -144,7 +144,7 @@ function gerarLinkWhatsappPadrao(texto = MENSAGEM_PADRAO) {
 }
 
 function gerarLinkWhatsappUnidade(unidade) {
-  const texto = `Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos e gostaria de mais informações sobre uma unidade em ${unidade.cidade}/${unidade.estado}, modalidade ${unidade.modalidade}. Pode me orientar?`;
+  const texto = `Olá, ${NOME_ATENDENTE} do Grupo Araújo Tratamentos. Vim pelo site e gostaria de mais informações sobre uma unidade em ${unidade.cidade}/${unidade.estado}, modalidade ${unidade.modalidade}. Pode me orientar?`;
   return gerarLinkWhatsappPadrao(texto);
 }
 
@@ -382,27 +382,25 @@ function enviarFormularioWhatsapp(event) {
 
   const nome = document.querySelector("#nome").value.trim();
   const telefone = document.querySelector("#telefone").value.trim();
-  const cidade = document.querySelector("#cidade").value.trim();
-  const tipoUnidade = document.querySelector("#tipoUnidade").value;
+  const email = document.querySelector("#email").value.trim();
   const mensagem = document.querySelector("#mensagem").value.trim();
 
-  if (!nome || !telefone || !cidade) {
-    alert("Preencha nome, telefone e cidade antes de enviar.");
+  if (!nome) {
+    alert("Preencha o nome antes de enviar.");
     return;
   }
 
   const texto = `
-Olá, ${NOME_ATENDENTE}. Vim pelo site do Grupo Araújo Tratamentos.
+Olá, ${NOME_ATENDENTE} do Grupo Araújo Tratamentos. Vim pelo site e gostaria de atendimento.
 
 Nome: ${nome}
-Telefone: ${telefone}
-Cidade: ${cidade}
-Tipo de unidade desejada: ${tipoUnidade}
+Telefone: ${telefone || "Não informado"}
+E-mail: ${email || "Não informado"}
 
 Mensagem:
 ${mensagem || "Sem mensagem adicional."}
 
-Gostaria de orientação sobre encaminhamento para clínica de reabilitação.
+Gostaria de receber orientação do Grupo Araújo Tratamentos.
 `;
 
   window.open(gerarLinkWhatsappPadrao(texto), "_blank", "noopener");
