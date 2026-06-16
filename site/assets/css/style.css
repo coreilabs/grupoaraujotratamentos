@@ -463,6 +463,11 @@ h3 {
   font-weight: 900;
 }
 
+.step-card span svg {
+  width: 20px;
+  height: 20px;
+}
+
 .step-card p,
 .info-card p,
 .difference-grid p {
@@ -1027,6 +1032,35 @@ h3 {
   width: 24px;
   height: 24px;
   flex: 0 0 auto;
+}
+
+.contact-details {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.contact-details p {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.contact-details strong {
+  color: var(--primary-dark);
+  font-size: 18px;
+}
+
+.contact-details svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+  flex: 0 0 auto;
+  margin-top: 2px;
 }
 
 .contact-form {
