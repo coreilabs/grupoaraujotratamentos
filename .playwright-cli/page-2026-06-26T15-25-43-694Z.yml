@@ -1,0 +1,398 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation "Menu principal":
+      - link "Pular para o conteúdo principal" [ref=e3] [cursor=pointer]:
+        - /url: "#wpbody-content"
+      - link "Pular para a barra de ferramentas" [ref=e4] [cursor=pointer]:
+        - /url: "#wp-toolbar"
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Hostinger" [ref=e9] [cursor=pointer]:
+            - /url: admin.php?page=hostinger
+            - generic [ref=e11]: Hostinger
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link "Integração" [ref=e14] [cursor=pointer]:
+                - /url: admin.php?page=hostinger-get-onboarding
+            - listitem [ref=e15]:
+              - link "Ferramentas" [ref=e16] [cursor=pointer]:
+                - /url: admin.php?page=hostinger-tools
+            - listitem [ref=e17]:
+              - link "Hostinger Reach" [ref=e18] [cursor=pointer]:
+                - /url: admin.php?page=hostinger-reach
+        - listitem [ref=e19]:
+          - link "Hostinger Reach" [ref=e20] [cursor=pointer]:
+            - /url: admin.php?page=hostinger-reach
+            - generic [ref=e22]: Hostinger Reach
+        - listitem [ref=e23]:
+          - link "Painel" [ref=e24] [cursor=pointer]:
+            - /url: index.php
+            - generic [ref=e25]: 
+            - generic [ref=e26]: Painel
+          - list [ref=e27]:
+            - listitem [ref=e28]:
+              - link "Início" [ref=e29] [cursor=pointer]:
+                - /url: index.php
+            - listitem [ref=e30]:
+              - link "Atualizações 1" [ref=e31] [cursor=pointer]:
+                - /url: update-core.php
+                - text: Atualizações
+                - generic [ref=e32]: "1"
+        - listitem [ref=e33]
+        - listitem [ref=e35]:
+          - link "Posts" [ref=e36] [cursor=pointer]:
+            - /url: edit.php
+            - generic [ref=e37]: 
+            - generic [ref=e38]: Posts
+          - list [ref=e39]:
+            - listitem [ref=e40]:
+              - link "Todos os posts" [ref=e41] [cursor=pointer]:
+                - /url: edit.php
+            - listitem [ref=e42]:
+              - link "Adicionar post" [ref=e43] [cursor=pointer]:
+                - /url: post-new.php
+            - listitem [ref=e44]:
+              - link "Categorias" [ref=e45] [cursor=pointer]:
+                - /url: edit-tags.php?taxonomy=category
+            - listitem [ref=e46]:
+              - link "Tags" [ref=e47] [cursor=pointer]:
+                - /url: edit-tags.php?taxonomy=post_tag
+        - listitem [ref=e48]:
+          - link "Mídia" [ref=e49] [cursor=pointer]:
+            - /url: upload.php
+            - generic [ref=e50]: 
+            - generic [ref=e51]: Mídia
+          - list [ref=e52]:
+            - listitem [ref=e53]:
+              - link "Library" [ref=e54] [cursor=pointer]:
+                - /url: upload.php
+            - listitem [ref=e55]:
+              - link "Adicionar arquivo de mídia" [ref=e56] [cursor=pointer]:
+                - /url: media-new.php
+        - listitem [ref=e57]:
+          - link "Páginas" [ref=e58] [cursor=pointer]:
+            - /url: edit.php?post_type=page
+            - generic [ref=e59]: 
+            - generic [ref=e60]: Páginas
+          - list [ref=e61]:
+            - listitem [ref=e62]:
+              - link "Todas as páginas" [ref=e63] [cursor=pointer]:
+                - /url: edit.php?post_type=page
+            - listitem [ref=e64]:
+              - link "Adicionar página" [ref=e65] [cursor=pointer]:
+                - /url: post-new.php?post_type=page
+        - listitem [ref=e66]:
+          - link "Comentários" [ref=e67] [cursor=pointer]:
+            - /url: edit-comments.php
+            - generic [ref=e68]: 
+            - generic [ref=e69]: Comentários
+        - listitem [ref=e70]:
+          - link "Unidades" [ref=e71] [cursor=pointer]:
+            - /url: edit.php?post_type=gat_unidade
+            - generic [ref=e72]: 
+            - generic [ref=e73]: Unidades
+          - list [ref=e74]:
+            - listitem [ref=e75]:
+              - link "Unidades" [ref=e76] [cursor=pointer]:
+                - /url: edit.php?post_type=gat_unidade
+            - listitem [ref=e77]:
+              - link "Adicionar unidade" [ref=e78] [cursor=pointer]:
+                - /url: post-new.php?post_type=gat_unidade
+        - listitem [ref=e79]:
+          - link "Contratos de Internacao" [ref=e80] [cursor=pointer]:
+            - /url: edit.php?post_type=gat_contrato
+            - generic [ref=e81]: 
+            - generic [ref=e82]: Contratos de Internacao
+          - list [ref=e83]:
+            - listitem [ref=e84]:
+              - link "Contratos de Internacao" [ref=e85] [cursor=pointer]:
+                - /url: edit.php?post_type=gat_contrato
+            - listitem [ref=e86]:
+              - link "Adicionar post" [ref=e87] [cursor=pointer]:
+                - /url: post-new.php?post_type=gat_contrato
+        - listitem [ref=e88]
+        - listitem [ref=e90]:
+          - link "Aparência" [ref=e91] [cursor=pointer]:
+            - /url: themes.php
+            - generic [ref=e92]: 
+            - generic [ref=e93]: Aparência
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - link "Temas" [ref=e96] [cursor=pointer]:
+                - /url: themes.php
+            - listitem [ref=e97]:
+              - link "Padrões" [ref=e98] [cursor=pointer]:
+                - /url: site-editor.php?p=/pattern
+            - listitem [ref=e99]:
+              - link "Personalizar" [ref=e100] [cursor=pointer]:
+                - /url: customize.php?return=%2Fwp-admin%2Fthemes.php
+            - listitem [ref=e101]:
+              - link "Fontes" [ref=e102] [cursor=pointer]:
+                - /url: font-library.php
+            - listitem [ref=e103]:
+              - link "Menus" [ref=e104] [cursor=pointer]:
+                - /url: nav-menus.php
+            - listitem [ref=e105]:
+              - link "Editor de arquivos de tema" [ref=e106] [cursor=pointer]:
+                - /url: theme-editor.php
+        - listitem [ref=e107]:
+          - link "Plugins 1" [ref=e108] [cursor=pointer]:
+            - /url: plugins.php
+            - generic [ref=e109]: 
+            - generic [ref=e110]:
+              - text: Plugins
+              - generic [ref=e111]: "1"
+          - list [ref=e112]:
+            - listitem [ref=e113]:
+              - link "Plugins instalados" [ref=e114] [cursor=pointer]:
+                - /url: plugins.php
+            - listitem [ref=e115]:
+              - link "Adicionar plugin" [ref=e116] [cursor=pointer]:
+                - /url: plugin-install.php
+            - listitem [ref=e117]:
+              - link "Editor de arquivos de plugin" [ref=e118] [cursor=pointer]:
+                - /url: plugin-editor.php
+        - listitem [ref=e119]:
+          - link "Usuários" [ref=e120] [cursor=pointer]:
+            - /url: users.php
+            - generic [ref=e121]: 
+            - generic [ref=e122]: Usuários
+          - list [ref=e123]:
+            - listitem [ref=e124]:
+              - link "Todos os usuários" [ref=e125] [cursor=pointer]:
+                - /url: users.php
+            - listitem [ref=e126]:
+              - link "Adicionar usuário" [ref=e127] [cursor=pointer]:
+                - /url: user-new.php
+            - listitem [ref=e128]:
+              - link "Perfil" [ref=e129] [cursor=pointer]:
+                - /url: profile.php
+        - listitem [ref=e130]:
+          - link "Ferramentas" [ref=e131] [cursor=pointer]:
+            - /url: tools.php
+            - generic [ref=e132]: 
+            - generic [ref=e133]: Ferramentas
+          - list [ref=e134]:
+            - listitem [ref=e135]:
+              - link "Ferramentas disponíveis" [ref=e136] [cursor=pointer]:
+                - /url: tools.php
+            - listitem [ref=e137]:
+              - link "Importar" [ref=e138] [cursor=pointer]:
+                - /url: import.php
+            - listitem [ref=e139]:
+              - link "Exportar" [ref=e140] [cursor=pointer]:
+                - /url: export.php
+            - listitem [ref=e141]:
+              - link "Diagnóstico 1" [ref=e142] [cursor=pointer]:
+                - /url: site-health.php
+                - text: Diagnóstico
+                - generic [ref=e143]: "1"
+            - listitem [ref=e144]:
+              - link "Exportar dados pessoais" [ref=e145] [cursor=pointer]:
+                - /url: export-personal-data.php
+            - listitem [ref=e146]:
+              - link "Apagar dados pessoais" [ref=e147] [cursor=pointer]:
+                - /url: erase-personal-data.php
+            - listitem [ref=e148]:
+              - link "Scheduled Actions" [ref=e149] [cursor=pointer]:
+                - /url: tools.php?page=action-scheduler
+        - listitem [ref=e150]:
+          - link "Configurações" [ref=e151] [cursor=pointer]:
+            - /url: options-general.php
+            - generic [ref=e152]: 
+            - generic [ref=e153]: Configurações
+          - list [ref=e154]:
+            - listitem [ref=e155]:
+              - link "Geral" [ref=e156] [cursor=pointer]:
+                - /url: options-general.php
+            - listitem [ref=e157]:
+              - link "Conectores" [ref=e158] [cursor=pointer]:
+                - /url: options-connectors.php
+            - listitem [ref=e159]:
+              - link "Escrita" [ref=e160] [cursor=pointer]:
+                - /url: options-writing.php
+            - listitem [ref=e161]:
+              - link "Leitura" [ref=e162] [cursor=pointer]:
+                - /url: options-reading.php
+            - listitem [ref=e163]:
+              - link "Discussão" [ref=e164] [cursor=pointer]:
+                - /url: options-discussion.php
+            - listitem [ref=e165]:
+              - link "Mídia" [ref=e166] [cursor=pointer]:
+                - /url: options-media.php
+            - listitem [ref=e167]:
+              - link "Links permanentes" [ref=e168] [cursor=pointer]:
+                - /url: options-permalink.php
+            - listitem [ref=e169]:
+              - link "Privacidade" [ref=e170] [cursor=pointer]:
+                - /url: options-privacy.php
+            - listitem [ref=e171]:
+              - link "LiteSpeed Cache" [ref=e172] [cursor=pointer]:
+                - /url: options-general.php?page=litespeed-cache-options
+        - listitem [ref=e173]
+        - listitem [ref=e175]:
+          - link "LiteSpeed Cache" [ref=e176] [cursor=pointer]:
+            - /url: admin.php?page=litespeed
+            - generic [ref=e177]: 
+            - generic [ref=e178]: LiteSpeed Cache
+          - list [ref=e179]:
+            - listitem [ref=e180]:
+              - link "Painel" [ref=e181] [cursor=pointer]:
+                - /url: admin.php?page=litespeed
+            - listitem [ref=e182]:
+              - link "Predefinições" [ref=e183] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-presets
+            - listitem [ref=e184]:
+              - link "Geral" [ref=e185] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-general
+            - listitem [ref=e186]:
+              - link "Cache" [ref=e187] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-cache
+            - listitem [ref=e188]:
+              - link "CDN" [ref=e189] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-cdn
+            - listitem [ref=e190]:
+              - link "Otimização de imagem" [ref=e191] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-img_optm
+            - listitem [ref=e192]:
+              - link "Otimização de página" [ref=e193] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-page_optm
+            - listitem [ref=e194]:
+              - link "Banco de dados" [ref=e195] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-db_optm
+            - listitem [ref=e196]:
+              - link "Rastreador" [ref=e197] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-crawler
+            - listitem [ref=e198]:
+              - link "Caixa de ferramentas" [ref=e199] [cursor=pointer]:
+                - /url: admin.php?page=litespeed-toolbox
+        - listitem [ref=e200]:
+          - button "Recolher menu principal" [expanded] [ref=e201] [cursor=pointer]:
+            - generic [ref=e203]: Recolher menu
+    - generic [ref=e204]:
+      - generic [ref=e205]:
+        - navigation "Barra de ferramentas":
+          - menu:
+            - group [ref=e206]:
+              - menuitem "Sobre o WordPress" [ref=e207] [cursor=pointer]:
+                - generic [ref=e209]: Sobre o WordPress
+            - group [ref=e210]:
+              - menuitem "grupoaraujotratamentos.com.br" [ref=e211] [cursor=pointer]
+            - group [ref=e212]:
+              - menuitem "1 atualização disponível" [ref=e213] [cursor=pointer]:
+                - generic [ref=e215]: "1"
+                - generic [ref=e216]: 1 atualização disponível
+            - group [ref=e217]:
+              - menuitem "Ctrl+K Abrir paleta de comandos" [ref=e218] [cursor=pointer]:
+                - generic [ref=e220]:
+                  - text: Ctrl+K
+                  - generic [ref=e221]: Abrir paleta de comandos
+            - group [ref=e222]:
+              - menuitem "0 comentário esperando moderação" [ref=e223] [cursor=pointer]:
+                - generic [ref=e225]: "0"
+                - generic [ref=e226]: 0 comentário esperando moderação
+            - group [ref=e227]:
+              - menuitem "Novo" [ref=e228] [cursor=pointer]:
+                - generic [ref=e230]: Novo
+            - group [ref=e231]:
+              - menuitem "Hostinger" [ref=e232]:
+                - img [ref=e233]
+                - text: Hostinger
+            - group [ref=e235]:
+              - menuitem "" [ref=e236] [cursor=pointer]:
+                - generic "Limpar tudo no LiteSpeed Cache - LSCache" [ref=e237]: 
+          - menu [ref=e238]:
+            - group [ref=e239]:
+              - menuitem "Olá, grupoaraujotratamentos01@gmail.com" [ref=e240] [cursor=pointer]
+      - main [ref=e241]:
+        - generic [ref=e242]:
+          - button "Ajuda" [ref=e245] [cursor=pointer]
+          - generic [ref=e246]:
+            - heading "Temas 5" [level=1] [ref=e247]
+            - link "Adicionar tema" [ref=e248] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/wp-admin/theme-install.php
+            - paragraph [ref=e250]:
+              - strong [ref=e251]: "Grupo Araujo:"
+              - text: crie a pagina publica de Contrato de Internacao para receber dados e documentos pelo site.
+              - link "Criar pagina agora" [ref=e252] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&gat_create_contrato_page=1&_wpnonce=66e06b7104
+            - generic [ref=e253]:
+              - paragraph [ref=e254]: Todos os caches foram limpos.
+              - button "Dispensar este aviso." [ref=e255] [cursor=pointer]:
+                - generic [ref=e256]: Dispensar este aviso.
+            - generic [ref=e257]:
+              - paragraph [ref=e258]:
+                - text: Novo tema ativado.
+                - link "Visitar site" [ref=e259] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/
+              - button "Dispensar este aviso." [ref=e260] [cursor=pointer]:
+                - generic [ref=e261]: Dispensar este aviso.
+            - paragraph [ref=e263]:
+              - generic [ref=e264]: Pesquisar temas instalados
+              - searchbox "Pesquisar temas instalados" [ref=e265]
+            - generic [ref=e267]:
+              - generic [ref=e268] [cursor=pointer]:
+                - button "Ver detalhes do tema para Grupo Araujo" [ref=e270]: Informações do tema
+                - generic [ref=e271]:
+                  - 'heading "Ativo: Grupo Araujo" [level=2] [ref=e272]'
+                  - link "Personalizar Grupo Araujo" [ref=e274]:
+                    - /url: https://grupoaraujotratamentos.com.br/wp-admin/customize.php?theme=grupo-araujo&return=%2Fwp-admin%2Fthemes.php
+                    - text: Personalizar
+              - generic [ref=e275] [cursor=pointer]:
+                - button "Ver detalhes do tema para Hostinger AI theme" [ref=e277]: Informações do tema
+                - generic [ref=e278]:
+                  - heading "Hostinger AI theme" [level=2] [ref=e279]
+                  - generic [ref=e280]:
+                    - link "Ativar Hostinger AI theme" [ref=e281]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/themes.php?action=activate&stylesheet=hostinger-ai-theme&_wpnonce=ba4095c7a1
+                      - text: Ativar
+                    - link "Pré-visualizar Hostinger AI theme" [ref=e282]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/site-editor.php?wp_theme_preview=hostinger-ai-theme&return=%2Fwp-admin%2Fthemes.php
+                      - text: Ver ao vivo
+              - generic [ref=e283] [cursor=pointer]:
+                - button "Ver detalhes do tema para Twenty Twenty-Five" [ref=e285]: Informações do tema
+                - generic [ref=e286]:
+                  - heading "Twenty Twenty-Five" [level=2] [ref=e287]
+                  - generic [ref=e288]:
+                    - link "Ativar Twenty Twenty-Five" [ref=e289]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/themes.php?action=activate&stylesheet=twentytwentyfive&_wpnonce=71be27b4e5
+                      - text: Ativar
+                    - link "Pré-visualizar Twenty Twenty-Five" [ref=e290]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/site-editor.php?wp_theme_preview=twentytwentyfive&return=%2Fwp-admin%2Fthemes.php
+                      - text: Ver ao vivo
+              - generic [ref=e291] [cursor=pointer]:
+                - button "Ver detalhes do tema para Twenty Twenty-Four" [ref=e293]: Informações do tema
+                - generic [ref=e294]:
+                  - heading "Twenty Twenty-Four" [level=2] [ref=e295]
+                  - generic [ref=e296]:
+                    - link "Ativar Twenty Twenty-Four" [ref=e297]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/themes.php?action=activate&stylesheet=twentytwentyfour&_wpnonce=1372c1f5a2
+                      - text: Ativar
+                    - link "Pré-visualizar Twenty Twenty-Four" [ref=e298]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/site-editor.php?wp_theme_preview=twentytwentyfour&return=%2Fwp-admin%2Fthemes.php
+                      - text: Ver ao vivo
+              - generic [ref=e299] [cursor=pointer]:
+                - button "Ver detalhes do tema para Twenty Twenty-Three" [ref=e301]: Informações do tema
+                - generic [ref=e302]:
+                  - heading "Twenty Twenty-Three" [level=2] [ref=e303]
+                  - generic [ref=e304]:
+                    - link "Ativar Twenty Twenty-Three" [ref=e305]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/themes.php?action=activate&stylesheet=twentytwentythree&_wpnonce=a7a2d8c6e9
+                      - text: Ativar
+                    - link "Pré-visualizar Twenty Twenty-Three" [ref=e306]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/site-editor.php?wp_theme_preview=twentytwentythree&return=%2Fwp-admin%2Fthemes.php
+                      - text: Ver ao vivo
+              - link "Adicionar tema" [ref=e308] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/wp-admin/theme-install.php
+                - heading "Adicionar tema" [level=2] [ref=e310]
+            - dialog "Informações do tema"
+    - contentinfo [ref=e311]:
+      - paragraph [ref=e312]:
+        - generic [ref=e313]:
+          - text: Obrigado por criar com
+          - link "WordPress" [ref=e314] [cursor=pointer]:
+            - /url: https://br.wordpress.org/
+          - text: .
+      - paragraph [ref=e315]: Versão 7.0
+  - paragraph [ref=e316]: Notificações
+  - generic [ref=e318]: "Número de temas encontrados: 5"
