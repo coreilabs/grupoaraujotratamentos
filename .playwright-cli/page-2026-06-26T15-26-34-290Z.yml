@@ -1,0 +1,457 @@
+- generic [ref=e2]:
+  - navigation "Menu principal":
+    - link "Pular para o conteúdo principal" [ref=e3] [cursor=pointer]:
+      - /url: "#wpbody-content"
+    - link "Pular para a barra de ferramentas" [ref=e4] [cursor=pointer]:
+      - /url: "#wp-toolbar"
+    - list [ref=e7]:
+      - listitem [ref=e8]:
+        - link "Hostinger" [ref=e9] [cursor=pointer]:
+          - /url: admin.php?page=hostinger
+          - generic [ref=e11]: Hostinger
+        - list [ref=e12]:
+          - listitem [ref=e13]:
+            - link "Integração" [ref=e14] [cursor=pointer]:
+              - /url: admin.php?page=hostinger-get-onboarding
+          - listitem [ref=e15]:
+            - link "Ferramentas" [ref=e16] [cursor=pointer]:
+              - /url: admin.php?page=hostinger-tools
+          - listitem [ref=e17]:
+            - link "Hostinger Reach" [ref=e18] [cursor=pointer]:
+              - /url: admin.php?page=hostinger-reach
+      - listitem [ref=e19]:
+        - link "Hostinger Reach" [ref=e20] [cursor=pointer]:
+          - /url: admin.php?page=hostinger-reach
+          - generic [ref=e22]: Hostinger Reach
+      - listitem [ref=e23]:
+        - link "Painel" [ref=e24] [cursor=pointer]:
+          - /url: index.php
+          - generic [ref=e25]: 
+          - generic [ref=e26]: Painel
+        - list [ref=e27]:
+          - listitem [ref=e28]:
+            - link "Início" [ref=e29] [cursor=pointer]:
+              - /url: index.php
+          - listitem [ref=e30]:
+            - link "Atualizações 1" [ref=e31] [cursor=pointer]:
+              - /url: update-core.php
+              - text: Atualizações
+              - generic [ref=e32]: "1"
+      - listitem [ref=e33]
+      - listitem [ref=e35]:
+        - link "Posts" [ref=e36] [cursor=pointer]:
+          - /url: edit.php
+          - generic [ref=e37]: 
+          - generic [ref=e38]: Posts
+        - list [ref=e39]:
+          - listitem [ref=e40]:
+            - link "Todos os posts" [ref=e41] [cursor=pointer]:
+              - /url: edit.php
+          - listitem [ref=e42]:
+            - link "Adicionar post" [ref=e43] [cursor=pointer]:
+              - /url: post-new.php
+          - listitem [ref=e44]:
+            - link "Categorias" [ref=e45] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=category
+          - listitem [ref=e46]:
+            - link "Tags" [ref=e47] [cursor=pointer]:
+              - /url: edit-tags.php?taxonomy=post_tag
+      - listitem [ref=e48]:
+        - link "Mídia" [ref=e49] [cursor=pointer]:
+          - /url: upload.php
+          - generic [ref=e50]: 
+          - generic [ref=e51]: Mídia
+        - list [ref=e52]:
+          - listitem [ref=e53]:
+            - link "Library" [ref=e54] [cursor=pointer]:
+              - /url: upload.php
+          - listitem [ref=e55]:
+            - link "Adicionar arquivo de mídia" [ref=e56] [cursor=pointer]:
+              - /url: media-new.php
+      - listitem [ref=e57]:
+        - link "Páginas" [ref=e58] [cursor=pointer]:
+          - /url: edit.php?post_type=page
+          - generic [ref=e59]: 
+          - generic [ref=e60]: Páginas
+        - list [ref=e61]:
+          - listitem [ref=e62]:
+            - link "Todas as páginas" [ref=e63] [cursor=pointer]:
+              - /url: edit.php?post_type=page
+          - listitem [ref=e64]:
+            - link "Adicionar página" [ref=e65] [cursor=pointer]:
+              - /url: post-new.php?post_type=page
+      - listitem [ref=e66]:
+        - link "Comentários" [ref=e67] [cursor=pointer]:
+          - /url: edit-comments.php
+          - generic [ref=e68]: 
+          - generic [ref=e69]: Comentários
+      - listitem [ref=e70]:
+        - link "Unidades" [ref=e71] [cursor=pointer]:
+          - /url: edit.php?post_type=gat_unidade
+          - generic [ref=e72]: 
+          - generic [ref=e73]: Unidades
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - link "Unidades" [ref=e76] [cursor=pointer]:
+              - /url: edit.php?post_type=gat_unidade
+          - listitem [ref=e77]:
+            - link "Adicionar unidade" [ref=e78] [cursor=pointer]:
+              - /url: post-new.php?post_type=gat_unidade
+      - listitem [ref=e79]:
+        - link "Contratos de Internacao" [ref=e80] [cursor=pointer]:
+          - /url: edit.php?post_type=gat_contrato
+          - generic [ref=e81]: 
+          - generic [ref=e82]: Contratos de Internacao
+        - list [ref=e83]:
+          - listitem [ref=e84]:
+            - link "Contratos de Internacao" [ref=e85] [cursor=pointer]:
+              - /url: edit.php?post_type=gat_contrato
+          - listitem [ref=e86]:
+            - link "Adicionar post" [ref=e87] [cursor=pointer]:
+              - /url: post-new.php?post_type=gat_contrato
+      - listitem [ref=e88]
+      - listitem [ref=e90]:
+        - link "Aparência" [ref=e91] [cursor=pointer]:
+          - /url: themes.php
+          - generic [ref=e92]: 
+          - generic [ref=e93]: Aparência
+        - list [ref=e94]:
+          - listitem [ref=e95]:
+            - link "Temas" [ref=e96] [cursor=pointer]:
+              - /url: themes.php
+          - listitem [ref=e97]:
+            - link "Padrões" [ref=e98] [cursor=pointer]:
+              - /url: site-editor.php?p=/pattern
+          - listitem [ref=e99]:
+            - link "Personalizar" [ref=e100] [cursor=pointer]:
+              - /url: customize.php?return=%2Fwp-admin%2Fedit.php%3Fpost_type%3Dpage
+          - listitem [ref=e101]:
+            - link "Fontes" [ref=e102] [cursor=pointer]:
+              - /url: font-library.php
+          - listitem [ref=e103]:
+            - link "Menus" [ref=e104] [cursor=pointer]:
+              - /url: nav-menus.php
+          - listitem [ref=e105]:
+            - link "Editor de arquivos de tema" [ref=e106] [cursor=pointer]:
+              - /url: theme-editor.php
+      - listitem [ref=e107]:
+        - link "Plugins 1" [ref=e108] [cursor=pointer]:
+          - /url: plugins.php
+          - generic [ref=e109]: 
+          - generic [ref=e110]:
+            - text: Plugins
+            - generic [ref=e111]: "1"
+        - list [ref=e112]:
+          - listitem [ref=e113]:
+            - link "Plugins instalados" [ref=e114] [cursor=pointer]:
+              - /url: plugins.php
+          - listitem [ref=e115]:
+            - link "Adicionar plugin" [ref=e116] [cursor=pointer]:
+              - /url: plugin-install.php
+          - listitem [ref=e117]:
+            - link "Editor de arquivos de plugin" [ref=e118] [cursor=pointer]:
+              - /url: plugin-editor.php
+      - listitem [ref=e119]:
+        - link "Usuários" [ref=e120] [cursor=pointer]:
+          - /url: users.php
+          - generic [ref=e121]: 
+          - generic [ref=e122]: Usuários
+        - list [ref=e123]:
+          - listitem [ref=e124]:
+            - link "Todos os usuários" [ref=e125] [cursor=pointer]:
+              - /url: users.php
+          - listitem [ref=e126]:
+            - link "Adicionar usuário" [ref=e127] [cursor=pointer]:
+              - /url: user-new.php
+          - listitem [ref=e128]:
+            - link "Perfil" [ref=e129] [cursor=pointer]:
+              - /url: profile.php
+      - listitem [ref=e130]:
+        - link "Ferramentas" [ref=e131] [cursor=pointer]:
+          - /url: tools.php
+          - generic [ref=e132]: 
+          - generic [ref=e133]: Ferramentas
+        - list [ref=e134]:
+          - listitem [ref=e135]:
+            - link "Ferramentas disponíveis" [ref=e136] [cursor=pointer]:
+              - /url: tools.php
+          - listitem [ref=e137]:
+            - link "Importar" [ref=e138] [cursor=pointer]:
+              - /url: import.php
+          - listitem [ref=e139]:
+            - link "Exportar" [ref=e140] [cursor=pointer]:
+              - /url: export.php
+          - listitem [ref=e141]:
+            - link "Diagnóstico 1" [ref=e142] [cursor=pointer]:
+              - /url: site-health.php
+              - text: Diagnóstico
+              - generic [ref=e143]: "1"
+          - listitem [ref=e144]:
+            - link "Exportar dados pessoais" [ref=e145] [cursor=pointer]:
+              - /url: export-personal-data.php
+          - listitem [ref=e146]:
+            - link "Apagar dados pessoais" [ref=e147] [cursor=pointer]:
+              - /url: erase-personal-data.php
+          - listitem [ref=e148]:
+            - link "Scheduled Actions" [ref=e149] [cursor=pointer]:
+              - /url: tools.php?page=action-scheduler
+      - listitem [ref=e150]:
+        - link "Configurações" [ref=e151] [cursor=pointer]:
+          - /url: options-general.php
+          - generic [ref=e152]: 
+          - generic [ref=e153]: Configurações
+        - list [ref=e154]:
+          - listitem [ref=e155]:
+            - link "Geral" [ref=e156] [cursor=pointer]:
+              - /url: options-general.php
+          - listitem [ref=e157]:
+            - link "Conectores" [ref=e158] [cursor=pointer]:
+              - /url: options-connectors.php
+          - listitem [ref=e159]:
+            - link "Escrita" [ref=e160] [cursor=pointer]:
+              - /url: options-writing.php
+          - listitem [ref=e161]:
+            - link "Leitura" [ref=e162] [cursor=pointer]:
+              - /url: options-reading.php
+          - listitem [ref=e163]:
+            - link "Discussão" [ref=e164] [cursor=pointer]:
+              - /url: options-discussion.php
+          - listitem [ref=e165]:
+            - link "Mídia" [ref=e166] [cursor=pointer]:
+              - /url: options-media.php
+          - listitem [ref=e167]:
+            - link "Links permanentes" [ref=e168] [cursor=pointer]:
+              - /url: options-permalink.php
+          - listitem [ref=e169]:
+            - link "Privacidade" [ref=e170] [cursor=pointer]:
+              - /url: options-privacy.php
+          - listitem [ref=e171]:
+            - link "LiteSpeed Cache" [ref=e172] [cursor=pointer]:
+              - /url: options-general.php?page=litespeed-cache-options
+      - listitem [ref=e173]
+      - listitem [ref=e175]:
+        - link "LiteSpeed Cache" [ref=e176] [cursor=pointer]:
+          - /url: admin.php?page=litespeed
+          - generic [ref=e177]: 
+          - generic [ref=e178]: LiteSpeed Cache
+        - list [ref=e179]:
+          - listitem [ref=e180]:
+            - link "Painel" [ref=e181] [cursor=pointer]:
+              - /url: admin.php?page=litespeed
+          - listitem [ref=e182]:
+            - link "Predefinições" [ref=e183] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-presets
+          - listitem [ref=e184]:
+            - link "Geral" [ref=e185] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-general
+          - listitem [ref=e186]:
+            - link "Cache" [ref=e187] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-cache
+          - listitem [ref=e188]:
+            - link "CDN" [ref=e189] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-cdn
+          - listitem [ref=e190]:
+            - link "Otimização de imagem" [ref=e191] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-img_optm
+          - listitem [ref=e192]:
+            - link "Otimização de página" [ref=e193] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-page_optm
+          - listitem [ref=e194]:
+            - link "Banco de dados" [ref=e195] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-db_optm
+          - listitem [ref=e196]:
+            - link "Rastreador" [ref=e197] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-crawler
+          - listitem [ref=e198]:
+            - link "Caixa de ferramentas" [ref=e199] [cursor=pointer]:
+              - /url: admin.php?page=litespeed-toolbox
+      - listitem [ref=e200]:
+        - button "Recolher menu principal" [expanded] [ref=e201] [cursor=pointer]:
+          - generic [ref=e203]: Recolher menu
+  - generic [ref=e204]:
+    - generic [ref=e205]:
+      - navigation "Barra de ferramentas":
+        - menu:
+          - group [ref=e206]:
+            - menuitem "Sobre o WordPress" [ref=e207] [cursor=pointer]:
+              - generic [ref=e209]: Sobre o WordPress
+          - group [ref=e210]:
+            - menuitem "grupoaraujotratamentos.com.br" [ref=e211] [cursor=pointer]
+          - group [ref=e212]:
+            - menuitem "1 atualização disponível" [ref=e213] [cursor=pointer]:
+              - generic [ref=e215]: "1"
+              - generic [ref=e216]: 1 atualização disponível
+          - group [ref=e217]:
+            - menuitem "Ctrl+K Abrir paleta de comandos" [ref=e218] [cursor=pointer]:
+              - generic [ref=e220]:
+                - text: Ctrl+K
+                - generic [ref=e221]: Abrir paleta de comandos
+          - group [ref=e222]:
+            - menuitem "0 comentário esperando moderação" [ref=e223] [cursor=pointer]:
+              - generic [ref=e225]: "0"
+              - generic [ref=e226]: 0 comentário esperando moderação
+          - group [ref=e227]:
+            - menuitem "Novo" [ref=e228] [cursor=pointer]:
+              - generic [ref=e230]: Novo
+          - group [ref=e231]:
+            - menuitem "Hostinger" [ref=e232]:
+              - img [ref=e233]
+              - text: Hostinger
+          - group [ref=e235]:
+            - menuitem "" [ref=e236] [cursor=pointer]:
+              - generic "Limpar tudo no LiteSpeed Cache - LSCache" [ref=e237]: 
+        - menu [ref=e238]:
+          - group [ref=e239]:
+            - menuitem "Olá, grupoaraujotratamentos01@gmail.com" [ref=e240] [cursor=pointer]
+    - main [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - button "Opções de tela" [ref=e245] [cursor=pointer]
+          - button "Ajuda" [ref=e247] [cursor=pointer]
+        - generic [ref=e248]:
+          - heading "Páginas" [level=1] [ref=e249]
+          - link "Adicionar página" [ref=e250] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/wp-admin/post-new.php?post_type=page
+          - generic [ref=e251]:
+            - generic [ref=e252] [cursor=pointer]: ×
+            - generic [ref=e253]:
+              - generic [ref=e254]:
+                - generic [ref=e255]:
+                  - heading "Connect Hostinger Reach to start Email Marketing" [level=3] [ref=e256]
+                  - paragraph [ref=e257]: Send newsletters with professionally designed templates, automate campaigns, and build AI-powered segments. With Hostinger Reach, growing your audience is easy.
+                - generic [ref=e258]:
+                  - button "Conectar" [ref=e259] [cursor=pointer]
+                  - link "Learn more" [ref=e260] [cursor=pointer]:
+                    - /url: https://grupoaraujotratamentos.com.br/wp-admin/admin.php?page=hostinger-reach
+              - img "Hostinger Reach" [ref=e262]
+          - paragraph [ref=e264]:
+            - strong [ref=e265]: "Grupo Araujo:"
+            - text: crie a pagina publica de Contrato de Internacao para receber dados e documentos pelo site.
+            - link "Criar pagina agora" [ref=e266] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&gat_create_contrato_page=1&_wpnonce=66e06b7104
+          - heading "Filtrar lista de páginas" [level=2] [ref=e267]
+          - list [ref=e268]:
+            - listitem [ref=e269]:
+              - link "Todos (1)" [ref=e270] [cursor=pointer]:
+                - /url: edit.php?post_type=page
+              - text: "|"
+            - listitem [ref=e271]:
+              - link "Rascunho (1)" [ref=e272] [cursor=pointer]:
+                - /url: edit.php?post_status=draft&post_type=page
+          - generic [ref=e273]:
+            - paragraph [ref=e274]:
+              - generic [ref=e275]: "Pesquisar páginas:"
+              - searchbox "Pesquisar páginas:" [ref=e276]
+              - button "Pesquisar páginas" [ref=e277] [cursor=pointer]
+            - generic [ref=e278]:
+              - generic [ref=e279]:
+                - generic [ref=e280]: Selecionar ação em massa
+                - combobox "Selecionar ação em massa" [ref=e281] [cursor=pointer]:
+                  - option "Ações em massa" [selected]
+                  - option "Bulk edit"
+                  - option "Mover para lixeira"
+                - button "Aplicar" [ref=e282] [cursor=pointer]
+              - generic [ref=e283]:
+                - generic [ref=e284]: Filtrar por data
+                - combobox "Filtrar por data" [ref=e285] [cursor=pointer]:
+                  - option "Todas as datas" [selected]
+                  - option "junho 2026"
+                - button "Filtrar" [ref=e286] [cursor=pointer]
+              - generic [ref=e288]: 1 item
+            - heading "Lista de páginas" [level=2] [ref=e289]
+            - table "Tabela ordenada por ordem hierárquica de menu e título. Ascendente." [ref=e290]:
+              - caption [ref=e291]: Tabela ordenada por ordem hierárquica de menu e título. Ascendente.
+              - rowgroup [ref=e292]:
+                - row "Selecionar todos Título Autor Comentários Ordenar ascendente. Data Ordenar descendente." [ref=e293]:
+                  - cell "Selecionar todos" [ref=e294]:
+                    - checkbox "Selecionar todos" [ref=e295] [cursor=pointer]
+                    - generic [ref=e297]: Selecionar todos
+                  - columnheader "Título" [ref=e298]:
+                    - link "Título" [ref=e299] [cursor=pointer]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&orderby=title&order=desc
+                      - generic [ref=e300]: Título
+                  - columnheader "Autor" [ref=e304]
+                  - columnheader "Comentários Ordenar ascendente." [ref=e305]:
+                    - link "Comentários Ordenar ascendente." [ref=e306] [cursor=pointer]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&orderby=comment_count&order=asc
+                      - generic [ref=e309]: Comentários
+                      - generic [ref=e313]: Ordenar ascendente.
+                  - columnheader "Data Ordenar descendente." [ref=e314]:
+                    - link "Data Ordenar descendente." [ref=e315] [cursor=pointer]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&orderby=date&order=desc
+                      - generic [ref=e316]: Data
+                      - generic [ref=e320]: Ordenar descendente.
+              - rowgroup [ref=e321]:
+                - row "Selecionar Privacy Policy Privacy Policy — Rascunho, Página de política de privacidade Editar “Privacy Policy” | Editar diretamente “Privacy Policy” | Mover “Privacy Policy” para a lixeira | Visualizar “Privacy Policy” grupoaraujotratamentos01@gmail.com Sem comentários Última modificação 25/06/2026 às 12:59" [ref=e322]:
+                  - rowheader "Selecionar Privacy Policy" [ref=e323]:
+                    - checkbox "Selecionar Privacy Policy" [ref=e324] [cursor=pointer]
+                    - generic [ref=e326]: Selecionar Privacy Policy
+                  - cell "Privacy Policy — Rascunho, Página de política de privacidade Editar “Privacy Policy” | Editar diretamente “Privacy Policy” | Mover “Privacy Policy” para a lixeira | Visualizar “Privacy Policy”" [ref=e327]:
+                    - strong [ref=e328]:
+                      - link "Privacy Policy" [ref=e329] [cursor=pointer]:
+                        - /url: https://grupoaraujotratamentos.com.br/wp-admin/post.php?post=3&action=edit
+                      - text: — Rascunho, Página de política de privacidade
+                    - generic [ref=e330]:
+                      - generic [ref=e331]:
+                        - link "Editar “Privacy Policy”" [ref=e332] [cursor=pointer]:
+                          - /url: https://grupoaraujotratamentos.com.br/wp-admin/post.php?post=3&action=edit
+                          - text: Editar
+                        - text: "|"
+                      - generic [ref=e333]:
+                        - button "Editar diretamente “Privacy Policy”" [ref=e334] [cursor=pointer]: Edição rápida
+                        - text: "|"
+                      - generic [ref=e335]:
+                        - link "Mover “Privacy Policy” para a lixeira" [ref=e336] [cursor=pointer]:
+                          - /url: https://grupoaraujotratamentos.com.br/wp-admin/post.php?post=3&action=trash&_wpnonce=e2cf9eddf7
+                          - text: Colocar na lixeira
+                        - text: "|"
+                      - link "Visualizar “Privacy Policy”" [ref=e338] [cursor=pointer]:
+                        - /url: https://grupoaraujotratamentos.com.br/?page_id=3&preview=true
+                        - text: Preview
+                  - cell "grupoaraujotratamentos01@gmail.com" [ref=e339]:
+                    - link "grupoaraujotratamentos01@gmail.com" [ref=e340] [cursor=pointer]:
+                      - /url: edit.php?post_type=page&author=1
+                  - cell "Sem comentários" [ref=e341]:
+                    - generic [ref=e342]:
+                      - text: —
+                      - generic [ref=e343]: Sem comentários
+                  - cell "Última modificação 25/06/2026 às 12:59" [ref=e344]:
+                    - text: Última modificação
+                    - text: 25/06/2026 às 12:59
+              - rowgroup [ref=e345]:
+                - row "Selecionar todos Título Autor Comentários Ordenar ascendente. Data Ordenar descendente." [ref=e346]:
+                  - cell "Selecionar todos" [ref=e347]:
+                    - checkbox "Selecionar todos" [ref=e348] [cursor=pointer]
+                    - generic [ref=e350]: Selecionar todos
+                  - columnheader "Título" [ref=e351]:
+                    - link "Título" [ref=e352] [cursor=pointer]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&orderby=title&order=desc
+                      - generic [ref=e353]: Título
+                  - columnheader "Autor" [ref=e357]
+                  - columnheader "Comentários Ordenar ascendente." [ref=e358]:
+                    - link "Comentários Ordenar ascendente." [ref=e359] [cursor=pointer]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&orderby=comment_count&order=asc
+                      - generic [ref=e362]: Comentários
+                      - generic [ref=e366]: Ordenar ascendente.
+                  - columnheader "Data Ordenar descendente." [ref=e367]:
+                    - link "Data Ordenar descendente." [ref=e368] [cursor=pointer]:
+                      - /url: https://grupoaraujotratamentos.com.br/wp-admin/edit.php?post_type=page&orderby=date&order=desc
+                      - generic [ref=e369]: Data
+                      - generic [ref=e373]: Ordenar descendente.
+            - generic [ref=e374]:
+              - generic [ref=e375]:
+                - generic [ref=e376]: Selecionar ação em massa
+                - combobox "Selecionar ação em massa" [ref=e377] [cursor=pointer]:
+                  - option "Ações em massa" [selected]
+                  - option "Bulk edit"
+                  - option "Mover para lixeira"
+                - button "Aplicar" [ref=e378] [cursor=pointer]
+              - generic [ref=e380]: 1 item
+  - contentinfo [ref=e381]:
+    - paragraph [ref=e382]:
+      - generic [ref=e383]:
+        - text: Obrigado por criar com
+        - link "WordPress" [ref=e384] [cursor=pointer]:
+          - /url: https://br.wordpress.org/
+        - text: .
+    - paragraph [ref=e385]: Versão 7.0

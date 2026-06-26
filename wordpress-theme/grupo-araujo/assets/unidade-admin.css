@@ -1,0 +1,28 @@
+.gat-media-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+
+.gat-media-item {
+  position: relative;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+}
+
+.gat-media-item img,
+.gat-media-item video {
+  width: 100%;
+  height: 100px;
+  display: block;
+  object-fit: cover;
+  background: #f0f0f1;
+}
+
+.gat-media-item .gat-remove-media {
+  display: block;
+  margin: 6px auto 0;
+}
