@@ -1,5 +1,8 @@
 <?php
 /**
+ * Template Name: Modelo Pagina Inicial
+ * Template Post Type: page
+ *
  * Página inicial convertida do site estático.
  *
  * @package Grupo_Araujo
