@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GAT_THEME_VERSION', '2.9.6' );
+define( 'GAT_THEME_VERSION', '3.0.0' );
 
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/unidades.php';
@@ -18,6 +18,8 @@ require_once get_template_directory() . '/inc/contratos.php';
 function gat_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'gat-og-image', 1200, 630, true );
+	add_image_size( 'gat-featured-wide', 1280, 720, true );
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'html5', array( 'style', 'script', 'gallery', 'caption' ) );
 	add_theme_support(
@@ -38,6 +40,49 @@ function gat_theme_setup() {
 	);
 }
 add_action( 'after_setup_theme', 'gat_theme_setup' );
+
+function gat_widgets_init() {
+	$shared_args = array(
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	);
+
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name'        => __( 'Sidebar principal', 'grupo-araujo' ),
+				'id'          => 'sidebar-1',
+				'description' => __( 'Widgets exibidos em posts, paginas internas, arquivos e busca.', 'grupo-araujo' ),
+			)
+		)
+	);
+
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name'        => __( 'Antes da publicacao', 'grupo-araujo' ),
+				'id'          => 'single-before',
+				'description' => __( 'Area para widgets ou plugins antes do conteudo do post individual.', 'grupo-araujo' ),
+			)
+		)
+	);
+
+	register_sidebar(
+		array_merge(
+			$shared_args,
+			array(
+				'name'        => __( 'Depois da publicacao', 'grupo-araujo' ),
+				'id'          => 'single-after',
+				'description' => __( 'Area para widgets ou plugins depois do conteudo do post individual.', 'grupo-araujo' ),
+			)
+		)
+	);
+}
+add_action( 'widgets_init', 'gat_widgets_init' );
 
 function gat_enqueue_assets() {
 	wp_enqueue_style( 'gat-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11' );
@@ -71,7 +116,7 @@ function gat_favicon() {
 }
 add_action( 'wp_head', 'gat_favicon', 2 );
 
-function gat_meta_description() {
+function gat_meta_description_legacy() {
 	$description = get_theme_mod( 'gat_meta_description', 'Acolhimento, orientação e acompanhamento especializado para pessoas e famílias, com atendimento humanizado 24 horas.' );
 	$image       = get_template_directory_uri() . '/og.png';
 	?>
@@ -85,7 +130,207 @@ function gat_meta_description() {
 	<meta name="twitter:card" content="summary_large_image">
 	<?php
 }
+
+function gat_get_meta_description() {
+	if ( is_singular() ) {
+		$description = has_excerpt() ? get_the_excerpt() : wp_trim_words( wp_strip_all_tags( get_the_content() ), 32 );
+
+		if ( $description ) {
+			return $description;
+		}
+	}
+
+	if ( is_category() || is_tag() || is_tax() ) {
+		$term_description = term_description();
+
+		if ( $term_description ) {
+			return wp_trim_words( wp_strip_all_tags( $term_description ), 32 );
+		}
+	}
+
+	if ( is_home() ) {
+		$posts_page_id = (int) get_option( 'page_for_posts' );
+
+		if ( $posts_page_id ) {
+			$description = get_post_field( 'post_excerpt', $posts_page_id );
+
+			if ( ! $description ) {
+				$description = wp_trim_words( wp_strip_all_tags( get_post_field( 'post_content', $posts_page_id ) ), 32 );
+			}
+
+			if ( $description ) {
+				return $description;
+			}
+		}
+	}
+
+	return get_theme_mod( 'gat_meta_description', 'Acolhimento, orientacao e acompanhamento especializado para pessoas e familias, com atendimento humanizado 24 horas.' );
+}
+
+function gat_get_og_image() {
+	if ( is_singular() && has_post_thumbnail() ) {
+		$image = gat_generate_post_og_image( get_the_ID() );
+
+		if ( $image ) {
+			return $image;
+		}
+	}
+
+	return array(
+		'url'    => get_template_directory_uri() . '/og.png',
+		'width'  => 1200,
+		'height' => 630,
+	);
+}
+
+function gat_generate_post_og_image( $post_id ) {
+	$thumbnail_id = get_post_thumbnail_id( $post_id );
+	$source_path  = $thumbnail_id ? get_attached_file( $thumbnail_id ) : '';
+
+	if ( ! $source_path || ! is_readable( $source_path ) || ! function_exists( 'imagecreatefromstring' ) ) {
+		return false;
+	}
+
+	$uploads = wp_upload_dir();
+
+	if ( ! empty( $uploads['error'] ) ) {
+		return false;
+	}
+
+	$directory = trailingslashit( $uploads['basedir'] ) . 'gat-og';
+	$url_base  = trailingslashit( $uploads['baseurl'] ) . 'gat-og';
+
+	if ( ! wp_mkdir_p( $directory ) ) {
+		return false;
+	}
+
+	$modified    = (int) get_post_modified_time( 'U', true, $post_id );
+	$target_name = sprintf( 'post-%d-%d.jpg', $post_id, $modified );
+	$target_path = trailingslashit( $directory ) . $target_name;
+	$target_url  = trailingslashit( $url_base ) . $target_name;
+
+	if ( file_exists( $target_path ) ) {
+		return array(
+			'url'    => $target_url,
+			'width'  => 1200,
+			'height' => 630,
+		);
+	}
+
+	$source_data = file_get_contents( $source_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	$source      = $source_data ? imagecreatefromstring( $source_data ) : false;
+
+	if ( ! $source ) {
+		return false;
+	}
+
+	$source_width  = imagesx( $source );
+	$source_height = imagesy( $source );
+	$target_width  = 1200;
+	$target_height = 630;
+	$source_ratio  = $source_width / $source_height;
+	$target_ratio  = $target_width / $target_height;
+
+	if ( $source_ratio > $target_ratio ) {
+		$crop_height = $source_height;
+		$crop_width  = (int) round( $source_height * $target_ratio );
+		$src_x       = (int) round( ( $source_width - $crop_width ) / 2 );
+		$src_y       = 0;
+	} else {
+		$crop_width  = $source_width;
+		$crop_height = (int) round( $source_width / $target_ratio );
+		$src_x       = 0;
+		$src_y       = (int) round( ( $source_height - $crop_height ) / 2 );
+	}
+
+	$target = imagecreatetruecolor( $target_width, $target_height );
+	$white  = imagecolorallocate( $target, 255, 255, 255 );
+	imagefill( $target, 0, 0, $white );
+	imagecopyresampled( $target, $source, 0, 0, $src_x, $src_y, $target_width, $target_height, $crop_width, $crop_height );
+
+	$saved = imagejpeg( $target, $target_path, 88 );
+	imagedestroy( $source );
+	imagedestroy( $target );
+
+	if ( ! $saved ) {
+		return false;
+	}
+
+	return array(
+		'url'    => $target_url,
+		'width'  => 1200,
+		'height' => 630,
+	);
+}
+
+function gat_get_og_url() {
+	if ( is_singular() ) {
+		return get_permalink();
+	}
+
+	if ( is_home() ) {
+		$posts_page_id = (int) get_option( 'page_for_posts' );
+		return $posts_page_id ? get_permalink( $posts_page_id ) : home_url( '/' );
+	}
+
+	if ( is_archive() || is_search() ) {
+		return get_pagenum_link();
+	}
+
+	return home_url( add_query_arg( null, null ) );
+}
+
+function gat_meta_description() {
+	$description = gat_get_meta_description();
+	$image       = gat_get_og_image();
+	$type        = is_singular( 'post' ) ? 'article' : 'website';
+	?>
+	<meta name="description" content="<?php echo esc_attr( $description ); ?>">
+	<meta name="theme-color" content="#038291">
+	<meta property="og:title" content="<?php echo esc_attr( wp_get_document_title() ); ?>">
+	<meta property="og:description" content="<?php echo esc_attr( $description ); ?>">
+	<meta property="og:type" content="<?php echo esc_attr( $type ); ?>">
+	<meta property="og:url" content="<?php echo esc_url( gat_get_og_url() ); ?>">
+	<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+	<meta property="og:image" content="<?php echo esc_url( $image['url'] ); ?>">
+	<meta property="og:image:width" content="<?php echo esc_attr( $image['width'] ); ?>">
+	<meta property="og:image:height" content="<?php echo esc_attr( $image['height'] ); ?>">
+	<meta property="og:image:alt" content="<?php echo esc_attr( is_singular() ? get_the_title() : get_bloginfo( 'name' ) ); ?>">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="<?php echo esc_attr( wp_get_document_title() ); ?>">
+	<meta name="twitter:description" content="<?php echo esc_attr( $description ); ?>">
+	<meta name="twitter:image" content="<?php echo esc_url( $image['url'] ); ?>">
+	<?php if ( is_singular( 'post' ) ) : ?>
+		<meta property="article:published_time" content="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>">
+		<meta property="article:modified_time" content="<?php echo esc_attr( get_the_modified_date( DATE_W3C ) ); ?>">
+		<meta property="article:author" content="<?php echo esc_attr( get_the_author() ); ?>">
+	<?php endif; ?>
+	<?php
+}
 add_action( 'wp_head', 'gat_meta_description', 3 );
+
+function gat_has_sidebar() {
+	return is_active_sidebar( 'sidebar-1' );
+}
+
+function gat_posted_on() {
+	printf(
+		'<time datetime="%1$s">%2$s</time>',
+		esc_attr( get_the_date( DATE_W3C ) ),
+		esc_html( get_the_date() )
+	);
+}
+
+function gat_render_pagination() {
+	the_posts_pagination(
+		array(
+			'mid_size'           => 1,
+			'prev_text'          => __( 'Anteriores', 'grupo-araujo' ),
+			'next_text'          => __( 'Proximas', 'grupo-araujo' ),
+			'screen_reader_text' => __( 'Navegacao de publicacoes', 'grupo-araujo' ),
+		)
+	);
+}
 
 function gat_default_menu() {
 	$links = array(
