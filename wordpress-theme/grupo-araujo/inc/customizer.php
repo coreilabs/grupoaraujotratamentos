@@ -9,6 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function gat_sanitize_custom_code( $value ) {
+	if ( current_user_can( 'unfiltered_html' ) ) {
+		return wp_unslash( $value );
+	}
+
+	return wp_kses_post( $value );
+}
+
 function gat_home_text_fields() {
 	return array(
 		'gat_home_hero_primary_button' => array( 'Home - Banner', 'Botao principal', 'Falar pelo WhatsApp', 'text' ),
@@ -258,23 +266,65 @@ function gat_customize_register( $customizer ) {
 		)
 	);
 
-	for ( $index = 1; $index <= 12; $index++ ) {
-		$setting_id = 'gat_health_plan_image_' . $index;
+	$customizer->add_setting(
+		'gat_health_plans_items',
+		array(
+			'default'           => function_exists( 'gat_health_plan_items_default_text' ) ? gat_health_plan_items_default_text() : '',
+			'sanitize_callback' => function_exists( 'gat_sanitize_health_plan_items' ) ? 'gat_sanitize_health_plan_items' : 'sanitize_textarea_field',
+		)
+	);
+	$customizer->add_control(
+		'gat_health_plans_items',
+		array(
+			'label'       => __( 'Planos cadastrados', 'grupo-araujo' ),
+			'description' => __( 'Uma linha por plano. Exemplo: Unimed | https://site.com/imagem.webp. Para adicionar mais planos, cole novas linhas; para remover, apague a linha.', 'grupo-araujo' ),
+			'section'     => 'gat_health_plans',
+			'type'        => 'textarea',
+			'input_attrs' => array(
+				'rows' => 10,
+			),
+		)
+	);
+
+	$customizer->add_section(
+		'gat_custom_scripts',
+		array(
+			'title'       => __( 'Scripts personalizados e Ads', 'grupo-araujo' ),
+			'description' => __( 'Cole aqui tags do Google Ads, Tag Manager, pixels e outros scripts personalizados.', 'grupo-araujo' ),
+			'priority'    => 34,
+		)
+	);
+
+	$custom_code_fields = array(
+		'gat_custom_head_code'   => array(
+			'label'       => __( 'Scripts no cabecalho', 'grupo-araujo' ),
+			'description' => __( 'Inserido antes do fechamento de </head>. Indicado para Google Ads, Analytics, Tag Manager e verificacoes.', 'grupo-araujo' ),
+		),
+		'gat_custom_body_code'   => array(
+			'label'       => __( 'Tags apos abrir o body', 'grupo-araujo' ),
+			'description' => __( 'Inserido logo apos a abertura de <body>. Indicado para o noscript do Google Tag Manager.', 'grupo-araujo' ),
+		),
+		'gat_custom_footer_code' => array(
+			'label'       => __( 'Scripts no rodape', 'grupo-araujo' ),
+			'description' => __( 'Inserido antes do fechamento de </body>. Indicado para scripts de remarketing, eventos e conversoes.', 'grupo-araujo' ),
+		),
+	);
+
+	foreach ( $custom_code_fields as $id => $field ) {
 		$customizer->add_setting(
-			$setting_id,
+			$id,
 			array(
 				'default'           => '',
-				'sanitize_callback' => 'esc_url_raw',
+				'sanitize_callback' => 'gat_sanitize_custom_code',
 			)
 		);
 		$customizer->add_control(
-			new WP_Customize_Image_Control(
-				$customizer,
-				$setting_id,
-				array(
-					'label'   => sprintf( __( 'Imagem %d', 'grupo-araujo' ), $index ),
-					'section' => 'gat_health_plans',
-				)
+			$id,
+			array(
+				'label'       => $field['label'],
+				'description' => $field['description'],
+				'section'     => 'gat_custom_scripts',
+				'type'        => 'textarea',
 			)
 		);
 	}
