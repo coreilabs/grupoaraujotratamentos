@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GAT_THEME_VERSION', '3.0.0' );
+define( 'GAT_THEME_VERSION', '3.0.6' );
 
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/unidades.php';
@@ -21,6 +21,7 @@ function gat_theme_setup() {
 	add_image_size( 'gat-og-image', 1200, 630, true );
 	add_image_size( 'gat-featured-wide', 1280, 720, true );
 	add_theme_support( 'responsive-embeds' );
+	add_post_type_support( 'page', 'excerpt' );
 	add_theme_support( 'html5', array( 'style', 'script', 'gallery', 'caption' ) );
 	add_theme_support(
 		'custom-logo',
@@ -309,6 +310,31 @@ function gat_meta_description() {
 }
 add_action( 'wp_head', 'gat_meta_description', 3 );
 
+function gat_render_custom_code( $setting_id ) {
+	$custom_code = get_theme_mod( $setting_id, '' );
+
+	if ( ! $custom_code ) {
+		return;
+	}
+
+	echo "\n" . $custom_code . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+function gat_custom_head_code() {
+	gat_render_custom_code( 'gat_custom_head_code' );
+}
+add_action( 'wp_head', 'gat_custom_head_code', 99 );
+
+function gat_custom_body_code() {
+	gat_render_custom_code( 'gat_custom_body_code' );
+}
+add_action( 'wp_body_open', 'gat_custom_body_code', 5 );
+
+function gat_custom_footer_code() {
+	gat_render_custom_code( 'gat_custom_footer_code' );
+}
+add_action( 'wp_footer', 'gat_custom_footer_code', 99 );
+
 function gat_has_sidebar() {
 	return is_active_sidebar( 'sidebar-1' );
 }
@@ -332,6 +358,16 @@ function gat_render_pagination() {
 	);
 }
 
+function gat_get_single_content_without_duplicate_title() {
+	$content = apply_filters( 'the_content', get_the_content() );
+
+	if ( ! $content ) {
+		return $content;
+	}
+
+	return preg_replace( '/^\s*<h1\b[^>]*>.*?<\/h1>\s*/is', '', $content, 1 );
+}
+
 function gat_default_menu() {
 	$links = array(
 		'inicio'       => 'Início',
@@ -341,24 +377,279 @@ function gat_default_menu() {
 		'diferenciais' => 'Diferenciais',
 		'contato'      => 'Contato',
 	);
+	echo '<ul class="gat-menu">';
 	foreach ( $links as $anchor => $label ) {
-		printf( '<a href="%s">%s</a>', esc_url( home_url( '/#' . $anchor ) ), esc_html( $label ) );
+		printf( '<li><a href="%s">%s</a></li>', esc_url( home_url( '/#' . $anchor ) ), esc_html( $label ) );
 	}
+	echo '</ul>';
 }
 
-function gat_health_plan_images() {
-	$images = array();
+function gat_default_nav_links() {
+	return array(
+		array(
+			'title' => 'Inicio',
+			'url'   => home_url( '/#inicio' ),
+		),
+		array(
+			'title' => 'Sobre',
+			'url'   => home_url( '/#sobre' ),
+		),
+		array(
+			'title' => 'Servicos',
+			'url'   => home_url( '/#servicos' ),
+		),
+		array(
+			'title' => 'Unidades',
+			'url'   => home_url( '/#unidades' ),
+		),
+		array(
+			'title' => 'Diferenciais',
+			'url'   => home_url( '/#diferenciais' ),
+		),
+		array(
+			'title' => 'Contato',
+			'url'   => home_url( '/#contato' ),
+		),
+	);
+}
+
+function gat_get_or_create_menu( $name, $links ) {
+	$menu = wp_get_nav_menu_object( $name );
+
+	if ( ! $menu ) {
+		$menu_id = wp_create_nav_menu( $name );
+
+		if ( is_wp_error( $menu_id ) ) {
+			return 0;
+		}
+
+		foreach ( $links as $link ) {
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'  => $link['title'],
+					'menu-item-url'    => $link['url'],
+					'menu-item-status' => 'publish',
+					'menu-item-type'   => 'custom',
+				)
+			);
+		}
+
+		return (int) $menu_id;
+	}
+
+	return (int) $menu->term_id;
+}
+
+function gat_default_privacy_content() {
+	return '
+<p class="privacy-notice"><strong>O Grupo Araujo Tratamentos respeita a privacidade dos usuarios e esta comprometido com a protecao dos dados pessoais, em conformidade com a Lei Geral de Protecao de Dados (LGPD - Lei no 13.709/2018).</strong></p>
+
+<h2>1. Coleta de Informacoes</h2>
+<p>Podemos coletar informacoes fornecidas voluntariamente pelo usuario, como:</p>
+<ul>
+<li>Nome</li>
+<li>Telefone</li>
+<li>Endereco de e-mail</li>
+<li>Informacoes enviadas por meio dos formularios do site</li>
+</ul>
+
+<h2>2. Utilizacao das Informacoes</h2>
+<p>As informacoes coletadas sao utilizadas para responder solicitacoes de contato, fornecer informacoes sobre nossos servicos, melhorar a experiencia do usuario no site e cumprir obrigacoes legais.</p>
+
+<h2>3. Compartilhamento de Dados</h2>
+<p>O Grupo Araujo Tratamentos nao comercializa dados pessoais e podera compartilha-los apenas quando necessario para cumprimento de obrigacoes legais.</p>
+
+<h2>4. Seguranca das Informacoes</h2>
+<p>Adotamos medidas de seguranca para proteger os dados pessoais contra acessos nao autorizados, perdas ou alteracoes indevidas.</p>
+
+<h2>5. Direitos do Usuario</h2>
+<p>O usuario podera solicitar acesso aos seus dados, correcao de informacoes, exclusao dos dados quando permitido pela legislacao e informacoes sobre o tratamento realizado.</p>
+
+<h2>6. Termos de Uso</h2>
+<p>Ao acessar e utilizar este site, o usuario concorda com as condicoes descritas nestes Termos de Uso.</p>
+<ul>
+<li>O conteudo do site tem finalidade informativa e institucional.</li>
+<li>As informacoes disponibilizadas nao substituem avaliacao, orientacao ou atendimento profissional especializado.</li>
+<li>O usuario compromete-se a utilizar o site de forma etica, licita e respeitosa.</li>
+<li>E proibido utilizar o site para fins ilegais, fraudulentos ou que possam prejudicar o funcionamento da pagina.</li>
+<li>O Grupo Araujo Tratamentos podera atualizar conteudos, servicos e informacoes do site sempre que necessario.</li>
+</ul>
+
+<h2>7. Politica de Cookies</h2>
+<p>Este site pode utilizar cookies e tecnologias semelhantes para melhorar a navegacao, compreender o uso da pagina e aperfeicoar a experiencia do usuario.</p>
+<p>O usuario pode configurar seu navegador para bloquear ou excluir cookies. No entanto, algumas funcionalidades do site podem nao funcionar corretamente caso os cookies sejam desativados.</p>
+
+<h2>8. Contato</h2>
+<p>Em caso de duvidas sobre esta Politica de Privacidade, entre em contato com o Grupo Araujo Tratamentos.</p>';
+}
+
+function gat_ensure_privacy_page() {
+	$page = get_page_by_path( 'politica-de-privacidade' );
+
+	if ( $page ) {
+		if ( 'template-politica-privacidade.php' !== get_page_template_slug( $page->ID ) ) {
+			update_post_meta( $page->ID, '_wp_page_template', 'template-politica-privacidade.php' );
+		}
+
+		return (int) $page->ID;
+	}
+
+	$page_id = wp_insert_post(
+		array(
+			'post_type'    => 'page',
+			'post_status'  => 'publish',
+			'post_name'    => 'politica-de-privacidade',
+			'post_title'   => 'Politica de Privacidade, Termos de Uso e Cookies',
+			'post_excerpt' => 'O Grupo Araujo Tratamentos respeita a privacidade dos usuarios e esta comprometido com a protecao dos dados pessoais.',
+			'post_content' => gat_default_privacy_content(),
+		)
+	);
+
+	if ( ! is_wp_error( $page_id ) && $page_id ) {
+		update_post_meta( $page_id, '_wp_page_template', 'template-politica-privacidade.php' );
+		return (int) $page_id;
+	}
+
+	return 0;
+}
+
+function gat_ensure_default_navigation() {
+	if ( get_option( 'gat_default_navigation_seeded' ) ) {
+		return;
+	}
+
+	$privacy_id    = gat_ensure_privacy_page();
+	$primary_links = gat_default_nav_links();
+	$footer_links  = $primary_links;
+
+	if ( $privacy_id ) {
+		$footer_links[] = array(
+			'title' => 'Politica de Privacidade',
+			'url'   => get_permalink( $privacy_id ),
+		);
+	}
+
+	$locations       = (array) get_theme_mod( 'nav_menu_locations', array() );
+	$primary_menu_id = gat_get_or_create_menu( 'Menu Principal Grupo Araujo', $primary_links );
+	$footer_menu_id  = gat_get_or_create_menu( 'Menu Rodape Grupo Araujo', $footer_links );
+
+	if ( empty( $locations['primary'] ) && $primary_menu_id ) {
+		$locations['primary'] = $primary_menu_id;
+	}
+
+	if ( empty( $locations['footer'] ) && $footer_menu_id ) {
+		$locations['footer'] = $footer_menu_id;
+	}
+
+	set_theme_mod( 'nav_menu_locations', $locations );
+	update_option( 'gat_default_navigation_seeded', 1 );
+}
+add_action( 'after_switch_theme', 'gat_ensure_default_navigation' );
+add_action( 'admin_init', 'gat_ensure_default_navigation' );
+add_action( 'init', 'gat_ensure_default_navigation', 20 );
+
+function gat_health_plan_legacy_items() {
+	$items = array();
 	for ( $index = 1; $index <= 12; $index++ ) {
 		$image = get_theme_mod( 'gat_health_plan_image_' . $index );
 		if ( $image ) {
-			$images[] = $image;
+			$items[] = array(
+				'name'  => sprintf( 'Plano de saude %d', $index ),
+				'image' => $image,
+			);
 		}
 	}
-	return $images;
+	return $items;
+}
+
+function gat_default_health_plan_items() {
+	$items      = gat_health_plan_legacy_items();
+	$unimed_url = get_template_directory_uri() . '/assets/img/health-plans/unimed.webp';
+
+	foreach ( $items as $item ) {
+		if ( ! empty( $item['image'] ) && $unimed_url === $item['image'] ) {
+			return $items;
+		}
+	}
+
+	$items[] = array(
+		'name'  => 'Unimed',
+		'image' => $unimed_url,
+	);
+
+	return $items;
+}
+
+function gat_health_plan_items_to_text( $items ) {
+	$lines = array();
+
+	foreach ( $items as $item ) {
+		if ( empty( $item['image'] ) ) {
+			continue;
+		}
+
+		$name    = ! empty( $item['name'] ) ? $item['name'] : 'Plano de saude';
+		$lines[] = $name . ' | ' . $item['image'];
+	}
+
+	return implode( "\n", $lines );
+}
+
+function gat_parse_health_plan_items( $value ) {
+	$items = array();
+	$lines = preg_split( '/\r\n|\r|\n/', (string) $value );
+
+	foreach ( $lines as $line ) {
+		$line = trim( $line );
+
+		if ( ! $line ) {
+			continue;
+		}
+
+		$parts = array_map( 'trim', explode( '|', $line, 2 ) );
+		$name  = count( $parts ) > 1 ? sanitize_text_field( $parts[0] ) : '';
+		$image = count( $parts ) > 1 ? $parts[1] : $parts[0];
+		$image = esc_url_raw( $image );
+
+		if ( ! $image ) {
+			continue;
+		}
+
+		if ( ! $name ) {
+			$name = ucfirst( preg_replace( '/[-_]+/', ' ', pathinfo( wp_parse_url( $image, PHP_URL_PATH ), PATHINFO_FILENAME ) ) );
+		}
+
+		$items[] = array(
+			'name'  => $name,
+			'image' => $image,
+		);
+	}
+
+	return $items;
+}
+
+function gat_sanitize_health_plan_items( $value ) {
+	return gat_health_plan_items_to_text( gat_parse_health_plan_items( $value ) );
+}
+
+function gat_health_plan_items_default_text() {
+	return gat_health_plan_items_to_text( gat_default_health_plan_items() );
+}
+
+function gat_health_plan_items() {
+	$saved_items = get_theme_mod( 'gat_health_plans_items', null );
+
+	if ( null === $saved_items || '' === trim( (string) $saved_items ) ) {
+		return gat_default_health_plan_items();
+	}
+
+	return gat_parse_health_plan_items( $saved_items );
 }
 
 function gat_render_health_plans_section() {
-	$images = gat_health_plan_images();
+	$items = gat_health_plan_items();
 	ob_start();
 	?>
 	<section id="planos-saude" class="section health-plans-section">
@@ -368,20 +659,20 @@ function gat_render_health_plans_section() {
 				<h2><?php echo esc_html( get_theme_mod( 'gat_health_plans_title', 'Planos de Saúde' ) ); ?></h2>
 				<p><?php echo esc_html( get_theme_mod( 'gat_health_plans_text', 'Consulte nossa equipe para verificar cobertura, disponibilidade e condições de atendimento.' ) ); ?></p>
 			</div>
-			<?php if ( $images ) : ?>
+			<?php if ( $items ) : ?>
 				<div class="health-plans-carousel swiper" data-health-plans-carousel data-aos="fade-up">
 					<div class="swiper-wrapper">
-						<?php foreach ( $images as $index => $image ) : ?>
+						<?php foreach ( $items as $index => $item ) : ?>
 							<div class="swiper-slide">
 								<div class="health-plan-logo">
-									<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( sprintf( 'Plano de saúde %d', $index + 1 ) ); ?>" loading="lazy">
+									<img src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( $item['name'] ); ?>" loading="lazy">
 								</div>
 							</div>
 						<?php endforeach; ?>
 					</div>
 				</div>
 			<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
-				<p class="health-plans-empty"><?php esc_html_e( 'Adicione imagens em Aparência > Personalizar > Carrossel - Planos de Saúde.', 'grupo-araujo' ); ?></p>
+				<p class="health-plans-empty"><?php esc_html_e( 'Adicione os planos em Aparência > Personalizar > Carrossel - Planos de Saúde.', 'grupo-araujo' ); ?></p>
 			<?php endif; ?>
 		</div>
 	</section>

@@ -30,7 +30,7 @@ get_header();
 				<?php endif; ?>
 
 				<div class="entry-content">
-					<?php the_content(); ?>
+					<?php echo gat_get_single_content_without_duplicate_title(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php
 					wp_link_pages(
 						array(
