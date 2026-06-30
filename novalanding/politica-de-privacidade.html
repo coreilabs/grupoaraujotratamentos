@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Política de Privacidade, Termos de Uso e Política de Cookies do Grupo Araújo Tratamentos.">
+  <meta name="author" content="Grupo Araújo Tratamentos">
+  <meta name="theme-color" content="#038291">
+
+  <meta property="og:title" content="Política de Privacidade, Termos de Uso e Cookies | Grupo Araújo Tratamentos">
+  <meta property="og:description" content="Saiba como o Grupo Araújo Tratamentos trata dados pessoais, termos de navegação e cookies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://grupoaraujotratamentos.com.br/politica-de-privacidade.html">
+  <meta property="og:image" content="https://grupoaraujotratamentos.com.br/og.png">
+
+  <title>Política de Privacidade, Termos de Uso e Cookies | Grupo Araújo Tratamentos</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preload" as="image" href="logotipo-horizontal-branco.png">
+  <style>
+    :root {
+      --brand: #038291;
+      --brand-dark: #015a60;
+      --accent: #e66a4e;
+      --ink: #123033;
+      --muted: #5f7477;
+      --white: #ffffff;
+      --soft: #f4f8f8;
+      --line: #dcebec;
+      --shadow: 0 18px 48px rgba(1, 90, 96, 0.14);
+      --radius: 8px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+    }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .privacy-hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(0, 39, 45, 0.94), rgba(0, 71, 79, 0.78) 54%, rgba(2, 31, 36, 0.68)),
+        url("site/assets/img/backgrounds/chacara-piscina-03.webp") center / cover no-repeat;
+    }
+
+    .privacy-hero .container {
+      min-height: min(430px, 72svh);
+      display: grid;
+      align-content: center;
+      gap: 24px;
+      padding: 34px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .topbar img {
+      width: min(360px, 70vw);
+      height: auto;
+      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.28));
+    }
+
+    .back-link {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.12);
+      font-size: 14px;
+      font-weight: 800;
+      transition: background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .back-link:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.35rem, 5vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .hero-lead {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+    }
+
+    .privacy-main {
+      padding: 54px 0 70px;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f4f8f8 100%);
+    }
+
+    .privacy-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .policy-card,
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .policy-card {
+      padding: clamp(24px, 4vw, 44px);
+    }
+
+    .notice {
+      margin: 0 0 28px;
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      color: var(--ink);
+      background: #fff4f1;
+      font-weight: 700;
+    }
+
+    .policy-section + .policy-section {
+      margin-top: 34px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .contact-card {
+      position: sticky;
+      top: 24px;
+      padding: 22px;
+    }
+
+    .contact-card h2 {
+      font-size: 1.25rem;
+    }
+
+    .contact-card p,
+    .policy-card p,
+    .policy-card li {
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-actions a {
+      display: flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      color: var(--white);
+      background: var(--brand);
+      font-weight: 800;
+      text-align: center;
+      transition: transform 180ms ease, background-color 180ms ease;
+    }
+
+    .contact-actions a:hover {
+      transform: translateY(-2px);
+      background: var(--brand-dark);
+    }
+
+    .contact-actions a.secondary {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .contact-actions a.secondary:hover {
+      background: var(--soft);
+    }
+
+    .site-footer {
+      padding: 28px 0;
+      color: rgba(255, 255, 255, 0.76);
+      background: #123033;
+      font-size: 14px;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .footer-row a {
+      color: var(--white);
+      font-weight: 800;
+    }
+
+    @media (max-width: 820px) {
+      .privacy-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        position: static;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .privacy-hero .container {
+        min-height: auto;
+        padding: 22px 0 38px;
+      }
+
+      .topbar img {
+        width: min(270px, 76vw);
+      }
+
+      .back-link,
+      .contact-actions a {
+        width: 100%;
+      }
+
+      .footer-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="privacy-hero">
+    <div class="container">
+      <div class="topbar">
+        <a href="index.html" aria-label="Voltar para a página inicial">
+          <img src="logotipo-horizontal-branco.png" alt="Grupo Araújo Tratamentos">
+        </a>
+        <a class="back-link" href="site/">Voltar ao site</a>
+      </div>
+
+      <div>
+        <p class="eyebrow">Proteção de dados e LGPD</p>
+        <h1>Política de Privacidade, Termos de Uso e Cookies</h1>
+        <p class="hero-lead">O Grupo Araújo Tratamentos respeita a privacidade dos usuários e está comprometido com a proteção dos dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="privacy-main">
+    <div class="container privacy-layout">
+      <article class="policy-card" aria-label="Política de Privacidade do Grupo Araújo Tratamentos">
+        <p class="notice">O Grupo Araújo Tratamentos respeita a privacidade dos usuários e está comprometido com a proteção dos dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+
+        <section class="policy-section">
+          <h2>1. Coleta de Informações</h2>
+          <p>Podemos coletar informações fornecidas voluntariamente pelo usuário, como:</p>
+          <ul>
+            <li>Nome</li>
+            <li>Telefone</li>
+            <li>Endereço de e-mail</li>
+            <li>Informações enviadas por meio dos formulários do site</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>2. Utilização das Informações</h2>
+          <p>As informações coletadas são utilizadas para:</p>
+          <ul>
+            <li>Responder solicitações de contato</li>
+            <li>Fornecer informações sobre nossos serviços</li>
+            <li>Melhorar a experiência do usuário no site</li>
+            <li>Cumprir obrigações legais</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>3. Compartilhamento de Dados</h2>
+          <p>O Grupo Araújo Tratamentos não comercializa dados pessoais e poderá compartilhá-los apenas quando necessário para cumprimento de obrigações legais.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>4. Segurança das Informações</h2>
+          <p>Adotamos medidas de segurança para proteger os dados pessoais contra acessos não autorizados, perdas ou alterações indevidas.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>5. Direitos do Usuário</h2>
+          <p>O usuário poderá solicitar:</p>
+          <ul>
+            <li>Acesso aos seus dados</li>
+            <li>Correção de informações</li>
+            <li>Exclusão dos dados, quando permitido pela legislação</li>
+            <li>Informações sobre o tratamento realizado</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>6. Termos de Uso</h2>
+          <p>Ao acessar e utilizar este site, o usuário concorda com as condições descritas nestes Termos de Uso.</p>
+          <ul>
+            <li>O conteúdo do site tem finalidade informativa e institucional.</li>
+            <li>As informações disponibilizadas não substituem avaliação, orientação ou atendimento profissional especializado.</li>
+            <li>O usuário compromete-se a utilizar o site de forma ética, lícita e respeitosa.</li>
+            <li>É proibido utilizar o site para fins ilegais, fraudulentos ou que possam prejudicar o funcionamento da página.</li>
+            <li>O Grupo Araújo Tratamentos poderá atualizar conteúdos, serviços e informações do site sempre que necessário.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h2>7. Política de Cookies</h2>
+          <p>Este site pode utilizar cookies e tecnologias semelhantes para melhorar a navegação, compreender o uso da página e aperfeiçoar a experiência do usuário.</p>
+          <p>Os cookies podem ser utilizados para:</p>
+          <ul>
+            <li>Garantir o funcionamento adequado do site;</li>
+            <li>Memorizar preferências de navegação;</li>
+            <li>Analisar métricas de acesso e desempenho;</li>
+            <li>Apoiar melhorias nos conteúdos e serviços oferecidos.</li>
+          </ul>
+          <p>O usuário pode configurar seu navegador para bloquear ou excluir cookies. No entanto, algumas funcionalidades do site podem não funcionar corretamente caso os cookies sejam desativados.</p>
+        </section>
+
+        <section class="policy-section">
+          <h2>8. Contato</h2>
+          <p>Em caso de dúvidas sobre esta Política de Privacidade, entre em contato:</p>
+          <p><strong>Grupo Araújo Tratamentos</strong></p>
+          <ul>
+            <li>WhatsApp: 0800 575 7714</li>
+            <li>Site: <a href="https://www.grupoaraujotratamentos.com.br" target="_blank" rel="noopener">www.grupoaraujotratamentos.com.br</a></li>
+            <li>CNPJ: 67.252.579/0001-50</li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="contact-card" aria-label="Canais de contato">
+        <h2>Canais de contato</h2>
+        <p>Em caso de dúvidas sobre esta Política de Privacidade, entre em contato com o Grupo Araújo Tratamentos.</p>
+        <p><strong>WhatsApp:</strong> 0800 575 7714</p>
+        <p><strong>Site:</strong> www.grupoaraujotratamentos.com.br</p>
+        <p><strong>CNPJ:</strong> 67.252.579/0001-50</p>
+        <div class="contact-actions">
+          <a href="https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pela%20p%C3%A1gina%20de%20Pol%C3%ADtica%20de%20Privacidade%20e%20gostaria%20de%20falar%20sobre%20meus%20dados%20pessoais." target="_blank" rel="noopener">Conversar no WhatsApp</a>
+          <a class="secondary" href="tel:08005757714">Ligar para 0800 575 7714</a>
+          <a class="secondary" href="https://www.grupoaraujotratamentos.com.br" target="_blank" rel="noopener">Acessar o site</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>© Grupo Araújo Tratamentos. Todos os direitos reservados.</span>
+      <a href="site/">Voltar ao site principal</a>
+    </div>
+  </footer>
+</body>
+</html>
