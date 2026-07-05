@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Arquivo de Publicações
+ * Template Name: Modelo Ultimas Publicacoes
  * Template Post Type: page
  *
  * @package Grupo_Araujo
@@ -9,7 +9,7 @@
 get_header();
 
 $paged = max( 1, get_query_var( 'paged' ), get_query_var( 'page' ) );
-$archive_query = new WP_Query(
+$posts = new WP_Query(
 	array(
 		'post_type'           => 'post',
 		'post_status'         => 'publish',
@@ -18,26 +18,24 @@ $archive_query = new WP_Query(
 	)
 );
 ?>
-<main class="section section-white blog-archive-page">
+<main class="section section-white">
 	<div class="container content-layout">
 		<section class="posts-listing">
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
-				<header class="archive-header blog-archive-header taxonomy-archive-header blog-index-header">
-					<div class="taxonomy-archive-heading">
-						<p class="eyebrow"><?php esc_html_e( 'Blog', 'grupo-araujo' ); ?></p>
-						<h1><?php the_title(); ?></h1>
-						<?php if ( get_the_content() ) : ?>
-							<div class="archive-description"><?php the_content(); ?></div>
-						<?php endif; ?>
-					</div>
+				<header class="archive-header">
+					<p class="eyebrow"><?php esc_html_e( 'Blog', 'grupo-araujo' ); ?></p>
+					<h1><?php the_title(); ?></h1>
+					<?php if ( get_the_content() ) : ?>
+						<div class="archive-description"><?php the_content(); ?></div>
+					<?php endif; ?>
 				</header>
 			<?php endwhile; ?>
 
-			<?php if ( $archive_query->have_posts() ) : ?>
+			<?php if ( $posts->have_posts() ) : ?>
 				<div class="post-list">
-					<?php while ( $archive_query->have_posts() ) : ?>
-						<?php $archive_query->the_post(); ?>
+					<?php while ( $posts->have_posts() ) : ?>
+						<?php $posts->the_post(); ?>
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-list-item' ); ?>>
 							<a class="post-list-image" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( get_the_title() ); ?>">
 								<?php if ( has_post_thumbnail() ) : ?>
@@ -62,7 +60,7 @@ $archive_query = new WP_Query(
 					echo wp_kses_post(
 						paginate_links(
 							array(
-								'total'     => $archive_query->max_num_pages,
+								'total'     => $posts->max_num_pages,
 								'current'   => $paged,
 								'mid_size'  => 1,
 								'prev_text' => __( 'Anteriores', 'grupo-araujo' ),

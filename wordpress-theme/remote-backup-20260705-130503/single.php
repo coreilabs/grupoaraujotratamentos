@@ -22,8 +22,6 @@ get_header();
 					<?php endif; ?>
 				</header>
 
-				<?php gat_render_article_share(); ?>
-
 				<?php do_action( 'gat_before_single_post' ); ?>
 				<?php if ( is_active_sidebar( 'single-before' ) ) : ?>
 					<div class="single-widget-area single-widget-area-before">
@@ -46,8 +44,6 @@ get_header();
 				<footer class="entry-footer">
 					<?php the_tags( '<div class="entry-tags">', ' ', '</div>' ); ?>
 				</footer>
-
-				<?php gat_render_article_institutional(); ?>
 
 				<?php do_action( 'gat_after_single_post' ); ?>
 				<?php if ( is_active_sidebar( 'single-after' ) ) : ?>

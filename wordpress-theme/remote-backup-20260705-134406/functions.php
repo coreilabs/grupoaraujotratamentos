@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GAT_THEME_VERSION', '3.0.15' );
+define( 'GAT_THEME_VERSION', '3.0.7' );
 
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/unidades.php';
@@ -472,56 +472,6 @@ function gat_render_pagination() {
 	);
 }
 
-function gat_ensure_latest_posts_page() {
-	$page = get_page_by_path( 'publicacoes' );
-
-	if ( $page ) {
-		if ( 'template-latest-posts.php' !== get_page_template_slug( $page->ID ) ) {
-			update_post_meta( $page->ID, '_wp_page_template', 'template-latest-posts.php' );
-		}
-
-		return (int) $page->ID;
-	}
-
-	$page_id = wp_insert_post(
-		array(
-			'post_type'    => 'page',
-			'post_status'  => 'publish',
-			'post_name'    => 'publicacoes',
-			'post_title'   => 'Publicações',
-			'post_excerpt' => 'Conteúdos informativos do Grupo Araújo Tratamentos sobre dependência química, alcoolismo, família e recuperação.',
-			'post_content' => '<p>Conteúdos informativos para famílias e pessoas que buscam orientação sobre dependência química, alcoolismo, tratamento e recuperação.</p>',
-		)
-	);
-
-	if ( ! is_wp_error( $page_id ) && $page_id ) {
-		update_post_meta( $page_id, '_wp_page_template', 'template-latest-posts.php' );
-		return (int) $page_id;
-	}
-
-	return 0;
-}
-
-function gat_get_latest_posts_url() {
-	$page_id = gat_ensure_latest_posts_page();
-
-	if ( $page_id ) {
-		return get_permalink( $page_id );
-	}
-
-	$posts_page_id = (int) get_option( 'page_for_posts' );
-
-	if ( $posts_page_id ) {
-		return get_permalink( $posts_page_id );
-	}
-
-	return home_url( '/' );
-}
-
-add_action( 'after_switch_theme', 'gat_ensure_latest_posts_page' );
-add_action( 'admin_init', 'gat_ensure_latest_posts_page' );
-add_action( 'init', 'gat_ensure_latest_posts_page', 21 );
-
 function gat_get_single_content_without_duplicate_title() {
 	$content = apply_filters( 'the_content', get_the_content() );
 
@@ -885,12 +835,6 @@ function gat_render_latest_posts_section() {
 							</div>
 						</article>
 					<?php endwhile; ?>
-				</div>
-				<div class="latest-posts-action" data-aos="fade-up">
-					<a class="btn btn-primary latest-posts-archive-button" href="<?php echo esc_url( gat_get_latest_posts_url() ); ?>">
-						<i data-lucide="newspaper"></i>
-						<span><?php esc_html_e( 'Ver todas as publicações', 'grupo-araujo' ); ?></span>
-					</a>
 				</div>
 			<?php else : ?>
 				<p class="latest-posts-empty"><?php esc_html_e( 'As publicações mais recentes aparecerão aqui.', 'grupo-araujo' ); ?></p>

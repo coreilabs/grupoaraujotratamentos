@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GAT_THEME_VERSION', '3.0.15' );
+define( 'GAT_THEME_VERSION', '3.0.6' );
 
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/unidades.php';
@@ -347,120 +347,6 @@ function gat_posted_on() {
 	);
 }
 
-function gat_get_whatsapp_number() {
-	return preg_replace( '/\D+/', '', get_theme_mod( 'gat_whatsapp', '5508005757714' ) );
-}
-
-function gat_get_whatsapp_url( $message = '' ) {
-	$url = 'https://wa.me/' . gat_get_whatsapp_number();
-
-	if ( $message ) {
-		$url = add_query_arg( 'text', $message, $url );
-	}
-
-	return $url;
-}
-
-function gat_share_icon( $network ) {
-	$icons = array(
-		'whatsapp' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.86 9.86 0 0 0-8.43 14.96L2.4 21.6l4.76-1.18A9.87 9.87 0 1 0 12.04 2Zm.01 1.8a8.06 8.06 0 0 1 6.83 12.36 8.05 8.05 0 0 1-10.8 2.54l-.34-.2-2.82.7.72-2.74-.22-.36a8.06 8.06 0 0 1 6.63-12.3Zm-3.4 4.22c-.17 0-.45.06-.69.33-.24.26-.9.88-.9 2.14 0 1.25.92 2.47 1.04 2.64.13.17 1.78 2.84 4.39 3.86 2.17.86 2.62.69 3.09.64.47-.04 1.52-.62 1.73-1.22.21-.6.21-1.12.15-1.22-.06-.11-.24-.17-.5-.3-.26-.13-1.53-.76-1.77-.84-.24-.09-.41-.13-.58.13-.17.25-.67.83-.82 1-.15.17-.3.19-.56.06-.26-.13-1.09-.4-2.08-1.28-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.07-.13-.58-1.4-.8-1.92-.2-.5-.41-.43-.58-.44h-.5Z"/></svg>',
-		'facebook' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 8.6V6.9c0-.8.55-1 1.02-1h1.96V2.62A26.8 26.8 0 0 0 14.3 2c-2.85 0-4.8 1.74-4.8 4.94V8.6H6.28v3.67H9.5V22h3.96v-9.73h3.1l.5-3.67H14.2Z"/></svg>',
-		'x'        => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.8 10.47 21.07 2h-1.72l-6.31 7.35L8 2H2.2l7.62 11.08L2.2 22h1.72l6.66-7.75L15.9 22h5.8l-7.9-11.53Zm-2.36 2.75-.77-1.1L4.52 3.3h2.65l4.96 7.1.77 1.1 6.46 9.26h-2.65l-5.27-7.54Z"/></svg>',
-		'linkedin' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 8.8H1.9V22h3.3V8.8ZM3.55 2.4A1.93 1.93 0 1 0 3.5 6.25h.03A1.93 1.93 0 1 0 3.55 2.4ZM22.1 14.43c0-3.56-1.9-5.22-4.44-5.22a3.82 3.82 0 0 0-3.47 1.92V8.8h-3.3c.04 1.24 0 13.2 0 13.2h3.3v-7.37c0-.4.03-.79.15-1.07.32-.79 1.05-1.6 2.28-1.6 1.6 0 2.25 1.22 2.25 3.02V22h3.3v-7.57Z"/></svg>',
-		'telegram' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.74 3.68c.25-1.05-.38-1.46-1.12-1.16L2.86 9.37c-1.22.48-1.2 1.16-.22 1.46l4.56 1.42 10.56-6.66c.5-.3.95-.14.58.2l-8.55 7.72-.32 4.74c.47 0 .68-.22.94-.48l2.26-2.2 4.7 3.47c.87.48 1.49.23 1.7-.8l2.67-14.56Z"/></svg>',
-		'native'   => '<i data-lucide="share-2"></i>',
-		'copy'     => '<i data-lucide="copy"></i>',
-	);
-
-	return $icons[ $network ] ?? '';
-}
-
-function gat_render_article_share() {
-	$url           = get_permalink();
-	$title         = get_the_title();
-	$encoded_url   = rawurlencode( $url );
-	$encoded_title = rawurlencode( $title );
-	$whatsapp_text = sprintf( 'Confira este artigo do Grupo Araújo Tratamentos: %s %s', $title, $url );
-	$share_links   = array(
-		array(
-			'network' => 'whatsapp',
-			'label'   => 'WhatsApp',
-			'url'     => gat_get_whatsapp_url( $whatsapp_text ),
-		),
-		array(
-			'network' => 'facebook',
-			'label'   => 'Facebook',
-			'url'     => 'https://www.facebook.com/sharer/sharer.php?u=' . $encoded_url,
-		),
-		array(
-			'network' => 'x',
-			'label'   => 'X',
-			'url'     => 'https://twitter.com/intent/tweet?url=' . $encoded_url . '&text=' . $encoded_title,
-		),
-		array(
-			'network' => 'linkedin',
-			'label'   => 'LinkedIn',
-			'url'     => 'https://www.linkedin.com/sharing/share-offsite/?url=' . $encoded_url,
-		),
-		array(
-			'network' => 'telegram',
-			'label'   => 'Telegram',
-			'url'     => 'https://t.me/share/url?url=' . $encoded_url . '&text=' . $encoded_title,
-		),
-	);
-	?>
-	<section class="article-share" aria-labelledby="article-share-title" data-share-section>
-		<div class="article-share-heading">
-			<p class="eyebrow"><?php esc_html_e( 'Compartilhamento', 'grupo-araujo' ); ?></p>
-			<h2 id="article-share-title"><?php esc_html_e( 'Compartilhe este artigo', 'grupo-araujo' ); ?></h2>
-		</div>
-		<div class="article-share-actions">
-			<?php foreach ( $share_links as $link ) : ?>
-				<a class="share-button share-<?php echo esc_attr( $link['network'] ); ?>" href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" rel="noopener noreferrer">
-					<?php echo gat_share_icon( $link['network'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<span><?php echo esc_html( $link['label'] ); ?></span>
-				</a>
-			<?php endforeach; ?>
-			<button class="share-button share-native" type="button" data-native-share data-share-title="<?php echo esc_attr( $title ); ?>" data-share-url="<?php echo esc_url( $url ); ?>">
-				<?php echo gat_share_icon( 'native' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<span><?php esc_html_e( 'Compartilhar', 'grupo-araujo' ); ?></span>
-			</button>
-		</div>
-		<div class="article-share-copy">
-			<label for="article-share-url"><?php esc_html_e( 'Link do artigo', 'grupo-araujo' ); ?></label>
-			<div class="share-copy-control">
-				<input id="article-share-url" type="url" value="<?php echo esc_url( $url ); ?>" readonly data-share-url-field>
-				<button type="button" data-copy-share-url>
-					<?php echo gat_share_icon( 'copy' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<span><?php esc_html_e( 'Copiar', 'grupo-araujo' ); ?></span>
-				</button>
-			</div>
-			<p class="share-copy-feedback" data-copy-feedback hidden><?php esc_html_e( 'Link copiado.', 'grupo-araujo' ); ?></p>
-		</div>
-	</section>
-	<?php
-}
-
-function gat_render_article_institutional() {
-	$message = 'Olá, equipe do Grupo Araújo Tratamentos. Li uma publicação no site e gostaria de conversar sobre atendimento e orientação.';
-	?>
-	<section class="article-institutional" aria-labelledby="article-institutional-title">
-		<div class="article-institutional-logo">
-			<img src="<?php echo esc_url( get_template_directory_uri() . '/logotipo-vertical.png' ); ?>" alt="<?php esc_attr_e( 'Grupo Araújo Tratamentos', 'grupo-araujo' ); ?>" loading="lazy">
-		</div>
-		<div class="article-institutional-content">
-			<p class="eyebrow"><?php esc_html_e( 'Grupo Araújo Tratamentos', 'grupo-araujo' ); ?></p>
-			<h2 id="article-institutional-title"><?php esc_html_e( 'Acolhimento e orientação para famílias', 'grupo-araujo' ); ?></h2>
-			<p><?php esc_html_e( 'Atuamos com atendimento humanizado, escuta responsável e encaminhamento para unidades parceiras conforme o perfil de cada caso. Nossa equipe está disponível para orientar famílias com sigilo, respeito e cuidado.', 'grupo-araujo' ); ?></p>
-			<a class="btn btn-primary" href="<?php echo esc_url( gat_get_whatsapp_url( $message ) ); ?>" target="_blank" rel="noopener">
-				<i data-lucide="message-circle"></i>
-				<span><?php esc_html_e( 'Entrar em contato pelo WhatsApp', 'grupo-araujo' ); ?></span>
-			</a>
-		</div>
-	</section>
-	<?php
-}
-
 function gat_render_pagination() {
 	the_posts_pagination(
 		array(
@@ -471,56 +357,6 @@ function gat_render_pagination() {
 		)
 	);
 }
-
-function gat_ensure_latest_posts_page() {
-	$page = get_page_by_path( 'publicacoes' );
-
-	if ( $page ) {
-		if ( 'template-latest-posts.php' !== get_page_template_slug( $page->ID ) ) {
-			update_post_meta( $page->ID, '_wp_page_template', 'template-latest-posts.php' );
-		}
-
-		return (int) $page->ID;
-	}
-
-	$page_id = wp_insert_post(
-		array(
-			'post_type'    => 'page',
-			'post_status'  => 'publish',
-			'post_name'    => 'publicacoes',
-			'post_title'   => 'Publicações',
-			'post_excerpt' => 'Conteúdos informativos do Grupo Araújo Tratamentos sobre dependência química, alcoolismo, família e recuperação.',
-			'post_content' => '<p>Conteúdos informativos para famílias e pessoas que buscam orientação sobre dependência química, alcoolismo, tratamento e recuperação.</p>',
-		)
-	);
-
-	if ( ! is_wp_error( $page_id ) && $page_id ) {
-		update_post_meta( $page_id, '_wp_page_template', 'template-latest-posts.php' );
-		return (int) $page_id;
-	}
-
-	return 0;
-}
-
-function gat_get_latest_posts_url() {
-	$page_id = gat_ensure_latest_posts_page();
-
-	if ( $page_id ) {
-		return get_permalink( $page_id );
-	}
-
-	$posts_page_id = (int) get_option( 'page_for_posts' );
-
-	if ( $posts_page_id ) {
-		return get_permalink( $posts_page_id );
-	}
-
-	return home_url( '/' );
-}
-
-add_action( 'after_switch_theme', 'gat_ensure_latest_posts_page' );
-add_action( 'admin_init', 'gat_ensure_latest_posts_page' );
-add_action( 'init', 'gat_ensure_latest_posts_page', 21 );
 
 function gat_get_single_content_without_duplicate_title() {
 	$content = apply_filters( 'the_content', get_the_content() );
@@ -885,12 +721,6 @@ function gat_render_latest_posts_section() {
 							</div>
 						</article>
 					<?php endwhile; ?>
-				</div>
-				<div class="latest-posts-action" data-aos="fade-up">
-					<a class="btn btn-primary latest-posts-archive-button" href="<?php echo esc_url( gat_get_latest_posts_url() ); ?>">
-						<i data-lucide="newspaper"></i>
-						<span><?php esc_html_e( 'Ver todas as publicações', 'grupo-araujo' ); ?></span>
-					</a>
 				</div>
 			<?php else : ?>
 				<p class="latest-posts-empty"><?php esc_html_e( 'As publicações mais recentes aparecerão aqui.', 'grupo-araujo' ); ?></p>

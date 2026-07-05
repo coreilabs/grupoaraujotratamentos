@@ -23,14 +23,22 @@ $archive_query = new WP_Query(
 		<section class="posts-listing">
 			<?php while ( have_posts() ) : ?>
 				<?php the_post(); ?>
-				<header class="archive-header blog-archive-header taxonomy-archive-header blog-index-header">
-					<div class="taxonomy-archive-heading">
+				<header class="archive-header blog-archive-header">
+					<div>
 						<p class="eyebrow"><?php esc_html_e( 'Blog', 'grupo-araujo' ); ?></p>
 						<h1><?php the_title(); ?></h1>
 						<?php if ( get_the_content() ) : ?>
 							<div class="archive-description"><?php the_content(); ?></div>
 						<?php endif; ?>
 					</div>
+					<form class="archive-search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<label class="screen-reader-text" for="archive-search-field"><?php esc_html_e( 'Buscar no blog', 'grupo-araujo' ); ?></label>
+						<input id="archive-search-field" type="search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="<?php esc_attr_e( 'Buscar publicações...', 'grupo-araujo' ); ?>">
+						<button type="submit">
+							<i data-lucide="search"></i>
+							<span><?php esc_html_e( 'Buscar', 'grupo-araujo' ); ?></span>
+						</button>
+					</form>
 				</header>
 			<?php endwhile; ?>
 

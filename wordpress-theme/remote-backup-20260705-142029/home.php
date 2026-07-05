@@ -10,14 +10,22 @@ get_header();
 <main class="section section-white blog-archive-page">
 	<div class="container content-layout">
 		<section class="posts-listing">
-			<header class="archive-header blog-archive-header taxonomy-archive-header blog-index-header">
-				<div class="taxonomy-archive-heading">
+			<header class="archive-header blog-archive-header">
+				<div>
 					<p class="eyebrow"><?php esc_html_e( 'Blog', 'grupo-araujo' ); ?></p>
 					<h1><?php single_post_title(); ?></h1>
 					<div class="archive-description">
 						<p><?php esc_html_e( 'Conteúdos informativos para famílias e pessoas que buscam orientação sobre dependência química, alcoolismo, tratamento e recuperação.', 'grupo-araujo' ); ?></p>
 					</div>
 				</div>
+				<form class="archive-search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<label class="screen-reader-text" for="archive-search-field"><?php esc_html_e( 'Buscar no blog', 'grupo-araujo' ); ?></label>
+					<input id="archive-search-field" type="search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="<?php esc_attr_e( 'Buscar publicações...', 'grupo-araujo' ); ?>">
+					<button type="submit">
+						<i data-lucide="search"></i>
+						<span><?php esc_html_e( 'Buscar', 'grupo-araujo' ); ?></span>
+					</button>
+				</form>
 			</header>
 
 			<?php if ( have_posts() ) : ?>

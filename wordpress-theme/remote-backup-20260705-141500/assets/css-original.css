@@ -2358,15 +2358,6 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.taxonomy-archive-header {
-  grid-template-columns: minmax(0, 1fr) !important;
-}
-
-.taxonomy-archive-heading,
-.taxonomy-archive-heading .archive-description {
-  max-width: none;
-}
-
 .post-list {
   display: grid;
   gap: 22px;

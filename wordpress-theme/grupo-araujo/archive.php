@@ -1,19 +1,35 @@
 <?php
 /**
- * Lista de ultimas publicacoes.
+ * Arquivo de publicacoes, categorias e tags.
  *
  * @package Grupo_Araujo
  */
 
 get_header();
+
+$archive_title = get_the_archive_title();
+
+if ( is_tag() ) {
+	$archive_title = sprintf(
+		/* translators: %s: tag name. */
+		__( 'Publicações sobre %s', 'grupo-araujo' ),
+		single_tag_title( '', false )
+	);
+} elseif ( is_category() ) {
+	$archive_title = sprintf(
+		/* translators: %s: category name. */
+		__( 'Publicações em %s', 'grupo-araujo' ),
+		single_cat_title( '', false )
+	);
+}
 ?>
 <main class="section section-white blog-archive-page">
 	<div class="container content-layout">
 		<section class="posts-listing">
-			<header class="archive-header blog-archive-header taxonomy-archive-header blog-index-header">
+			<header class="archive-header blog-archive-header taxonomy-archive-header">
 				<div class="taxonomy-archive-heading">
 					<p class="eyebrow"><?php esc_html_e( 'Blog', 'grupo-araujo' ); ?></p>
-					<h1><?php single_post_title(); ?></h1>
+					<h1><?php echo esc_html( $archive_title ); ?></h1>
 					<div class="archive-description">
 						<p><?php esc_html_e( 'Conteúdos informativos para famílias e pessoas que buscam orientação sobre dependência química, alcoolismo, tratamento e recuperação.', 'grupo-araujo' ); ?></p>
 					</div>

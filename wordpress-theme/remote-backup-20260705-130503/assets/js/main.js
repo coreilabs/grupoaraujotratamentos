@@ -546,71 +546,6 @@ function inicializarFAQ() {
   });
 }
 
-async function copiarTexto(valor) {
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(valor);
-    return;
-  }
-
-  const temporario = document.createElement("textarea");
-  temporario.value = valor;
-  temporario.setAttribute("readonly", "");
-  temporario.style.position = "fixed";
-  temporario.style.opacity = "0";
-  document.body.appendChild(temporario);
-  temporario.select();
-  document.execCommand("copy");
-  temporario.remove();
-}
-
-function inicializarCompartilhamentoArtigo() {
-  document.querySelectorAll("[data-share-section]").forEach((secao) => {
-    const campoUrl = secao.querySelector("[data-share-url-field]");
-    const botaoCopiar = secao.querySelector("[data-copy-share-url]");
-    const feedback = secao.querySelector("[data-copy-feedback]");
-    const botaoNativo = secao.querySelector("[data-native-share]");
-
-    campoUrl?.addEventListener("click", () => {
-      campoUrl.select();
-    });
-
-    botaoCopiar?.addEventListener("click", async () => {
-      if (!campoUrl?.value) return;
-
-      try {
-        await copiarTexto(campoUrl.value);
-        if (feedback) {
-          feedback.hidden = false;
-          window.clearTimeout(feedback.dataset.timeoutId);
-          feedback.dataset.timeoutId = window.setTimeout(() => {
-            feedback.hidden = true;
-          }, 2600);
-        }
-      } catch (erro) {
-        campoUrl.select();
-      }
-    });
-
-    if (!navigator.share) {
-      botaoNativo?.setAttribute("hidden", "");
-      return;
-    }
-
-    botaoNativo?.addEventListener("click", async () => {
-      try {
-        await navigator.share({
-          title: botaoNativo.dataset.shareTitle || document.title,
-          url: botaoNativo.dataset.shareUrl || window.location.href
-        });
-      } catch (erro) {
-        if (erro?.name !== "AbortError") {
-          campoUrl?.select();
-        }
-      }
-    });
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   definirLinksWhatsapp();
   inicializarAOS();
@@ -621,7 +556,6 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarParallax();
   inicializarMenuMobile();
   inicializarFAQ();
-  inicializarCompartilhamentoArtigo();
 
   if (window.lucide) {
     window.lucide.createIcons();
