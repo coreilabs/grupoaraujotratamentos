@@ -7,12 +7,17 @@
 
 get_header();
 ?>
-<main class="section section-white">
+<main class="section section-white blog-archive-page">
 	<div class="container content-layout">
 		<section class="posts-listing">
-			<header class="archive-header">
-				<p class="eyebrow"><?php esc_html_e( 'Blog', 'grupo-araujo' ); ?></p>
-				<h1><?php single_post_title(); ?></h1>
+			<header class="archive-header blog-archive-header taxonomy-archive-header blog-index-header">
+				<div class="taxonomy-archive-heading">
+					<p class="eyebrow"><?php esc_html_e( 'Blog', 'grupo-araujo' ); ?></p>
+					<h1><?php single_post_title(); ?></h1>
+					<div class="archive-description">
+						<p><?php esc_html_e( 'Conteúdos informativos para famílias e pessoas que buscam orientação sobre dependência química, alcoolismo, tratamento e recuperação.', 'grupo-araujo' ); ?></p>
+					</div>
+				</div>
 			</header>
 
 			<?php if ( have_posts() ) : ?>

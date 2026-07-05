@@ -1,0 +1,207 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Grupo Araújo Tratamentos - início" [ref=e4] [cursor=pointer]:
+        - /url: https://grupoaraujotratamentos.com.br/#inicio
+        - img "grupoaraujotratamentos.com.br" [ref=e5]
+      - navigation "Menu principal" [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Inicio" [ref=e9] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#inicio
+          - listitem [ref=e10]:
+            - link "Sobre" [ref=e11] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#sobre
+          - listitem [ref=e12]:
+            - link "Servicos" [ref=e13] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#servicos
+          - listitem [ref=e14]:
+            - link "Unidades" [ref=e15] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#unidades
+          - listitem [ref=e16]:
+            - link "Diferenciais" [ref=e17] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#diferenciais
+          - listitem [ref=e18]:
+            - link "Contato" [ref=e19] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#contato
+      - link "Fale Conosco" [ref=e20] [cursor=pointer]:
+        - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.
+        - img [ref=e21]
+        - generic [ref=e23]: Fale Conosco
+  - main [ref=e24]:
+    - generic [ref=e25]:
+      - generic:
+        - generic [ref=e26]:
+          - generic:
+            - paragraph: Blog
+            - heading "Publicações sobre recuperação" [level=1]
+            - generic:
+              - paragraph: Conteúdos relacionados a este tema, com informações para famílias e pessoas que buscam orientação sobre tratamento e recuperação.
+          - search [ref=e27]:
+            - generic [ref=e28]: Buscar no blog
+            - searchbox "Buscar no blog" [ref=e29]
+            - button "Buscar" [ref=e30] [cursor=pointer]:
+              - img [ref=e31]
+              - generic [ref=e34]: Buscar
+        - generic:
+          - article [ref=e35]:
+            - link "Como prevenir recaídas após o tratamento" [ref=e36] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/como-prevenir-recaidas-apos-o-tratamento/
+            - generic:
+              - time [ref=e37]: julho 5, 2026
+              - heading "Como prevenir recaídas após o tratamento" [level=2]:
+                - link "Como prevenir recaídas após o tratamento" [ref=e38] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/como-prevenir-recaidas-apos-o-tratamento/
+              - paragraph: Prevenir recaídas exige rotina, apoio familiar e acompanhamento contínuo. Veja estratégias importantes após o tratamento.
+              - link "Ler publicação" [ref=e39] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/como-prevenir-recaidas-apos-o-tratamento/
+                - text: Ler publicação
+                - img [ref=e40]
+          - article [ref=e42]:
+            - 'link "Dependência de crack: impactos na saúde e possibilidades de recuperação" [ref=e43] [cursor=pointer]':
+              - /url: https://grupoaraujotratamentos.com.br/dependencia-de-crack-impactos-na-saude-e-possibilidades-de-recuperacao/
+            - generic:
+              - time [ref=e44]: julho 5, 2026
+              - 'heading "Dependência de crack: impactos na saúde e possibilidades de recuperação" [level=2]':
+                - 'link "Dependência de crack: impactos na saúde e possibilidades de recuperação" [ref=e45] [cursor=pointer]':
+                  - /url: https://grupoaraujotratamentos.com.br/dependencia-de-crack-impactos-na-saude-e-possibilidades-de-recuperacao/
+              - paragraph: Entenda impactos da dependência de crack, sinais de agravamento e como o tratamento pode apoiar a recuperação.
+              - link "Ler publicação" [ref=e46] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/dependencia-de-crack-impactos-na-saude-e-possibilidades-de-recuperacao/
+                - text: Ler publicação
+                - img [ref=e47]
+          - article [ref=e49]:
+            - link "O papel da família na recuperação do dependente químico" [ref=e50] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/papel-da-familia-na-recuperacao-do-dependente-quimico/
+            - generic:
+              - time [ref=e51]: julho 5, 2026
+              - heading "O papel da família na recuperação do dependente químico" [level=2]:
+                - link "O papel da família na recuperação do dependente químico" [ref=e52] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/papel-da-familia-na-recuperacao-do-dependente-quimico/
+              - paragraph: Entenda como a família pode apoiar a recuperação do dependente químico sem reforçar comportamentos de risco.
+              - link "Ler publicação" [ref=e53] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/papel-da-familia-na-recuperacao-do-dependente-quimico/
+                - text: Ler publicação
+                - img [ref=e54]
+          - article [ref=e56]:
+            - link "Quanto tempo dura o tratamento para dependência química?" [ref=e57] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/quanto-tempo-dura-tratamento-dependencia-quimica/
+            - generic:
+              - time [ref=e58]: julho 5, 2026
+              - heading "Quanto tempo dura o tratamento para dependência química?" [level=2]:
+                - link "Quanto tempo dura o tratamento para dependência química?" [ref=e59] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/quanto-tempo-dura-tratamento-dependencia-quimica/
+              - paragraph: Conheça os fatores que influenciam a duração do tratamento para dependência química e por que cada caso precisa de avaliação individual.
+              - link "Ler publicação" [ref=e60] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/quanto-tempo-dura-tratamento-dependencia-quimica/
+                - text: Ler publicação
+                - img [ref=e61]
+      - complementary "Barra lateral" [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e65]:
+            - paragraph [ref=e66]: Pesquisar
+            - heading "Encontre uma publicação" [level=2] [ref=e67]
+          - search [ref=e68]:
+            - generic [ref=e69]: Buscar por publicações
+            - searchbox "Buscar por publicações" [ref=e70]
+            - button "Pesquisar" [ref=e71] [cursor=pointer]:
+              - img [ref=e72]
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - paragraph [ref=e77]: Temas
+            - heading "Categorias" [level=2] [ref=e78]
+          - list [ref=e79]:
+            - listitem [ref=e80]:
+              - link "Dependência Química 10" [ref=e81] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/categoria/dependencia-quimica/
+                - generic [ref=e82]: Dependência Química
+                - strong [ref=e83]: "10"
+            - listitem [ref=e84]:
+              - link "Recuperação 3" [ref=e85] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/categoria/recuperacao/
+                - generic [ref=e86]: Recuperação
+                - strong [ref=e87]: "3"
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - paragraph [ref=e90]: Leitura recente
+            - heading "Últimas publicações" [level=2] [ref=e91]
+          - generic [ref=e92]:
+            - link "julho 5, 2026 Como prevenir recaídas após o tratamento" [ref=e93] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/como-prevenir-recaidas-apos-o-tratamento/
+              - generic [ref=e95]:
+                - time [ref=e96]: julho 5, 2026
+                - strong [ref=e97]: Como prevenir recaídas após o tratamento
+            - 'link "julho 5, 2026 Dependência de medicamentos controlados: sinais de alerta" [ref=e98] [cursor=pointer]':
+              - /url: https://grupoaraujotratamentos.com.br/dependencia-de-medicamentos-controlados-sinais-de-alerta/
+              - generic [ref=e100]:
+                - time [ref=e101]: julho 5, 2026
+                - strong [ref=e102]: "Dependência de medicamentos controlados: sinais de alerta"
+            - 'link "julho 5, 2026 Dependência de crack: impactos na saúde e possibilidades de recuperação" [ref=e103] [cursor=pointer]':
+              - /url: https://grupoaraujotratamentos.com.br/dependencia-de-crack-impactos-na-saude-e-possibilidades-de-recuperacao/
+              - generic [ref=e105]:
+                - time [ref=e106]: julho 5, 2026
+                - strong [ref=e107]: "Dependência de crack: impactos na saúde e possibilidades de recuperação"
+            - 'link "julho 5, 2026 Dependência de cocaína: sintomas, riscos e tratamento" [ref=e108] [cursor=pointer]':
+              - /url: https://grupoaraujotratamentos.com.br/dependencia-de-cocaina-sintomas-riscos-tratamento/
+              - generic [ref=e110]:
+                - time [ref=e111]: julho 5, 2026
+                - strong [ref=e112]: "Dependência de cocaína: sintomas, riscos e tratamento"
+            - link "julho 5, 2026 O papel da família na recuperação do dependente químico" [ref=e113] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/papel-da-familia-na-recuperacao-do-dependente-quimico/
+              - generic [ref=e115]:
+                - time [ref=e116]: julho 5, 2026
+                - strong [ref=e117]: O papel da família na recuperação do dependente químico
+          - link "Ver arquivo completo" [ref=e118] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/publicacoes/
+            - text: Ver arquivo completo
+            - img [ref=e119]
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - paragraph [ref=e123]: Atendimento
+            - heading "Precisa de orientação?" [level=2] [ref=e124]
+          - paragraph [ref=e125]: Nossa equipe pode orientar sua família com sigilo, acolhimento e responsabilidade.
+          - link "Falar pelo WhatsApp" [ref=e126] [cursor=pointer]:
+            - /url: https://wa.me/5508005757714?text=Olá,%20equipe%20do%20Grupo%20Araújo%20Tratamentos.%20Vim%20pelo%20blog%20e%20gostaria%20de%20orientação.
+            - img [ref=e127]
+            - generic [ref=e129]: Falar pelo WhatsApp
+  - contentinfo [ref=e130]:
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - img "grupoaraujotratamentos.com.br" [ref=e133]
+        - paragraph [ref=e134]: "CNPJ: 67.252.579/0001-50"
+        - paragraph [ref=e135]: Acolhimento, orientação e acompanhamento especializado para pessoas e famílias.
+      - navigation "Links do rodape" [ref=e136]:
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - link "Inicio" [ref=e139] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#inicio
+          - listitem [ref=e140]:
+            - link "Sobre" [ref=e141] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#sobre
+          - listitem [ref=e142]:
+            - link "Servicos" [ref=e143] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#servicos
+          - listitem [ref=e144]:
+            - link "Unidades" [ref=e145] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#unidades
+          - listitem [ref=e146]:
+            - link "Diferenciais" [ref=e147] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#diferenciais
+          - listitem [ref=e148]:
+            - link "Contato" [ref=e149] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#contato
+          - listitem [ref=e150]:
+            - link "Politica de Privacidade" [ref=e151] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/politica-de-privacidade/
+      - generic [ref=e152]:
+        - link "WhatsApp" [ref=e153] [cursor=pointer]:
+          - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.
+          - img [ref=e154]
+          - generic [ref=e156]: WhatsApp
+        - paragraph [ref=e157]:
+          - text: "Site: www.grupoaraujotratamentos.com.br"
+          - text: Atendimento 24 horas por dia, com ética, sigilo e respeito.
+  - link "Falar pelo WhatsApp" [ref=e158] [cursor=pointer]:
+    - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.
+    - img [ref=e159]
+    - generic [ref=e161]: Falar pelo WhatsApp
