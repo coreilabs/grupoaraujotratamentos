@@ -12,3 +12,7 @@ senha: Aghatta15@
 
 atualize o tema e suba para produção, dados de acesso em "credenciais de acesso.md"
 
+cores primárias do grupo araújo:    #0e2848 #00132e #fdcf1e 
+
+
+

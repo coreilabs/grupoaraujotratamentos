@@ -1,0 +1,606 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Grupo Araújo Tratamentos - início" [ref=e4] [cursor=pointer]:
+        - /url: https://grupoaraujotratamentos.com.br/#inicio
+        - img "grupoaraujotratamentos.com.br" [ref=e5]
+      - navigation "Menu principal" [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Início" [ref=e9] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#inicio
+          - listitem [ref=e10]:
+            - link "Sobre" [ref=e11] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#sobre
+          - listitem [ref=e12]:
+            - link "Serviços" [ref=e13] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#servicos
+          - listitem [ref=e14]:
+            - link "Unidades" [ref=e15] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#unidades
+          - listitem [ref=e16]:
+            - link "Diferenciais" [ref=e17] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#diferenciais
+          - listitem [ref=e18]:
+            - link "Contato" [ref=e19] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#contato
+      - link "Fale Conosco" [ref=e20] [cursor=pointer]:
+        - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.
+  - main [ref=e24]:
+    - generic [ref=e26]:
+      - paragraph [ref=e27]: Atendimento humanizado e acompanhamento especializado
+      - heading "Grupo Araújo Tratamentos" [level=1] [ref=e29]
+      - paragraph [ref=e31]: Transformando vidas, restaurando sonhos. Oferecemos acolhimento, orientação e acompanhamento individualizado para pessoas e famílias que buscam apoio em momentos desafiadores.
+      - generic [ref=e32]:
+        - link "Falar pelo WhatsApp" [ref=e33] [cursor=pointer]:
+          - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.
+        - link "Conhecer serviços" [ref=e39] [cursor=pointer]:
+          - /url: "#servicos"
+      - list "Pontos de confiança" [ref=e43]:
+        - listitem [ref=e44]: Atendimento 24 horas
+        - listitem [ref=e48]: Equipe multidisciplinar
+        - listitem [ref=e54]: Ética e sigilo
+        - listitem [ref=e58]: Suporte às famílias
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - paragraph [ref=e64]: Sobre
+        - heading "Conheça o Grupo Araújo Tratamentos" [level=2] [ref=e65]
+        - paragraph [ref=e66]: O Grupo Araújo Tratamentos nasceu com o propósito de oferecer acolhimento e apoio especializado às pessoas e famílias que enfrentam desafios relacionados ao bem-estar emocional e à qualidade de vida.
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: Nossa atuação é baseada em princípios de ética, respeito, responsabilidade e humanização, sempre valorizando a individualidade de cada pessoa atendida.
+          - paragraph [ref=e70]: Trabalhamos em parceria com unidades especializadas e profissionais comprometidos com um atendimento responsável e seguro.
+          - generic [ref=e71]: Nossa visão é ser referência em atendimento humanizado, promovendo esperança e contribuindo para a transformação de vidas.
+        - generic "Nossos valores" [ref=e76]:
+          - generic [ref=e80]:
+            - strong [ref=e81]: Respeito à dignidade humana
+            - paragraph [ref=e82]: Acreditamos que toda pessoa merece ser acolhida com respeito, empatia e sem julgamentos. Valorizamos a história de cada indivíduo, preservando sua dignidade em todas as etapas do tratamento.
+          - generic [ref=e87]:
+            - strong [ref=e88]: Ética e transparência
+            - paragraph [ref=e89]: Atuamos com honestidade, responsabilidade e clareza em nossas ações. Mantemos uma comunicação transparente com pacientes, familiares e parceiros, fortalecendo relações de confiança.
+          - generic [ref=e96]:
+            - strong [ref=e97]: Responsabilidade social
+            - paragraph [ref=e98]: Contribuímos para a construção de uma sociedade mais saudável por meio da prevenção, conscientização e promoção da recuperação, incentivando a reintegração social e familiar.
+          - generic [ref=e102]:
+            - strong [ref=e103]: Humanização do atendimento
+            - paragraph [ref=e104]: Oferecemos um atendimento acolhedor, individualizado e centrado nas necessidades de cada pessoa, promovendo cuidado integral, respeito e valorização da vida.
+          - generic [ref=e111]:
+            - strong [ref=e112]: Compromisso com as famílias
+            - paragraph [ref=e113]: Entendemos que a recuperação envolve toda a família. Por isso, incentivamos sua participação durante o tratamento, oferecendo orientação, apoio e acompanhamento contínuo.
+          - generic [ref=e118]:
+            - strong [ref=e119]: Excelência no acolhimento
+            - paragraph [ref=e120]: Buscamos oferecer um ambiente seguro, organizado e acolhedor, aliado a uma equipe qualificada e comprometida com a qualidade do atendimento e a transformação de vidas.
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - paragraph [ref=e124]: Convênios
+        - heading "Planos de Saúde" [level=2] [ref=e125]
+        - paragraph [ref=e126]: Consulte nossa equipe para verificar cobertura, disponibilidade e condições de atendimento.
+      - generic [ref=e128]:
+        - group "1 / 12" [ref=e129]:
+          - img "Plano de saude 1" [ref=e131]
+        - group "2 / 12" [ref=e132]:
+          - img "Plano de saude 2" [ref=e134]
+        - group "3 / 12" [ref=e135]:
+          - img "Plano de saude 3" [ref=e137]
+        - group "4 / 12" [ref=e138]:
+          - img "Plano de saude 4" [ref=e140]
+        - group "5 / 12" [ref=e141]:
+          - img "Unimed" [ref=e143]
+        - group [ref=e144]
+        - group [ref=e147]
+        - group [ref=e150]
+        - group [ref=e153]
+        - group [ref=e156]
+        - group [ref=e159]
+        - group [ref=e162]
+    - generic [ref=e166]:
+      - generic [ref=e167]:
+        - paragraph [ref=e168]: Serviços
+        - heading "Atendimento e acompanhamento especializado" [level=2] [ref=e169]
+        - paragraph [ref=e170]: O Grupo Araújo Tratamentos oferece suporte e acompanhamento individualizado, respeitando as necessidades de cada pessoa e de sua família.
+      - generic [ref=e171]:
+        - article [ref=e172]:
+          - heading "Acolhimento especializado" [level=3] [ref=e176]
+          - paragraph [ref=e177]: Atendimento realizado de forma humanizada, com foco no bem-estar e no suporte integral.
+        - article [ref=e178]:
+          - heading "Orientação às famílias" [level=3] [ref=e185]
+          - paragraph [ref=e186]: Acompanhamento e informações para familiares que necessitam de apoio e esclarecimentos.
+        - article [ref=e187]:
+          - heading "Programas individualizados" [level=3] [ref=e193]
+          - paragraph [ref=e194]: Planejamento personalizado, considerando as necessidades específicas de cada caso.
+        - article [ref=e195]:
+          - heading "Suporte contínuo" [level=3] [ref=e202]
+          - paragraph [ref=e203]: Acompanhamento responsável com foco na qualidade de vida e no fortalecimento dos vínculos familiares.
+        - article [ref=e204]:
+          - heading "Atendimento 24 horas" [level=3] [ref=e209]
+          - paragraph [ref=e210]: Equipe disponível para orientar e prestar informações sempre que necessário.
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - paragraph [ref=e214]: Rede de apoio
+        - heading "Unidades parceiras" [level=2] [ref=e215]
+        - paragraph [ref=e216]: Trabalhamos em parceria com unidades especializadas e profissionais comprometidos com um atendimento responsável e seguro.
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - paragraph [ref=e219]: Disponibilidade
+          - heading "Procura outra cidade ou modalidade?" [level=3] [ref=e220]
+          - paragraph [ref=e221]: Além das unidades listadas, nossa equipe pode verificar opções conforme o perfil do caso, urgência e disponibilidade no momento do atendimento.
+        - link "Verificar Disponibilidade de Outras Unidades" [ref=e222] [cursor=pointer]:
+          - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20gostaria%20de%20verificar%20disponibilidade%20de%20outras%20unidades.
+      - generic "Filtros das unidades" [ref=e226]:
+        - generic [ref=e227]:
+          - generic [ref=e228]: Tipo de unidade
+          - combobox "Tipo de unidade" [ref=e229]:
+            - option "Masculina e feminina" [selected]
+            - option "Masculina"
+            - option "Feminina"
+        - generic [ref=e230]:
+          - generic [ref=e231]: Cidade da unidade
+          - combobox "Cidade da unidade" [ref=e232]:
+            - option "Todas as cidades" [selected]
+            - option "Aparecida de Goiânia"
+            - option "Caturaí"
+            - option "Goiânia"
+            - option "Senador Canedo"
+        - button "Limpar filtros" [ref=e233] [cursor=pointer]
+      - paragraph [ref=e238]: 6 unidades exibidas
+      - generic [ref=e239]:
+        - article [ref=e240]:
+          - generic "Fotos de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e241]:
+            - generic [ref=e242]:
+              - group "1 / 8" [ref=e243]:
+                - link [ref=e244] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/acomodacoes.webp
+                  - img "Foto 1 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e245]
+              - group "2 / 8" [ref=e246]:
+                - link [ref=e247] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/area-lazer.webp
+                  - img "Foto 2 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e248]
+              - group "3 / 8" [ref=e249]:
+                - link [ref=e250] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/area-verde-real.webp
+                  - img "Foto 3 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e251]
+              - group "4 / 8" [ref=e252]:
+                - link [ref=e253] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/cozinha.webp
+                  - img "Foto 4 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e254]
+              - group "5 / 8" [ref=e255]:
+                - link [ref=e256] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/enfermaria.webp
+                  - img "Foto 5 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e257]
+              - group "6 / 8" [ref=e258]:
+                - link [ref=e259] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/escritorio-real.webp
+                  - img "Foto 6 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e260]
+              - group "7 / 8" [ref=e261]:
+                - link [ref=e262] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/reunioes.webp
+                  - img "Foto 7 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e263]
+              - group "8 / 8" [ref=e264]:
+                - link [ref=e265] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/uploads/2026/06/terapias-interacao.webp
+                  - img "Foto 8 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e266]
+            - button "Previous slide" [ref=e267] [cursor=pointer]
+            - button "Next slide" [ref=e270] [cursor=pointer]
+            - generic [ref=e273]:
+              - button "Go to slide 1" [ref=e274] [cursor=pointer]
+              - button "Go to slide 2" [ref=e275] [cursor=pointer]
+              - button "Go to slide 3" [ref=e276] [cursor=pointer]
+              - button "Go to slide 4" [ref=e277] [cursor=pointer]
+              - button "Go to slide 5" [ref=e278] [cursor=pointer]
+              - button "Go to slide 6" [ref=e279] [cursor=pointer]
+              - button "Go to slide 7" [ref=e280] [cursor=pointer]
+              - button "Go to slide 8" [ref=e281] [cursor=pointer]
+          - generic [ref=e282]:
+            - generic [ref=e283]:
+              - generic [ref=e284]: Aparecida de Goiânia/GO
+              - generic [ref=e288]: Masculina
+            - paragraph [ref=e294]: Unidade parceira em Aparecida de Goiânia com áreas de convivência, lazer, terapias e apoio para o processo de encaminhamento.
+            - list [ref=e295]:
+              - listitem [ref=e296]: Área de lazer
+              - listitem [ref=e297]: Piscina
+              - listitem [ref=e298]: Acomodações
+              - listitem [ref=e299]: Espaços terapêuticos
+            - link "Quero informações desta unidade" [ref=e300] [cursor=pointer]:
+              - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20uma%20unidade%20em%20Aparecida%20de%20Goi%C3%A2nia%2FGO%2C%20modalidade%20Masculina.%20Pode%20me%20orientar%3F
+        - article [ref=e304]:
+          - generic "Fotos de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e305]:
+            - generic [ref=e306]:
+              - group "1 / 4" [ref=e307]:
+                - link [ref=e308] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0214.jpg
+                  - img "Foto 1 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e309]
+              - group "2 / 4" [ref=e310]:
+                - link [ref=e311] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0216.jpg
+                  - img "Foto 2 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e312]
+              - group "3 / 4" [ref=e313]:
+                - link [ref=e314] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0218.jpg
+                  - img "Foto 3 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e315]
+              - group "4 / 4" [ref=e316]:
+                - link [ref=e317] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/aparecida-de-goiania-goias/masculina/2/img-20260310-wa0219.jpg
+                  - img "Foto 4 de unidade em Aparecida de Goiânia/GO, modalidade Masculina" [ref=e318]
+            - button "Previous slide" [ref=e319] [cursor=pointer]
+            - button "Next slide" [ref=e322] [cursor=pointer]
+            - generic [ref=e325]:
+              - button "Go to slide 1" [ref=e326] [cursor=pointer]
+              - button "Go to slide 2" [ref=e327] [cursor=pointer]
+              - button "Go to slide 3" [ref=e328] [cursor=pointer]
+              - button "Go to slide 4" [ref=e329] [cursor=pointer]
+          - generic [ref=e330]:
+            - generic [ref=e331]:
+              - generic [ref=e332]: Aparecida de Goiânia/GO
+              - generic [ref=e336]: Masculina
+            - paragraph [ref=e342]: Unidade parceira com estrutura para acolhimento conforme avaliação inicial, perfil do caso e disponibilidade.
+            - list [ref=e343]:
+              - listitem [ref=e344]: Estrutura ampla
+              - listitem [ref=e345]: Ambiente reservado
+              - listitem [ref=e346]: Rotina terapêutica
+              - listitem [ref=e347]: Apoio no encaminhamento
+            - link "Quero informações desta unidade" [ref=e348] [cursor=pointer]:
+              - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20uma%20unidade%20em%20Aparecida%20de%20Goi%C3%A2nia%2FGO%2C%20modalidade%20Masculina.%20Pode%20me%20orientar%3F
+        - article [ref=e352]:
+          - generic "Fotos de unidade em Caturaí/GO, modalidade Feminina" [ref=e353]:
+            - generic [ref=e354]:
+              - group "1 / 4" [ref=e355]:
+                - link [ref=e356] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/caturai-goias/feminina/1/img-20251226-wa0161.jpg
+                  - img "Foto 1 de unidade em Caturaí/GO, modalidade Feminina" [ref=e357]
+              - group "2 / 4" [ref=e358]:
+                - link [ref=e359] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/caturai-goias/feminina/1/img-20251226-wa0163.jpg
+                  - img "Foto 2 de unidade em Caturaí/GO, modalidade Feminina" [ref=e360]
+              - group "3 / 4" [ref=e361]:
+                - link [ref=e362] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/caturai-goias/feminina/1/img-20251226-wa0165.jpg
+                  - img "Foto 3 de unidade em Caturaí/GO, modalidade Feminina" [ref=e363]
+              - group "4 / 4" [ref=e364]:
+                - link [ref=e365] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/caturai-goias/feminina/1/img-20251226-wa0171.jpg
+                  - img "Foto 4 de unidade em Caturaí/GO, modalidade Feminina" [ref=e366]
+            - button "Previous slide" [ref=e367] [cursor=pointer]
+            - button "Next slide" [ref=e370] [cursor=pointer]
+            - generic [ref=e373]:
+              - button "Go to slide 1" [ref=e374] [cursor=pointer]
+              - button "Go to slide 2" [ref=e375] [cursor=pointer]
+              - button "Go to slide 3" [ref=e376] [cursor=pointer]
+              - button "Go to slide 4" [ref=e377] [cursor=pointer]
+          - generic [ref=e378]:
+            - generic [ref=e379]:
+              - generic [ref=e380]: Caturaí/GO
+              - generic [ref=e384]: Feminina
+            - paragraph [ref=e390]: Unidade parceira feminina com ambiente acolhedor e encaminhamento conforme disponibilidade e perfil do caso.
+            - list [ref=e391]:
+              - listitem [ref=e392]: Atendimento feminino
+              - listitem [ref=e393]: Ambiente reservado
+              - listitem [ref=e394]: Apoio à família
+              - listitem [ref=e395]: Encaminhamento responsável
+            - link "Quero informações desta unidade" [ref=e396] [cursor=pointer]:
+              - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20uma%20unidade%20em%20Catura%C3%AD%2FGO%2C%20modalidade%20Feminina.%20Pode%20me%20orientar%3F
+        - article [ref=e400]:
+          - generic "Fotos de unidade em Goiânia/GO, modalidade Feminina" [ref=e401]:
+            - generic [ref=e402]:
+              - group "1 / 4" [ref=e403]:
+                - link [ref=e404] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/goiania-goias/feminina/1/img-20251204-wa0044.jpg
+                  - img "Foto 1 de unidade em Goiânia/GO, modalidade Feminina" [ref=e405]
+              - group "2 / 4" [ref=e406]:
+                - link [ref=e407] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/goiania-goias/feminina/1/img-20251204-wa0045.jpg
+                  - img "Foto 2 de unidade em Goiânia/GO, modalidade Feminina" [ref=e408]
+              - group "3 / 4" [ref=e409]:
+                - generic "Vídeo 3 de unidade em Goiânia/GO, modalidade Feminina" [ref=e410]
+              - group "4 / 4" [ref=e412]:
+                - generic "Vídeo 4 de unidade em Goiânia/GO, modalidade Feminina" [ref=e413]
+            - button "Previous slide" [ref=e415] [cursor=pointer]
+            - button "Next slide" [ref=e418] [cursor=pointer]
+            - generic [ref=e421]:
+              - button "Go to slide 1" [ref=e422] [cursor=pointer]
+              - button "Go to slide 2" [ref=e423] [cursor=pointer]
+              - button "Go to slide 3" [ref=e424] [cursor=pointer]
+              - button "Go to slide 4" [ref=e425] [cursor=pointer]
+          - generic [ref=e426]:
+            - generic [ref=e427]:
+              - generic [ref=e428]: Goiânia/GO
+              - generic [ref=e432]: Feminina
+            - paragraph [ref=e438]: Unidade parceira direcionada ao público feminino, com acolhimento humanizado e ambiente reservado.
+            - list [ref=e439]:
+              - listitem [ref=e440]: Atendimento feminino
+              - listitem [ref=e441]: Ambiente acolhedor
+              - listitem [ref=e442]: Equipe preparada
+              - listitem [ref=e443]: Apoio à família
+            - link "Quero informações desta unidade" [ref=e444] [cursor=pointer]:
+              - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20uma%20unidade%20em%20Goi%C3%A2nia%2FGO%2C%20modalidade%20Feminina.%20Pode%20me%20orientar%3F
+        - article [ref=e448]:
+          - generic "Fotos de unidade em Goiânia/GO, modalidade Masculina" [ref=e449]:
+            - generic [ref=e450]:
+              - group "1 / 4" [ref=e451]:
+                - link [ref=e452] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/goiania-goias/masculina/1/img-20251130-wa0054-1.jpg
+                  - img "Foto 1 de unidade em Goiânia/GO, modalidade Masculina" [ref=e453]
+              - group "2 / 4" [ref=e454]:
+                - link [ref=e455] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/goiania-goias/masculina/1/img-20251130-wa0055-1.jpg
+                  - img "Foto 2 de unidade em Goiânia/GO, modalidade Masculina" [ref=e456]
+              - group "3 / 4" [ref=e457]:
+                - link [ref=e458] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/goiania-goias/masculina/1/img-20251130-wa0057-1.jpg
+                  - img "Foto 3 de unidade em Goiânia/GO, modalidade Masculina" [ref=e459]
+              - group "4 / 4" [ref=e460]:
+                - link [ref=e461] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/goiania-goias/masculina/1/img-20251130-wa0059-1.jpg
+                  - img "Foto 4 de unidade em Goiânia/GO, modalidade Masculina" [ref=e462]
+            - button "Previous slide" [ref=e463] [cursor=pointer]
+            - button "Next slide" [ref=e466] [cursor=pointer]
+            - generic [ref=e469]:
+              - button "Go to slide 1" [ref=e470] [cursor=pointer]
+              - button "Go to slide 2" [ref=e471] [cursor=pointer]
+              - button "Go to slide 3" [ref=e472] [cursor=pointer]
+              - button "Go to slide 4" [ref=e473] [cursor=pointer]
+          - generic [ref=e474]:
+            - generic [ref=e475]:
+              - generic [ref=e476]: Goiânia/GO
+              - generic [ref=e480]: Masculina
+            - paragraph [ref=e486]: Unidade parceira em Goiânia com estrutura para acolhimento conforme avaliação inicial e disponibilidade.
+            - list [ref=e487]:
+              - listitem [ref=e488]: Ambiente reservado
+              - listitem [ref=e489]: Rotina terapêutica
+              - listitem [ref=e490]: Apoio à família
+              - listitem [ref=e491]: Encaminhamento responsável
+            - link "Quero informações desta unidade" [ref=e492] [cursor=pointer]:
+              - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20uma%20unidade%20em%20Goi%C3%A2nia%2FGO%2C%20modalidade%20Masculina.%20Pode%20me%20orientar%3F
+        - article [ref=e496]:
+          - generic "Fotos de unidade em Senador Canedo/GO, modalidade Feminina" [ref=e497]:
+            - generic [ref=e498]:
+              - group "1 / 4" [ref=e499]:
+                - link [ref=e500] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/senador-canedo-goias/feminina/1/img-20260604-wa0169.jpg
+                  - img "Foto 1 de unidade em Senador Canedo/GO, modalidade Feminina" [ref=e501]
+              - group "2 / 4" [ref=e502]:
+                - link [ref=e503] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/senador-canedo-goias/feminina/1/img-20260604-wa0171.jpg
+                  - img "Foto 2 de unidade em Senador Canedo/GO, modalidade Feminina" [ref=e504]
+              - group "3 / 4" [ref=e505]:
+                - link [ref=e506] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/senador-canedo-goias/feminina/1/img-20260604-wa0174.jpg
+                  - img "Foto 3 de unidade em Senador Canedo/GO, modalidade Feminina" [ref=e507]
+              - group "4 / 4" [ref=e508]:
+                - link [ref=e509] [cursor=pointer]:
+                  - /url: https://grupoaraujotratamentos.com.br/wp-content/themes/grupo-araujo/unidades/senador-canedo-goias/feminina/1/img-20260604-wa0175.jpg
+                  - img "Foto 4 de unidade em Senador Canedo/GO, modalidade Feminina" [ref=e510]
+            - button "Previous slide" [ref=e511] [cursor=pointer]
+            - button "Next slide" [ref=e514] [cursor=pointer]
+            - generic [ref=e517]:
+              - button "Go to slide 1" [ref=e518] [cursor=pointer]
+              - button "Go to slide 2" [ref=e519] [cursor=pointer]
+              - button "Go to slide 3" [ref=e520] [cursor=pointer]
+              - button "Go to slide 4" [ref=e521] [cursor=pointer]
+          - generic [ref=e522]:
+            - generic [ref=e523]:
+              - generic [ref=e524]: Senador Canedo/GO
+              - generic [ref=e528]: Feminina
+            - paragraph [ref=e534]: Unidade parceira feminina em Senador Canedo, com acolhimento e orientação para encaminhamento responsável.
+            - list [ref=e535]:
+              - listitem [ref=e536]: Atendimento feminino
+              - listitem [ref=e537]: Ambiente acolhedor
+              - listitem [ref=e538]: Equipe preparada
+              - listitem [ref=e539]: Apoio no encaminhamento
+            - link "Quero informações desta unidade" [ref=e540] [cursor=pointer]:
+              - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20uma%20unidade%20em%20Senador%20Canedo%2FGO%2C%20modalidade%20Feminina.%20Pode%20me%20orientar%3F
+      - generic [ref=e544]:
+        - generic [ref=e545]:
+          - heading "Não sabe qual unidade escolher?" [level=3] [ref=e546]
+          - paragraph [ref=e547]: Converse com nossa equipe para organizar as informações do caso e entender qual encaminhamento faz mais sentido.
+        - link "Não sei qual unidade escolher" [ref=e548] [cursor=pointer]:
+          - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o%2C%20mas%20ainda%20n%C3%A3o%20sei%20qual%20unidade%20seria%20mais%20adequada.
+    - generic [ref=e555]:
+      - generic [ref=e556]:
+        - paragraph [ref=e557]: Compromisso
+        - heading "Nossa missão" [level=2] [ref=e558]
+        - paragraph [ref=e559]: Promover cuidado, acolhimento e acompanhamento especializado, contribuindo para a reconstrução de vidas e para o fortalecimento da esperança.
+      - generic [ref=e560]:
+        - article [ref=e561]:
+          - heading "Cuidado humanizado" [level=3] [ref=e564]
+          - paragraph [ref=e565]: Acolhimento com respeito, escuta e atenção à individualidade de cada pessoa.
+        - article [ref=e566]:
+          - heading "Vínculos familiares" [level=3] [ref=e572]
+          - paragraph [ref=e573]: Suporte para fortalecer relações, orientar familiares e ampliar a rede de apoio.
+        - article [ref=e574]:
+          - heading "Reconstrução de histórias" [level=3] [ref=e578]
+          - paragraph [ref=e579]: Compromisso contínuo com qualidade de vida, esperança e novos caminhos.
+    - generic [ref=e581]:
+      - generic [ref=e582]:
+        - paragraph [ref=e583]: Nossos diferenciais
+        - heading "Atendimento com responsabilidade, ética e respeito" [level=2] [ref=e584]
+        - paragraph [ref=e585]: Proporcionamos um ambiente seguro e acolhedor, com suporte contínuo para pessoas e famílias que desejam reconstruir suas histórias.
+        - link "Entre em contato" [ref=e586] [cursor=pointer]:
+          - /url: "#contato"
+      - generic [ref=e590]:
+        - generic [ref=e591]: Atendimento 24 horas
+        - generic [ref=e596]: Equipe multidisciplinar
+        - generic [ref=e603]: Ambiente seguro e acolhedor
+        - generic [ref=e608]: Suporte às famílias
+        - generic [ref=e612]: Programas individualizados
+        - generic [ref=e618]: Atendimento com ética e sigilo
+    - generic [ref=e625]:
+      - generic [ref=e626]:
+        - paragraph [ref=e627]: Acompanhamento
+        - heading "Suporte para momentos desafiadores" [level=2] [ref=e628]
+        - paragraph [ref=e629]: Nosso compromisso é promover qualidade de vida, fortalecimento dos vínculos familiares e suporte contínuo para aqueles que desejam reconstruir suas histórias.
+        - generic "Prioridades no atendimento" [ref=e630]:
+          - generic [ref=e631]: Atendimento 24 horas
+          - generic [ref=e636]: Ética e sigilo
+          - generic [ref=e640]: Acolhimento
+        - generic [ref=e646]:
+          - strong [ref=e647]: Emergência ou risco imediato
+          - paragraph [ref=e648]: Em casos de risco à vida, surto grave ou violência, procure imediatamente os serviços de urgência da sua cidade.
+      - list [ref=e649]:
+        - listitem [ref=e650]: Acolhimento especializado
+        - listitem [ref=e652]: Orientação às famílias
+        - listitem [ref=e654]: Programas individualizados
+        - listitem [ref=e656]: Suporte contínuo
+        - listitem [ref=e658]: Atendimento humanizado
+        - listitem [ref=e660]: Parceria com unidades especializadas
+        - listitem [ref=e662]: Ambiente seguro e acolhedor
+    - generic [ref=e665]:
+      - generic [ref=e666]:
+        - paragraph [ref=e667]: Diferenciais
+        - heading "Por que falar com o Grupo Araújo Tratamentos?" [level=2] [ref=e668]
+      - generic [ref=e669]:
+        - article [ref=e670]:
+          - heading "Atendimento humanizado" [level=3] [ref=e674]
+          - paragraph [ref=e675]: Acolhimento cuidadoso desde o primeiro contato, com escuta responsável, orientação transparente e respeito ao momento emocional de cada família.
+          - link "Saiba mais" [ref=e676] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/atendimento-humanizado/
+        - article [ref=e680]:
+          - heading "Programas individualizados" [level=3] [ref=e683]
+          - paragraph [ref=e684]: Cada encaminhamento considera histórico, necessidades, perfil da unidade e contexto familiar para construir um percurso de cuidado mais coerente.
+          - link "Saiba mais" [ref=e685] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/programas-individualizados/
+        - article [ref=e689]:
+          - heading "Equipe multidisciplinar" [level=3] [ref=e694]
+          - paragraph [ref=e695]: O atendimento conta com suporte de profissionais e unidades especializadas, integrando acolhimento, rotina terapêutica e acompanhamento responsável.
+          - link "Saiba mais" [ref=e696] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/equipe-multidisciplinar/
+        - article [ref=e700]:
+          - heading "Ética e sigilo" [level=3] [ref=e704]
+          - paragraph [ref=e705]: As conversas e orientações são conduzidas com discrição, transparência e responsabilidade, preservando dados, histórias e decisões familiares.
+          - link "Saiba mais" [ref=e706] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/etica-e-sigilo/
+        - article [ref=e710]:
+          - heading "Suporte às famílias" [level=3] [ref=e715]
+          - paragraph [ref=e716]: A família recebe orientação para compreender o tratamento, lidar com dúvidas e participar de forma mais segura no processo de recuperação.
+          - link "Saiba mais" [ref=e717] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/suporte-as-familias/
+    - generic [ref=e722]:
+      - generic [ref=e723]:
+        - paragraph [ref=e724]: Conteúdos
+        - heading "Últimas publicações" [level=2] [ref=e725]
+      - generic [ref=e726]:
+        - article [ref=e727]:
+          - 'link "Ajuda para dependência química em Várzea Grande: primeiros passos" [ref=e728] [cursor=pointer]':
+            - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-varzea-grande-mato-grosso/
+          - generic [ref=e729]:
+            - time [ref=e730]: julho 14, 2026
+            - heading [level=3] [ref=e731]:
+              - 'link "Ajuda para dependência química em Várzea Grande: primeiros passos" [ref=e732] [cursor=pointer]':
+                - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-varzea-grande-mato-grosso/
+            - paragraph [ref=e733]: Critérios para escolher clínica de recuperação em Várzea Grande, conduzir a busca familiar e construir um plano seguro para depois da alta.
+            - link "Ler publicação" [ref=e734] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-varzea-grande-mato-grosso/
+        - article [ref=e737]:
+          - 'link "Dependência química em Cuiabá: avaliação, acolhimento e recuperação" [ref=e738] [cursor=pointer]':
+            - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-cuiaba-mato-grosso/
+          - generic [ref=e739]:
+            - time [ref=e740]: julho 14, 2026
+            - heading [level=3] [ref=e741]:
+              - 'link "Dependência química em Cuiabá: avaliação, acolhimento e recuperação" [ref=e742] [cursor=pointer]':
+                - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-cuiaba-mato-grosso/
+            - paragraph [ref=e743]: Entenda como buscar clínica de recuperação em Cuiabá, avaliar segurança, organizar a família e preparar a continuidade após a alta.
+            - link "Ler publicação" [ref=e744] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-cuiaba-mato-grosso/
+        - article [ref=e747]:
+          - link "Onde buscar tratamento para dependência química em Brasília" [ref=e748] [cursor=pointer]:
+            - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-brasilia-df/
+          - generic [ref=e749]:
+            - time [ref=e750]: julho 14, 2026
+            - heading [level=3] [ref=e751]:
+              - link "Onde buscar tratamento para dependência química em Brasília" [ref=e752] [cursor=pointer]:
+                - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-brasilia-df/
+            - paragraph [ref=e753]: Guia para procurar clínica de recuperação em Brasília e no Distrito Federal, com avaliação, logística familiar e continuidade do cuidado.
+            - link "Ler publicação" [ref=e754] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/clinica-de-recuperacao-em-brasilia-df/
+      - link "Ver todas as publicações" [ref=e758] [cursor=pointer]:
+        - /url: https://grupoaraujotratamentos.com.br/publicacoes/
+    - generic [ref=e764]:
+      - paragraph [ref=e765]: Contato responsável
+      - heading "Precisa de orientação agora?" [level=2] [ref=e766]
+      - paragraph [ref=e767]: Estamos prontos para oferecer orientação e esclarecer suas dúvidas.
+      - link "Chamar no WhatsApp" [ref=e768] [cursor=pointer]:
+        - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.
+    - generic [ref=e773]:
+      - generic [ref=e774]:
+        - paragraph [ref=e775]: Perguntas frequentes
+        - heading "Dúvidas comuns - FAQ" [level=2] [ref=e776]
+      - generic [ref=e777]:
+        - article [ref=e778]:
+          - button "O atendimento é humanizado?" [ref=e779] [cursor=pointer]
+        - article [ref=e783]:
+          - button "O atendimento funciona 24 horas?" [ref=e784] [cursor=pointer]
+        - article [ref=e788]:
+          - button "Vocês oferecem orientação às famílias?" [ref=e789] [cursor=pointer]
+        - article [ref=e793]:
+          - button "O acompanhamento é individualizado?" [ref=e794] [cursor=pointer]
+        - article [ref=e798]:
+          - button "O contato é sigiloso?" [ref=e799] [cursor=pointer]
+        - article [ref=e803]:
+          - button "Vocês trabalham com unidades especializadas?" [ref=e804] [cursor=pointer]
+        - article [ref=e808]:
+          - button "O formulário substitui atendimento de urgência?" [ref=e809] [cursor=pointer]
+    - generic [ref=e814]:
+      - generic [ref=e815]:
+        - paragraph [ref=e816]: Contato
+        - heading "Fale conosco" [level=2] [ref=e817]
+        - paragraph [ref=e818]: Estamos prontos para oferecer orientação e esclarecer suas dúvidas.
+        - generic "Dados de contato" [ref=e819]:
+          - paragraph [ref=e820]:
+            - strong [ref=e821]: Grupo Araújo Tratamentos
+          - paragraph [ref=e822]:
+            - generic [ref=e825]: "Telefone / WhatsApp: 0800 575 7714"
+          - paragraph [ref=e826]:
+            - generic [ref=e830]: "Site: www.grupoaraujotratamentos.com.br"
+          - paragraph [ref=e831]:
+            - generic [ref=e835]: "CNPJ: 67.252.579/0001-50"
+          - paragraph [ref=e836]:
+            - generic [ref=e840]: "Horário de atendimento: 24 horas por dia"
+        - generic [ref=e841]: O envio abre uma conversa no WhatsApp com os dados preenchidos.
+      - generic [ref=e845]:
+        - generic [ref=e846]:
+          - generic [ref=e847]: Nome
+          - textbox "Nome" [ref=e848]
+        - generic [ref=e849]:
+          - generic [ref=e850]: Telefone
+          - textbox "Telefone" [ref=e851]
+        - generic [ref=e852]:
+          - generic [ref=e853]: E-mail
+          - textbox "E-mail" [ref=e854]
+        - generic [ref=e855]:
+          - generic [ref=e856]: Mensagem
+          - textbox "Mensagem" [ref=e857]
+        - button "Enviar mensagem" [ref=e858] [cursor=pointer]
+  - contentinfo [ref=e863]:
+    - generic [ref=e864]:
+      - generic [ref=e865]:
+        - img "grupoaraujotratamentos.com.br" [ref=e866]
+        - paragraph [ref=e867]: "CNPJ: 67.252.579/0001-50"
+        - paragraph [ref=e868]: Acolhimento, orientação e acompanhamento especializado para pessoas e famílias.
+      - navigation "Links do rodape" [ref=e869]:
+        - list [ref=e870]:
+          - listitem [ref=e871]:
+            - link "Início" [ref=e872] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#inicio
+          - listitem [ref=e873]:
+            - link "Sobre" [ref=e874] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#sobre
+          - listitem [ref=e875]:
+            - link "Serviços" [ref=e876] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#servicos
+          - listitem [ref=e877]:
+            - link "Unidades" [ref=e878] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#unidades
+          - listitem [ref=e879]:
+            - link "Diferenciais" [ref=e880] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#diferenciais
+          - listitem [ref=e881]:
+            - link "Contato" [ref=e882] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/#contato
+          - listitem [ref=e883]:
+            - link "Politica de Privacidade" [ref=e884] [cursor=pointer]:
+              - /url: https://grupoaraujotratamentos.com.br/politica-de-privacidade/
+      - generic [ref=e885]:
+        - link "WhatsApp" [ref=e886] [cursor=pointer]:
+          - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.
+        - paragraph [ref=e890]: "Site: www.grupoaraujotratamentos.com.brAtendimento 24 horas por dia, com ética, sigilo e respeito."
+  - link "Falar pelo WhatsApp" [ref=e891] [cursor=pointer]:
+    - /url: https://wa.me/5508005757714?text=Ol%C3%A1%2C%20equipe%20do%20Grupo%20Ara%C3%BAjo%20Tratamentos.%20Vim%20pelo%20site%20e%20preciso%20de%20orienta%C3%A7%C3%A3o.

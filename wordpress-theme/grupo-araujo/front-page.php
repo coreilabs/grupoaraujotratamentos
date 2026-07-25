@@ -23,6 +23,15 @@ function gat_replace_first_home_text( $html, $search, $replace ) {
 $source_file = get_template_directory() . '/template-parts/home-source.html';
 $source_html = is_readable( $source_file ) ? file_get_contents( $source_file ) : '';
 $main_html   = '';
+$hero_logo_desktop = get_theme_mod( 'gat_hero_logo_desktop', get_template_directory_uri() . '/assets/img/hero-logo-horizontal.png' ) ?: get_template_directory_uri() . '/assets/img/hero-logo-horizontal.png';
+$hero_logo_mobile  = get_theme_mod( 'gat_hero_logo_mobile', get_template_directory_uri() . '/assets/img/hero-logo-vertical.png' ) ?: get_template_directory_uri() . '/assets/img/hero-logo-vertical.png';
+$hero_title        = get_theme_mod( 'gat_hero_title', 'Grupo Araújo Tratamentos' );
+$hero_brand        = sprintf(
+	'<div class="hero-brand"><h1 class="screen-reader-text">%1$s</h1><img class="hero-logo hero-logo-desktop" src="%2$s" alt="" aria-hidden="true"><img class="hero-logo hero-logo-mobile" src="%3$s" alt="" aria-hidden="true"></div>',
+	esc_html( $hero_title ),
+	esc_url( $hero_logo_desktop ),
+	esc_url( $hero_logo_mobile )
+);
 
 if ( preg_match( '#<main>(.*?)</main>#s', $source_html, $matches ) ) {
 	$main_html = '<main>' . $matches[1] . '</main>';
@@ -41,7 +50,7 @@ $main_html = str_replace(
 	array(
 		esc_url( get_template_directory_uri() . '/assets/img/backgrounds/' ),
 		'<p class="eyebrow">' . esc_html( get_theme_mod( 'gat_hero_eyebrow', 'Atendimento humanizado e acompanhamento especializado' ) ) . '</p>',
-		'<h1>' . esc_html( get_theme_mod( 'gat_hero_title', 'Grupo Araújo Tratamentos' ) ) . '</h1>',
+		$hero_brand,
 		'<p class="hero-lead">' . esc_html( get_theme_mod( 'gat_hero_text', 'Transformando vidas, restaurando sonhos. Oferecemos acolhimento, orientação e acompanhamento individualizado para pessoas e famílias que buscam apoio em momentos desafiadores.' ) ) . '</p>',
 		'Telefone / WhatsApp: ' . esc_html( get_theme_mod( 'gat_phone', '0800 575 7714' ) ),
 		'Site: ' . esc_html( get_theme_mod( 'gat_site', 'www.grupoaraujotratamentos.com.br' ) ),
@@ -51,10 +60,16 @@ $main_html = str_replace(
 );
 
 foreach ( gat_home_text_fields() as $id => $field ) {
+	$value = get_theme_mod( $id, $field[2] );
+
+	if ( 'gat_home_faq_title' === $id && false === stripos( $value, 'FAQ' ) ) {
+		$value .= ' - FAQ';
+	}
+
 	$main_html = gat_replace_first_home_text(
 		$main_html,
 		$field[2],
-		esc_html( get_theme_mod( $id, $field[2] ) )
+		esc_html( $value )
 	);
 }
 
@@ -68,6 +83,13 @@ $main_html = str_replace(
 	'<section class="cta-strip visual-bg"',
 	gat_render_latest_posts_section() . '<section class="cta-strip visual-bg"',
 	$main_html
+);
+
+$main_html = preg_replace(
+	'#(<section\b[^>]*id="por-que-falar"[^>]*>\s*<div class="container">\s*<div class="section-heading"[^>]*>.*?</div>)\s*<div class="difference-grid">.*?</div>\s*(</div>\s*</section>)#s',
+	'$1' . gat_render_home_differentials_cards() . '$2',
+	$main_html,
+	1
 );
 
 echo $main_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

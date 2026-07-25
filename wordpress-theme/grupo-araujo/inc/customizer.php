@@ -33,11 +33,17 @@ function gat_home_text_fields() {
 		'gat_home_about_paragraph_2' => array( 'Home - Sobre', 'Paragrafo 2', 'Trabalhamos em parceria com unidades especializadas e profissionais comprometidos com um atendimento responsável e seguro.', 'textarea' ),
 		'gat_home_about_vision' => array( 'Home - Sobre', 'Texto de visao', 'Nossa visão é ser referência em atendimento humanizado, promovendo esperança e contribuindo para a transformação de vidas.', 'textarea' ),
 		'gat_home_value_1' => array( 'Home - Sobre', 'Valor 1', 'Respeito à dignidade humana', 'text' ),
+		'gat_home_value_1_description' => array( 'Home - Sobre', 'Valor 1 - descrição', 'Acreditamos que toda pessoa merece ser acolhida com respeito, empatia e sem julgamentos. Valorizamos a história de cada indivíduo, preservando sua dignidade em todas as etapas do tratamento.', 'textarea' ),
 		'gat_home_value_2' => array( 'Home - Sobre', 'Valor 2', 'Ética e transparência', 'text' ),
+		'gat_home_value_2_description' => array( 'Home - Sobre', 'Valor 2 - descrição', 'Atuamos com honestidade, responsabilidade e clareza em nossas ações. Mantemos uma comunicação transparente com pacientes, familiares e parceiros, fortalecendo relações de confiança.', 'textarea' ),
 		'gat_home_value_3' => array( 'Home - Sobre', 'Valor 3', 'Responsabilidade social', 'text' ),
+		'gat_home_value_3_description' => array( 'Home - Sobre', 'Valor 3 - descrição', 'Contribuímos para a construção de uma sociedade mais saudável por meio da prevenção, conscientização e promoção da recuperação, incentivando a reintegração social e familiar.', 'textarea' ),
 		'gat_home_value_4' => array( 'Home - Sobre', 'Valor 4', 'Humanização do atendimento', 'text' ),
+		'gat_home_value_4_description' => array( 'Home - Sobre', 'Valor 4 - descrição', 'Oferecemos um atendimento acolhedor, individualizado e centrado nas necessidades de cada pessoa, promovendo cuidado integral, respeito e valorização da vida.', 'textarea' ),
 		'gat_home_value_5' => array( 'Home - Sobre', 'Valor 5', 'Compromisso com as famílias', 'text' ),
+		'gat_home_value_5_description' => array( 'Home - Sobre', 'Valor 5 - descrição', 'Entendemos que a recuperação envolve toda a família. Por isso, incentivamos sua participação durante o tratamento, oferecendo orientação, apoio e acompanhamento contínuo.', 'textarea' ),
 		'gat_home_value_6' => array( 'Home - Sobre', 'Valor 6', 'Excelência no acolhimento', 'text' ),
+		'gat_home_value_6_description' => array( 'Home - Sobre', 'Valor 6 - descrição', 'Buscamos oferecer um ambiente seguro, organizado e acolhedor, aliado a uma equipe qualificada e comprometida com a qualidade do atendimento e a transformação de vidas.', 'textarea' ),
 
 		'gat_home_services_eyebrow' => array( 'Home - Servicos', 'Chamada', 'Serviços', 'text' ),
 		'gat_home_services_title' => array( 'Home - Servicos', 'Titulo', 'Atendimento e acompanhamento especializado', 'text' ),
@@ -118,7 +124,7 @@ function gat_home_text_fields() {
 		'gat_home_cta_button' => array( 'Home - CTA', 'Botao', 'Chamar no WhatsApp', 'text' ),
 
 		'gat_home_faq_eyebrow' => array( 'Home - FAQ', 'Chamada', 'Perguntas frequentes', 'text' ),
-		'gat_home_faq_title' => array( 'Home - FAQ', 'Titulo', 'Dúvidas comuns', 'text' ),
+		'gat_home_faq_title' => array( 'Home - FAQ', 'Titulo', 'Dúvidas comuns - FAQ', 'text' ),
 		'gat_home_faq_1_question' => array( 'Home - FAQ', 'Pergunta 1', 'O atendimento é humanizado?', 'text' ),
 		'gat_home_faq_1_answer' => array( 'Home - FAQ', 'Resposta 1', 'Sim. Nossa atuação é baseada em acolhimento, respeito, ética e atenção individualizada.', 'textarea' ),
 		'gat_home_faq_2_question' => array( 'Home - FAQ', 'Pergunta 2', 'O atendimento funciona 24 horas?', 'text' ),
@@ -166,6 +172,7 @@ function gat_customize_register( $customizer ) {
 		'gat_hero_eyebrow'    => array( 'Chamada do banner', 'Atendimento humanizado e acompanhamento especializado', 'text' ),
 		'gat_hero_title'      => array( 'Título do banner', 'Grupo Araújo Tratamentos', 'text' ),
 		'gat_hero_text'       => array( 'Texto do banner', 'Transformando vidas, restaurando sonhos. Oferecemos acolhimento, orientação e acompanhamento individualizado para pessoas e famílias que buscam apoio em momentos desafiadores.', 'textarea' ),
+		'gat_home_og_title'   => array( 'Título Open Graph da página inicial', 'Grupo Araújo Tratamentos | Transformando vidas, restaurando sonhos', 'text' ),
 		'gat_meta_description'=> array( 'Descrição para buscadores', 'Acolhimento, orientação e acompanhamento especializado para pessoas e famílias, com atendimento humanizado 24 horas.', 'textarea' ),
 	);
 
@@ -188,6 +195,41 @@ function gat_customize_register( $customizer ) {
 				'label'   => $field[0],
 				'section' => 'gat_settings',
 				'type'    => $field[2],
+			)
+		);
+	}
+
+	$hero_logo_fields = array(
+		'gat_hero_logo_desktop' => array(
+			'label'       => __( 'Logotipo do banner no desktop', 'grupo-araujo' ),
+			'description' => __( 'Use uma versão horizontal para telas maiores.', 'grupo-araujo' ),
+			'default'     => get_template_directory_uri() . '/assets/img/hero-logo-horizontal.png',
+		),
+		'gat_hero_logo_mobile'  => array(
+			'label'       => __( 'Logotipo do banner no mobile', 'grupo-araujo' ),
+			'description' => __( 'Use uma versão vertical para celulares.', 'grupo-araujo' ),
+			'default'     => get_template_directory_uri() . '/assets/img/hero-logo-vertical.png',
+		),
+	);
+
+	foreach ( $hero_logo_fields as $id => $field ) {
+		$customizer->add_setting(
+			$id,
+			array(
+				'default'           => $field['default'],
+				'sanitize_callback' => 'esc_url_raw',
+			)
+		);
+
+		$customizer->add_control(
+			new WP_Customize_Image_Control(
+				$customizer,
+				$id,
+				array(
+					'label'       => $field['label'],
+					'description' => $field['description'],
+					'section'     => 'gat_settings',
+				)
 			)
 		);
 	}

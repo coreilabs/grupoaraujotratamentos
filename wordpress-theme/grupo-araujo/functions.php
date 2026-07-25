@@ -9,11 +9,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GAT_THEME_VERSION', '3.0.15' );
+define( 'GAT_THEME_VERSION', '3.0.28' );
 
 require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/unidades.php';
 require_once get_template_directory() . '/inc/contratos.php';
+
+/**
+ * Invalida o LSCache uma vez após cada publicação de uma nova versão do tema.
+ *
+ * Atualizações por FTP não disparam os hooks de upgrade do WordPress. A versão
+ * persistida permite que a primeira requisição processada pelo WordPress após
+ * o envio notifique o LiteSpeed, sem limpar o cache em todas as visitas.
+ */
+function gat_purge_litespeed_after_theme_update() {
+	$stored_version = get_option( 'gat_theme_cache_version', '' );
+
+	if ( GAT_THEME_VERSION === $stored_version ) {
+		return;
+	}
+
+	if ( ! has_action( 'litespeed_purge_all' ) ) {
+		return;
+	}
+
+	do_action( 'litespeed_purge_all' );
+	update_option( 'gat_theme_cache_version', GAT_THEME_VERSION, false );
+}
+add_action( 'wp_loaded', 'gat_purge_litespeed_after_theme_update', 999 );
 
 function gat_theme_setup() {
 	add_theme_support( 'title-tag' );
@@ -112,18 +135,100 @@ add_action( 'wp_enqueue_scripts', 'gat_enqueue_assets' );
 
 function gat_favicon() {
 	if ( ! has_site_icon() ) {
-		printf( '<link rel="icon" href="%s">' . "\n", esc_url( get_template_directory_uri() . '/favicon.png' ) );
+		printf(
+			'<link rel="icon" href="%s">' . "\n",
+			esc_url( add_query_arg( 'ver', GAT_THEME_VERSION, get_template_directory_uri() . '/favicon.png' ) )
+		);
 	}
 }
 add_action( 'wp_head', 'gat_favicon', 2 );
+
+function gat_restore_portuguese_social_text( $text ) {
+	$text = trim( (string) $text );
+
+	if ( '' === $text ) {
+		return $text;
+	}
+
+	$known_texts = array(
+		'Acolhimento, orientacao e acompanhamento especializado para pessoas e familias, com atendimento humanizado 24 horas.' => 'Acolhimento, orientação e acompanhamento especializado para pessoas e famílias, com atendimento humanizado 24 horas.',
+		'O Grupo Araujo Tratamentos respeita a privacidade dos usuarios e esta comprometido com a protecao dos dados pessoais.' => 'O Grupo Araújo Tratamentos respeita a privacidade dos usuários e está comprometido com a proteção dos dados pessoais.',
+		'Politica de Privacidade, Termos de Uso e Cookies' => 'Política de Privacidade, Termos de Uso e Cookies',
+		'Grupo Araujo Tratamentos' => 'Grupo Araújo Tratamentos',
+	);
+
+	$normalized_text = strtolower( remove_accents( $text ) );
+
+	foreach ( $known_texts as $plain => $accented ) {
+		if ( strtolower( remove_accents( $plain ) ) === $normalized_text ) {
+			return $accented;
+		}
+	}
+
+	return strtr(
+		$text,
+		array(
+			'Grupo Araujo' => 'Grupo Araújo',
+			'Politica de Privacidade' => 'Política de Privacidade',
+		)
+	);
+}
+
+function gat_get_social_site_name() {
+	$site_name = get_bloginfo( 'name' );
+
+	if ( ! $site_name || false !== strpos( $site_name, '.' ) ) {
+		$site_name = get_theme_mod( 'gat_hero_title', 'Grupo Araújo Tratamentos' );
+	}
+
+	return gat_restore_portuguese_social_text( $site_name );
+}
+
+function gat_get_social_title() {
+	if ( is_front_page() ) {
+		return gat_restore_portuguese_social_text( get_theme_mod( 'gat_home_og_title', 'Grupo Araújo Tratamentos | Transformando vidas, restaurando sonhos' ) );
+	}
+
+	if ( is_singular() ) {
+		return gat_restore_portuguese_social_text( get_the_title() );
+	}
+
+	if ( is_home() ) {
+		$posts_page_id = (int) get_option( 'page_for_posts' );
+
+		if ( $posts_page_id ) {
+			return gat_restore_portuguese_social_text( get_the_title( $posts_page_id ) );
+		}
+
+		return __( 'Publicações', 'grupo-araujo' );
+	}
+
+	if ( is_archive() ) {
+		return gat_restore_portuguese_social_text( wp_strip_all_tags( get_the_archive_title() ) );
+	}
+
+	if ( is_search() ) {
+		return sprintf(
+			/* translators: %s: search query. */
+			__( 'Busca por: %s', 'grupo-araujo' ),
+			get_search_query()
+		);
+	}
+
+	if ( is_404() ) {
+		return __( 'Página não encontrada', 'grupo-araujo' );
+	}
+
+	return gat_restore_portuguese_social_text( wp_get_document_title() );
+}
 
 function gat_meta_description_legacy() {
 	$description = get_theme_mod( 'gat_meta_description', 'Acolhimento, orientação e acompanhamento especializado para pessoas e famílias, com atendimento humanizado 24 horas.' );
 	$image       = get_template_directory_uri() . '/og.png';
 	?>
 	<meta name="description" content="<?php echo esc_attr( $description ); ?>">
-	<meta name="theme-color" content="#038291">
-	<meta property="og:title" content="<?php echo esc_attr( wp_get_document_title() ); ?>">
+	<meta name="theme-color" content="#0e2848">
+	<meta property="og:title" content="<?php echo esc_attr( gat_get_social_title() ); ?>">
 	<meta property="og:description" content="<?php echo esc_attr( $description ); ?>">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -133,11 +238,13 @@ function gat_meta_description_legacy() {
 }
 
 function gat_get_meta_description() {
+	$default_description = 'Acolhimento, orientação e acompanhamento especializado para pessoas e famílias, com atendimento humanizado 24 horas.';
+
 	if ( is_singular() ) {
 		$description = has_excerpt() ? get_the_excerpt() : wp_trim_words( wp_strip_all_tags( get_the_content() ), 32 );
 
 		if ( $description ) {
-			return $description;
+			return gat_restore_portuguese_social_text( $description );
 		}
 	}
 
@@ -145,7 +252,7 @@ function gat_get_meta_description() {
 		$term_description = term_description();
 
 		if ( $term_description ) {
-			return wp_trim_words( wp_strip_all_tags( $term_description ), 32 );
+			return gat_restore_portuguese_social_text( wp_trim_words( wp_strip_all_tags( $term_description ), 32 ) );
 		}
 	}
 
@@ -160,12 +267,12 @@ function gat_get_meta_description() {
 			}
 
 			if ( $description ) {
-				return $description;
+				return gat_restore_portuguese_social_text( $description );
 			}
 		}
 	}
 
-	return get_theme_mod( 'gat_meta_description', 'Acolhimento, orientacao e acompanhamento especializado para pessoas e familias, com atendimento humanizado 24 horas.' );
+	return gat_restore_portuguese_social_text( get_theme_mod( 'gat_meta_description', $default_description ) );
 }
 
 function gat_get_og_image() {
@@ -284,21 +391,22 @@ function gat_get_og_url() {
 function gat_meta_description() {
 	$description = gat_get_meta_description();
 	$image       = gat_get_og_image();
+	$title       = gat_get_social_title();
 	$type        = is_singular( 'post' ) ? 'article' : 'website';
 	?>
 	<meta name="description" content="<?php echo esc_attr( $description ); ?>">
-	<meta name="theme-color" content="#038291">
-	<meta property="og:title" content="<?php echo esc_attr( wp_get_document_title() ); ?>">
+	<meta name="theme-color" content="#0e2848">
+	<meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
 	<meta property="og:description" content="<?php echo esc_attr( $description ); ?>">
 	<meta property="og:type" content="<?php echo esc_attr( $type ); ?>">
 	<meta property="og:url" content="<?php echo esc_url( gat_get_og_url() ); ?>">
-	<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+	<meta property="og:site_name" content="<?php echo esc_attr( gat_get_social_site_name() ); ?>">
 	<meta property="og:image" content="<?php echo esc_url( $image['url'] ); ?>">
 	<meta property="og:image:width" content="<?php echo esc_attr( $image['width'] ); ?>">
 	<meta property="og:image:height" content="<?php echo esc_attr( $image['height'] ); ?>">
-	<meta property="og:image:alt" content="<?php echo esc_attr( is_singular() ? get_the_title() : get_bloginfo( 'name' ) ); ?>">
+	<meta property="og:image:alt" content="<?php echo esc_attr( is_singular() ? gat_get_social_title() : gat_get_social_site_name() ); ?>">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="<?php echo esc_attr( wp_get_document_title() ); ?>">
+	<meta name="twitter:title" content="<?php echo esc_attr( $title ); ?>">
 	<meta name="twitter:description" content="<?php echo esc_attr( $description ); ?>">
 	<meta name="twitter:image" content="<?php echo esc_url( $image['url'] ); ?>">
 	<?php if ( is_singular( 'post' ) ) : ?>
@@ -309,6 +417,100 @@ function gat_meta_description() {
 	<?php
 }
 add_action( 'wp_head', 'gat_meta_description', 3 );
+
+/**
+ * Outputs a single JSON-LD graph for the organization and the current article.
+ * Location posts can add Service and FAQ entities through protected post meta.
+ */
+function gat_structured_data() {
+	$organization_id = home_url( '/#organization' );
+	$graph           = array(
+		array(
+			'@type' => array( 'Organization', 'MedicalOrganization' ),
+			'@id'   => $organization_id,
+			'name'  => 'Grupo Araújo Tratamentos',
+			'url'   => home_url( '/' ),
+			'logo'  => array(
+				'@type' => 'ImageObject',
+				'url'   => get_template_directory_uri() . '/logotipo-horizontal.png',
+			),
+			'contactPoint' => array(
+				'@type'             => 'ContactPoint',
+				'contactType'       => 'atendimento',
+				'availableLanguage' => 'Portuguese',
+			),
+		),
+	);
+
+	if ( is_singular( 'post' ) ) {
+		$post_id = get_queried_object_id();
+		$image   = gat_get_og_image();
+		$graph[] = array(
+			'@type'            => 'Article',
+			'@id'              => get_permalink( $post_id ) . '#article',
+			'headline'         => get_the_title( $post_id ),
+			'description'      => gat_get_meta_description(),
+			'datePublished'    => get_the_date( DATE_W3C, $post_id ),
+			'dateModified'     => get_the_modified_date( DATE_W3C, $post_id ),
+			'mainEntityOfPage' => get_permalink( $post_id ),
+			'image'            => $image['url'],
+			'author'           => array( '@id' => $organization_id ),
+			'publisher'        => array( '@id' => $organization_id ),
+		);
+
+		$location_areas = array(
+			'clinica-de-recuperacao-em-goiania-goias'              => 'Goiânia, Goiás',
+			'clinica-de-recuperacao-em-anapolis-goias'             => 'Anápolis, Goiás',
+			'clinica-de-recuperacao-em-brasilia-df'                 => 'Brasília, Distrito Federal',
+			'clinica-de-recuperacao-em-cuiaba-mato-grosso'          => 'Cuiabá, Mato Grosso',
+			'clinica-de-recuperacao-em-varzea-grande-mato-grosso'   => 'Várzea Grande, Mato Grosso',
+		);
+		$post_slug    = get_post_field( 'post_name', $post_id );
+		$service_area = get_post_meta( $post_id, '_gat_service_area', true );
+		if ( ! $service_area && isset( $location_areas[ $post_slug ] ) ) {
+			$service_area = $location_areas[ $post_slug ];
+		}
+		if ( $service_area ) {
+			$graph[] = array(
+				'@type'       => 'Service',
+				'@id'         => get_permalink( $post_id ) . '#service',
+				'name'        => get_the_title( $post_id ),
+				'description' => gat_get_meta_description(),
+				'provider'    => array( '@id' => $organization_id ),
+				'areaServed'  => array( '@type' => 'AdministrativeArea', 'name' => $service_area ),
+				'url'         => get_permalink( $post_id ),
+			);
+		}
+
+		$faq = json_decode( get_post_meta( $post_id, '_gat_faq_json', true ), true );
+		if ( ( ! is_array( $faq ) || ! $faq ) && $service_area ) {
+			$faq = array(
+				array( 'question' => 'Como escolher uma clínica de recuperação?', 'answer' => 'Verifique regularidade, equipe, plano terapêutico individual, participação familiar, estrutura e continuidade após a alta.' ),
+				array( 'question' => 'Quando a internação pode ser indicada?', 'answer' => 'A indicação depende de avaliação individual e pode ser considerada quando há riscos à saúde, perda de controle ou dificuldade de manter o cuidado fora de um ambiente protegido.' ),
+				array( 'question' => 'A família participa do tratamento?', 'answer' => 'A participação familiar ajuda a melhorar a comunicação, estabelecer limites e preparar uma rede de apoio segura para a recuperação.' ),
+			);
+		}
+		if ( is_array( $faq ) && $faq ) {
+			$questions = array();
+			foreach ( $faq as $item ) {
+				if ( empty( $item['question'] ) || empty( $item['answer'] ) ) {
+					continue;
+				}
+				$questions[] = array(
+					'@type'          => 'Question',
+					'name'           => wp_strip_all_tags( $item['question'] ),
+					'acceptedAnswer' => array( '@type' => 'Answer', 'text' => wp_strip_all_tags( $item['answer'] ) ),
+				);
+			}
+			if ( $questions ) {
+				$graph[] = array( '@type' => 'FAQPage', '@id' => get_permalink( $post_id ) . '#faq', 'mainEntity' => $questions );
+			}
+		}
+	}
+
+	echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@graph' => $graph ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . '</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+add_action( 'wp_head', 'gat_structured_data', 20 );
 
 function gat_render_custom_code( $setting_id ) {
 	$custom_code = get_theme_mod( $setting_id, '' );
@@ -532,6 +734,148 @@ function gat_get_single_content_without_duplicate_title() {
 	return preg_replace( '/^\s*<h1\b[^>]*>.*?<\/h1>\s*/is', '', $content, 1 );
 }
 
+function gat_default_differential_pages() {
+	return array(
+		'atendimento-humanizado' => array(
+			'title'     => 'Atendimento humanizado',
+			'icon'      => 'user-round',
+			'excerpt'   => 'Escuta acolhedora, orientação clara e respeito ao tempo de cada pessoa e família desde o primeiro contato.',
+			'card_text' => 'Acolhimento cuidadoso desde o primeiro contato, com escuta responsável, orientação transparente e respeito ao momento emocional de cada família.',
+			'content'   => '<p>O atendimento humanizado do Grupo Araújo Tratamentos começa antes de qualquer encaminhamento. A equipe recebe cada família com escuta, sigilo e respeito, entendendo que a decisão de buscar ajuda costuma chegar em um momento sensível, marcado por dúvidas, medo e desgaste emocional.</p><p>Nosso papel é orientar com clareza, explicar possibilidades de cuidado e conduzir a conversa sem julgamentos. Cada caso é analisado a partir da realidade da pessoa atendida, da família e da urgência apresentada, para que o próximo passo seja responsável e seguro.</p><h2>Como esse acolhimento acontece</h2><ul><li>Escuta inicial para entender o histórico, o contexto familiar e as necessidades imediatas.</li><li>Orientação sobre modalidades de atendimento, rotina terapêutica e possibilidades de encaminhamento.</li><li>Conversa clara sobre limites, cuidados, responsabilidades e próximas etapas.</li><li>Tratamento respeitoso, discreto e centrado na dignidade da pessoa.</li></ul><p>Mais do que atender uma solicitação, o Grupo Araújo busca oferecer presença e direção para famílias que precisam tomar decisões importantes com segurança.</p>',
+		),
+		'programas-individualizados' => array(
+			'title'     => 'Programas individualizados',
+			'icon'      => 'map',
+			'excerpt'   => 'Planejamento de cuidado de acordo com o perfil, a história, as necessidades clínicas e o contexto familiar de cada caso.',
+			'card_text' => 'Cada encaminhamento considera histórico, necessidades, perfil da unidade e contexto familiar para construir um percurso de cuidado mais coerente.',
+			'content'   => '<p>O Grupo Araújo Tratamentos entende que dependência química, alcoolismo e sofrimento emocional não seguem um único padrão. Por isso, o cuidado precisa considerar a história, o momento atual, a rede familiar e as necessidades específicas de cada pessoa.</p><p>Os programas individualizados ajudam a alinhar o encaminhamento com a realidade do caso, buscando uma rotina terapêutica compatível com o perfil do paciente e com os objetivos do tratamento.</p><h2>O que é considerado no planejamento</h2><ul><li>Histórico de uso, recaídas, tratamentos anteriores e situações de risco.</li><li>Convívio familiar, suporte disponível e necessidades de orientação aos familiares.</li><li>Modalidade mais adequada, considerando perfil masculino ou feminino e estrutura da unidade.</li><li>Rotina terapêutica, atividades, acompanhamento e estratégias de continuidade do cuidado.</li></ul><p>Esse olhar individualizado contribui para um atendimento mais responsável, evitando decisões genéricas e favorecendo um processo de recuperação com mais sentido para cada realidade.</p>',
+		),
+		'equipe-multidisciplinar' => array(
+			'title'     => 'Equipe multidisciplinar',
+			'icon'      => 'building-2',
+			'excerpt'   => 'Atuação integrada com profissionais e unidades especializadas para oferecer suporte responsável durante o processo terapêutico.',
+			'card_text' => 'O atendimento conta com suporte de profissionais e unidades especializadas, integrando acolhimento, rotina terapêutica e acompanhamento responsável.',
+			'content'   => '<p>A recuperação envolve dimensões emocionais, comportamentais, familiares e sociais. Por isso, o Grupo Araújo Tratamentos trabalha com uma rede de apoio e unidades especializadas que favorecem uma abordagem multidisciplinar.</p><p>Esse modelo permite que o paciente seja acompanhado de forma mais ampla, com profissionais e rotinas que ajudam na organização do tratamento, no fortalecimento emocional e na retomada de hábitos saudáveis.</p><h2>Por que a equipe integrada importa</h2><ul><li>Permite olhar para diferentes aspectos da recuperação, não apenas para o uso de substâncias.</li><li>Favorece uma rotina mais estruturada, com atividades terapêuticas e acompanhamento.</li><li>Apoia a família com informações e orientações durante o processo.</li><li>Ajuda a identificar necessidades específicas e ajustar condutas quando necessário.</li></ul><p>Com uma equipe preparada e uma estrutura adequada, o atendimento se torna mais consistente, acolhedor e alinhado aos desafios reais enfrentados por pacientes e familiares.</p>',
+		),
+		'etica-e-sigilo' => array(
+			'title'     => 'Ética e sigilo',
+			'icon'      => 'shield-check',
+			'excerpt'   => 'Atendimento conduzido com discrição, transparência e responsabilidade nas informações compartilhadas com a família.',
+			'card_text' => 'As conversas e orientações são conduzidas com discrição, transparência e responsabilidade, preservando dados, histórias e decisões familiares.',
+			'content'   => '<p>Buscar ajuda para dependência química, alcoolismo ou internação exige confiança. O Grupo Araújo Tratamentos conduz cada atendimento com ética, sigilo e responsabilidade, preservando informações pessoais e familiares.</p><p>Desde o primeiro contato, a equipe procura esclarecer dúvidas de forma transparente, sem promessas irreais e sem exposição indevida. O objetivo é oferecer orientação segura para que a família compreenda o processo e tome decisões com mais tranquilidade.</p><h2>Compromissos no atendimento</h2><ul><li>Discrição no recebimento de informações pessoais e familiares.</li><li>Clareza sobre etapas, possibilidades, limites e responsabilidades do tratamento.</li><li>Respeito à dignidade da pessoa atendida e ao contexto de cada família.</li><li>Comunicação objetiva para reduzir inseguranças e evitar expectativas inadequadas.</li></ul><p>Ética e sigilo não são apenas diferenciais; são bases essenciais para um atendimento sério, humano e responsável.</p>',
+		),
+		'suporte-as-familias' => array(
+			'title'     => 'Suporte às famílias',
+			'icon'      => 'helping-hand',
+			'excerpt'   => 'Orientação para familiares compreenderem o processo de tratamento, fortalecerem vínculos e participarem com mais segurança.',
+			'card_text' => 'A família recebe orientação para compreender o tratamento, lidar com dúvidas e participar de forma mais segura no processo de recuperação.',
+			'content'   => '<p>A família também precisa de cuidado, informação e direção. Em muitos casos, os familiares chegam ao Grupo Araújo Tratamentos cansados, inseguros e sem saber como agir diante da dependência química, do alcoolismo ou de crises recorrentes.</p><p>O suporte familiar busca orientar essas pessoas para que compreendam melhor o processo de tratamento, os limites saudáveis, a importância da continuidade do cuidado e o papel da rede de apoio na recuperação.</p><h2>Como ajudamos a família</h2><ul><li>Explicando etapas do atendimento e possibilidades de encaminhamento.</li><li>Orientando sobre postura familiar, comunicação e limites durante o processo.</li><li>Oferecendo informações para reduzir dúvidas e decisões impulsivas.</li><li>Fortalecendo a compreensão de que recuperação exige acompanhamento, paciência e corresponsabilidade.</li></ul><p>Quando a família recebe orientação adequada, ela participa do tratamento com mais clareza, evita atitudes que aumentam conflitos e contribui para um ambiente mais favorável à recuperação.</p>',
+		),
+	);
+}
+
+function gat_ensure_differential_pages() {
+	$page_ids = array();
+
+	foreach ( gat_default_differential_pages() as $slug => $page_data ) {
+		$page = get_page_by_path( $slug );
+
+		if ( $page ) {
+			if ( 'template-diferencial.php' !== get_page_template_slug( $page->ID ) ) {
+				update_post_meta( $page->ID, '_wp_page_template', 'template-diferencial.php' );
+			}
+
+			$page_ids[ $slug ] = (int) $page->ID;
+			continue;
+		}
+
+		$page_id = wp_insert_post(
+			array(
+				'post_type'    => 'page',
+				'post_status'  => 'publish',
+				'post_name'    => $slug,
+				'post_title'   => $page_data['title'],
+				'post_excerpt' => $page_data['excerpt'],
+				'post_content' => $page_data['content'],
+			)
+		);
+
+		if ( ! is_wp_error( $page_id ) && $page_id ) {
+			update_post_meta( $page_id, '_wp_page_template', 'template-diferencial.php' );
+			$page_ids[ $slug ] = (int) $page_id;
+		}
+	}
+
+	return $page_ids;
+}
+
+function gat_refresh_differential_seed_content() {
+	if ( '2' === get_option( 'gat_differential_seed_content_version' ) ) {
+		return;
+	}
+
+	foreach ( gat_default_differential_pages() as $slug => $page_data ) {
+		$page = get_page_by_path( $slug );
+
+		if ( ! $page ) {
+			continue;
+		}
+
+		wp_update_post(
+			array(
+				'ID'           => $page->ID,
+				'post_title'   => $page_data['title'],
+				'post_excerpt' => $page_data['excerpt'],
+				'post_content' => $page_data['content'],
+			)
+		);
+	}
+
+	update_option( 'gat_differential_seed_content_version', '2' );
+}
+
+function gat_get_differential_page_url( $slug ) {
+	$page = get_page_by_path( $slug );
+
+	if ( $page ) {
+		return get_permalink( $page );
+	}
+
+	return home_url( '/' . trim( $slug, '/' ) . '/' );
+}
+
+function gat_render_home_differentials_cards() {
+	$pages = gat_default_differential_pages();
+	$slugs = array_keys( $pages );
+	ob_start();
+	?>
+	<div class="difference-grid">
+		<?php foreach ( array_values( $pages ) as $index => $page_data ) : ?>
+			<?php
+			$slug  = $slugs[ $index ];
+			$delay = $index ? $index * 60 : 0;
+			?>
+			<article class="difference-card" data-aos="fade-up"<?php echo $delay ? ' data-aos-delay="' . esc_attr( $delay ) . '"' : ''; ?>>
+				<i data-lucide="<?php echo esc_attr( $page_data['icon'] ); ?>"></i>
+				<h3><?php echo esc_html( get_theme_mod( 'gat_home_reason_' . ( $index + 1 ) . '_title', $page_data['title'] ) ); ?></h3>
+				<p><?php echo esc_html( get_theme_mod( 'gat_home_reason_' . ( $index + 1 ) . '_text', $page_data['card_text'] ) ); ?></p>
+				<a class="difference-card-link" href="<?php echo esc_url( gat_get_differential_page_url( $slug ) ); ?>">
+					<span><?php esc_html_e( 'Saiba mais', 'grupo-araujo' ); ?></span>
+					<i data-lucide="arrow-right"></i>
+				</a>
+			</article>
+		<?php endforeach; ?>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+
+add_action( 'after_switch_theme', 'gat_ensure_differential_pages' );
+add_action( 'admin_init', 'gat_ensure_differential_pages' );
+add_action( 'init', 'gat_ensure_differential_pages', 22 );
+add_action( 'admin_init', 'gat_refresh_differential_seed_content' );
+add_action( 'init', 'gat_refresh_differential_seed_content', 23 );
+
 function gat_default_menu() {
 	$links = array(
 		'inicio'       => 'Início',
@@ -551,7 +895,7 @@ function gat_default_menu() {
 function gat_default_nav_links() {
 	return array(
 		array(
-			'title' => 'Inicio',
+			'title' => 'Início',
 			'url'   => home_url( '/#inicio' ),
 		),
 		array(
@@ -559,7 +903,7 @@ function gat_default_nav_links() {
 			'url'   => home_url( '/#sobre' ),
 		),
 		array(
-			'title' => 'Servicos',
+			'title' => 'Serviços',
 			'url'   => home_url( '/#servicos' ),
 		),
 		array(
@@ -605,6 +949,48 @@ function gat_get_or_create_menu( $name, $links ) {
 
 	return (int) $menu->term_id;
 }
+
+function gat_normalize_navigation_labels() {
+	if ( '2' === get_option( 'gat_navigation_label_version' ) ) {
+		return;
+	}
+
+	$labels = array(
+		'#inicio'   => array(
+			'Inicio' => 'Início',
+		),
+		'#servicos' => array(
+			'Servicos' => 'Serviços',
+		),
+	);
+
+	foreach ( wp_get_nav_menus() as $menu ) {
+		$items = wp_get_nav_menu_items( $menu->term_id );
+
+		if ( ! $items ) {
+			continue;
+		}
+
+		foreach ( $items as $item ) {
+			foreach ( $labels as $anchor => $replacements ) {
+				if ( false === strpos( (string) $item->url, $anchor ) || ! isset( $replacements[ $item->title ] ) ) {
+					continue;
+				}
+
+				wp_update_post(
+					array(
+						'ID'         => $item->ID,
+						'post_title' => $replacements[ $item->title ],
+					)
+				);
+			}
+		}
+	}
+
+	update_option( 'gat_navigation_label_version', '2' );
+}
+add_action( 'admin_init', 'gat_normalize_navigation_labels' );
+add_action( 'init', 'gat_normalize_navigation_labels', 21 );
 
 function gat_default_privacy_content() {
 	return '
