@@ -1,4 +1,4 @@
-﻿const WHATSAPP_ATENDENTE = "5508005757714";
+const WHATSAPP_ATENDENTE = "558005757714";
 const NOME_ATENDENTE = window.GAT_CONFIG?.atendente || "equipe";
 
 const MENSAGEM_PADRAO =
@@ -144,8 +144,11 @@ const unidadesAtivas = Array.isArray(window.GAT_CONFIG?.unidades) && window.GAT_
 let galeriaUnidades = null;
 
 function gerarLinkWhatsappPadrao(texto = MENSAGEM_PADRAO) {
-  const numero = window.GAT_CONFIG?.whatsapp || WHATSAPP_ATENDENTE;
-  return `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+  const numeroConfigurado = window.GAT_CONFIG?.whatsapp || WHATSAPP_ATENDENTE;
+  const numero = ["5508005757714", "08005757714"].includes(numeroConfigurado)
+    ? WHATSAPP_ATENDENTE
+    : numeroConfigurado;
+  return `https://api.whatsapp.com/send/?phone=${numero}&text=${encodeURIComponent(texto)}`;
 }
 
 function gerarLinkWhatsappUnidade(unidade) {
