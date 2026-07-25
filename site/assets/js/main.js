@@ -1,4 +1,4 @@
-﻿const WHATSAPP_ATENDENTE = "5508005757714";
+const WHATSAPP_ATENDENTE = "558005757714";
 const NOME_ATENDENTE = "equipe";
 
 const MENSAGEM_PADRAO =
@@ -140,7 +140,7 @@ const unidades = [
 let galeriaUnidades = null;
 
 function gerarLinkWhatsappPadrao(texto = MENSAGEM_PADRAO) {
-  return `https://wa.me/${WHATSAPP_ATENDENTE}?text=${encodeURIComponent(texto)}`;
+  return `https://api.whatsapp.com/send/?phone=${WHATSAPP_ATENDENTE}&text=${encodeURIComponent(texto)}`;
 }
 
 function gerarLinkWhatsappUnidade(unidade) {

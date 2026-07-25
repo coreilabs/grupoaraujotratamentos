@@ -125,7 +125,7 @@ function gat_enqueue_assets() {
 		'gat-main',
 		'GAT_CONFIG',
 		array(
-			'whatsapp' => preg_replace( '/\D+/', '', get_theme_mod( 'gat_whatsapp', '5508005757714' ) ),
+			'whatsapp' => gat_get_whatsapp_number(),
 			'atendente' => get_theme_mod( 'gat_atendente', 'equipe' ),
 			'unidades' => gat_get_unidades(),
 		)
@@ -550,11 +550,13 @@ function gat_posted_on() {
 }
 
 function gat_get_whatsapp_number() {
-	return preg_replace( '/\D+/', '', get_theme_mod( 'gat_whatsapp', '5508005757714' ) );
+	$number = preg_replace( '/\D+/', '', get_theme_mod( 'gat_whatsapp', '558005757714' ) );
+
+	return in_array( $number, array( '5508005757714', '08005757714' ), true ) ? '558005757714' : $number;
 }
 
 function gat_get_whatsapp_url( $message = '' ) {
-	$url = 'https://wa.me/' . gat_get_whatsapp_number();
+	$url = add_query_arg( 'phone', gat_get_whatsapp_number(), 'https://api.whatsapp.com/send/' );
 
 	if ( $message ) {
 		$url = add_query_arg( 'text', $message, $url );

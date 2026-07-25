@@ -164,7 +164,7 @@ function gat_customize_register( $customizer ) {
 	);
 
 	$fields = array(
-		'gat_whatsapp'        => array( 'WhatsApp com código do país', '5508005757714', 'text' ),
+		'gat_whatsapp'        => array( 'WhatsApp com código do país', '558005757714', 'text' ),
 		'gat_atendente'       => array( 'Nome usado nas mensagens', 'equipe', 'text' ),
 		'gat_phone'           => array( 'Telefone exibido', '0800 575 7714', 'text' ),
 		'gat_cnpj'            => array( 'CNPJ', '67.252.579/0001-50', 'text' ),

@@ -152,8 +152,13 @@ function gat_contrato_column_content( $column, $post_id ) {
 add_action( 'manage_gat_contrato_posts_custom_column', 'gat_contrato_column_content', 10, 2 );
 
 function gat_contrato_whatsapp_number() {
-	$number = preg_replace( '/\D+/', '', get_theme_mod( 'gat_whatsapp', '5508005757714' ) );
-	return $number ? $number : '5508005757714';
+	$number = preg_replace( '/\D+/', '', get_theme_mod( 'gat_whatsapp', '558005757714' ) );
+
+	if ( in_array( $number, array( '5508005757714', '08005757714' ), true ) ) {
+		return '558005757714';
+	}
+
+	return $number ? $number : '558005757714';
 }
 
 function gat_contrato_whatsapp_message( $post_id ) {
@@ -183,7 +188,7 @@ function gat_contrato_whatsapp_message( $post_id ) {
 }
 
 function gat_contrato_whatsapp_url( $post_id ) {
-	return 'https://wa.me/' . gat_contrato_whatsapp_number() . '?text=' . rawurlencode( gat_contrato_whatsapp_message( $post_id ) );
+	return 'https://api.whatsapp.com/send/?phone=' . gat_contrato_whatsapp_number() . '&text=' . rawurlencode( gat_contrato_whatsapp_message( $post_id ) );
 }
 
 function gat_handle_contrato_submission() {
