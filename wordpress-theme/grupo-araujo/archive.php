@@ -53,7 +53,7 @@ if ( is_tag() ) {
 								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30 ) ); ?></p>
 								<a class="latest-post-link" href="<?php the_permalink(); ?>">
-									<?php esc_html_e( 'Ler publicacao', 'grupo-araujo' ); ?> <i data-lucide="arrow-right"></i>
+									<?php esc_html_e( 'Ler publicação', 'grupo-araujo' ); ?> <i data-lucide="arrow-right"></i>
 								</a>
 							</div>
 						</article>
@@ -61,7 +61,7 @@ if ( is_tag() ) {
 				</div>
 				<?php gat_render_pagination(); ?>
 			<?php else : ?>
-				<p><?php esc_html_e( 'Nenhuma publicacao encontrada.', 'grupo-araujo' ); ?></p>
+				<p><?php esc_html_e( 'Nenhuma publicação encontrada.', 'grupo-araujo' ); ?></p>
 			<?php endif; ?>
 		</section>
 
