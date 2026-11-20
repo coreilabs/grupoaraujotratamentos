@@ -1,4 +1,21 @@
-credenciais de acesso.md
-credenciais de acesso.md
-credenciais de acesso.md
+# Local credentials and environment secrets
+credenciais*.md
+acesso*.md
+.env
+.env.*
+!.env.example
+!.env.sample
+**/wp-config.php
+*.sql
+*.sql.gz
+*.pem
+*.key
+
+# Local notes and sensitive incident evidence
 manualposts.md
+/output/
+/incidente-de-seguranca-*/
+
+# Generated Python files
+__pycache__/
+*.py[cod]
